@@ -98,15 +98,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const subjectInput = document.getElementById("subject");
         if (subjectInput) subjectInput.value = "Landing Page";
       } else {
-        throw new Error(data.error || "Error en el servidor");
+        throw new Error(data.error || "Error desconocido al enviar el formulario.");
       }
     } catch (err) {
       console.error("Form Error:", err);
 
-      // Mensaje de error más seguro - no expone detalles técnicos
       if (window.showToast) {
+        // Mostramos el mensaje de error específico para que el usuario pueda depurar
         window.showToast(
-          "Error al enviar. Por favor, contáctenos por WhatsApp.",
+          err.message,
           "error",
         );
       }

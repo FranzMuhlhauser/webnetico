@@ -51,11 +51,18 @@ export default async function handler(req, res) {
     if (resendResponse.ok) {
       return res.status(200).json({ success: true, id: data.id });
     } else {
-      console.error('Resend Error:', data);
-      return res.status(resendResponse.status).json({ error: 'Fallo al enviar el correo' });
+      console.error('Resend API Error:', data);
+      // Incluimos más detalle para depuración del usuario
+      return res.status(resendResponse.status).json({ 
+        error: `Error de Resend: ${data.message || 'Fallo desconocido'}`,
+        details: data 
+      });
     }
   } catch (error) {
-    console.error('API Error:', error);
-    return res.status(500).json({ error: 'Error interno del servidor' });
+    console.error('Serverless Function Error:', error);
+    return res.status(500).json({ 
+      error: 'Error interno del servidor', 
+      message: error.message 
+    });
   }
 }
