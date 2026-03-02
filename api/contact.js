@@ -1,71 +1,64 @@
-
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
+    return res.status(405).json({ error: 'Solo POST permitido' });
   }
 
   const { name, email, subject, urgency, message } = req.body;
 
-  // Basic validation
+  // Validación server-side
   if (!name || !email || !message) {
-    return res.status(400).json({ error: 'Faltan campos obligatorios' });
+    return res.status(400).json({ error: 'Faltan campos requeridos' });
   }
 
   const RESEND_API_KEY = process.env.RESEND_API_KEY;
-  const FROM_EMAIL = process.env.FROM_EMAIL || 'Webnetico <onboarding@resend.dev>';
-  const TO_EMAIL = process.env.TO_EMAIL || 'hola@webnetico.cl';
 
   if (!RESEND_API_KEY) {
-    console.error('RESEND_API_KEY is missing in environment variables');
     return res.status(500).json({ 
-      error: 'Error de configuración en el servidor',
-      message: 'La clave RESEND_API_KEY no está configurada en las variables de entorno de Vercel.'
+      error: 'Error de configuración', 
+      message: 'La variable RESEND_API_KEY no se encuentra en Vercel. Debes agregarla en Settings > Environment Variables y hacer REDEPLOY.' 
     });
   }
 
   try {
-    const resendResponse = await fetch('https://api.resend.com/emails', {
+    const response = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
         'Authorization': `Bearer ${RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: FROM_EMAIL,
-        to: [TO_EMAIL],
-        subject: `Nuevo mensaje de contacto: ${subject}`,
-        reply_to: email,
+        from: 'Contactos Webnético <contacto@webnetico.cl>',
+        to: 'contacto@webnetico.cl',
+        subject: `Lead Webnético: ${subject || 'Consulta'} ${urgency ? `(${urgency})` : ''}`,
+        reply_to: email, // Permite responder directamente al cliente
         html: `
-          <h2>Nuevo mensaje de contacto desde la web</h2>
-          <p><strong>Nombre:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Asunto:</strong> ${subject}</p>
-          <p><strong>Urgencia:</strong> ${urgency}</p>
-          <p><strong>Mensaje:</strong></p>
-          <p style="white-space: pre-wrap;">${message}</p>
-          <hr>
-          <p><em>Este mensaje fue enviado automáticamente desde el formulario de webnetico.cl</em></p>
+          <div style="font-family: sans-serif; max-width: 600px; margin: auto; border: 1px solid #eee; padding: 20px;">
+            <h2 style="color: #22c55e;">🆕 Nuevo Lead - Webnético.cl</h2>
+            <p><strong>Nombre:</strong> ${name}</p>
+            <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+            <p><strong>Asunto:</strong> ${subject || 'No especificado'}</p>
+            <p><strong>Urgencia:</strong> ${urgency || 'No especificada'}</p>
+            <div style="background: #f9fafb; padding: 15px; border-radius: 8px; margin-top: 20px;">
+              <strong>Mensaje:</strong><br>
+              <p style="white-space: pre-wrap;">${message}</p>
+            </div>
+            <hr style="margin-top: 30px; border: 0; border-top: 1px solid #eee;">
+            <small style="color: #666;">Enviado desde webnetico.cl el ${new Date().toLocaleString('es-CL', { timeZone: 'America/Santiago' })}</small>
+          </div>
         `,
       }),
     });
 
-    const data = await resendResponse.json();
+    const data = await response.json();
 
-    if (resendResponse.ok) {
-      return res.status(200).json({ success: true, id: data.id });
+    if (response.ok) {
+      res.status(200).json({ success: true });
     } else {
-      console.error('Resend API Error:', data);
-      // Incluimos más detalle para depuración del usuario
-      return res.status(resendResponse.status).json({ 
-        error: `Error de Resend: ${data.message || 'Fallo desconocido'}`,
-        details: data 
-      });
+      console.error('Resend Error Details:', data);
+      res.status(400).json({ error: data.message || 'Error de Resend al procesar el envío' });
     }
   } catch (error) {
-    console.error('Serverless Function Error:', error);
-    return res.status(500).json({ 
-      error: 'Error interno del servidor', 
-      message: error.message 
-    });
+    console.error('Resend Exception:', error);
+    res.status(500).json({ error: 'Error interno del servidor al intentar conectar con Resend' });
   }
 }
