@@ -35,6 +35,16 @@ Este proyecto está construido con **código puro (Vanilla JavaScript, HTML5 y C
 - **Chatbot de WhatsApp Inteligente**: Sistema de filtrado y asistencia automatizada.
 - **Diseño Responsive**: Totalmente adaptado a dispositivos móviles.
 
+## Configuración del Formulario de Contacto
+
+El formulario utiliza una **Vercel Serverless Function** situada en `/api/contact.js` que se comunica con la API de **Resend**.
+
+Para que funcione, debes configurar las siguientes variables de entorno en tu panel de Vercel (**Settings > Environment Variables**):
+
+- `RESEND_API_KEY`: Tu API Key de Resend (comienza con `re_`).
+- `FROM_EMAIL`: El email desde el cual se enviará el correo (debe estar verificado en Resend, ej: `Webnetico <hola@webnetico.cl>`).
+- `TO_EMAIL`: El email que recibirá las consultas (tu correo de Zoho, ej: `hola@webnetico.cl`).
+
 ---
 
 © 2026 Webnetico Engineering. Valparaíso, Chile.

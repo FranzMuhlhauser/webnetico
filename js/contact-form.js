@@ -61,40 +61,22 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       if (window.showToast) window.showToast("Enviando mensaje...", "success");
 
-      // Método 1: Usando Formspree (recomendado)
-      // Descomenta la siguiente línea y reemplaza con tu endpoint
-      /*
-      const response = await fetch(FORMSPREE_ENDPOINT, {
+      // Llamada a nuestra API en Vercel que usa Resend
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
-          "Accept": "application/json"
+          "Content-Type": "application/json",
         },
-        body: formData
-      });
-      */
-
-      // Método 2: Netlify Forms (para sitios en Netlify)
-      // Descomenta si usas Netlify y agrega data-netlify="true" al form
-      /*
-      const response = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams({
-          "form-name": "contact",
+        body: JSON.stringify({
           name,
           email,
           subject,
           urgency,
-          message
-        }).toString()
+          message,
+        }),
       });
-      */
 
-      // Método 3: Simulation (para demostración)
-      // Este método simula el envío para propósitos de prueba
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-
-      const response = { ok: true };
+      const data = await response.json();
 
       if (response.ok) {
         if (window.showToast) {
@@ -116,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const subjectInput = document.getElementById("subject");
         if (subjectInput) subjectInput.value = "Landing Page";
       } else {
-        throw new Error("Error en el servidor");
+        throw new Error(data.error || "Error en el servidor");
       }
     } catch (err) {
       console.error("Form Error:", err);
