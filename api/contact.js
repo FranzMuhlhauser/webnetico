@@ -16,8 +16,11 @@ export default async function handler(req, res) {
   const TO_EMAIL = process.env.TO_EMAIL || 'hola@webnetico.cl';
 
   if (!RESEND_API_KEY) {
-    console.error('RESEND_API_KEY is not defined');
-    return res.status(500).json({ error: 'Error de configuración en el servidor' });
+    console.error('RESEND_API_KEY is missing in environment variables');
+    return res.status(500).json({ 
+      error: 'Error de configuración en el servidor',
+      message: 'La clave RESEND_API_KEY no está configurada en las variables de entorno de Vercel.'
+    });
   }
 
   try {
