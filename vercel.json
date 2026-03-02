@@ -3,7 +3,7 @@
   "trailingSlash": false,
   "headers": [
     {
-      "source": "/(components|js|css)/.*",
+      "source": "/(components|js|css)/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -12,7 +12,7 @@
       ]
     },
     {
-      "source": "/images/.*",
+      "source": "/images/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
