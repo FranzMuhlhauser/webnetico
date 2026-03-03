@@ -1193,6 +1193,109 @@ body {
     transform: scale(1.08) translateY(-5px);
 }
 
+/* Pricing Note Section */
+.pricing-note-container {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pricing-note-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: var(--glass-blur);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.pricing-note-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--accent-color);
+}
+
+.pricing-note-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.pricing-note-icon {
+    font-size: 1.8rem;
+    filter: drop-shadow(0 0 10px var(--accent-glow));
+}
+
+.pricing-note-content p {
+    color: var(--text-secondary);
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.pricing-note-content p strong {
+    color: var(--text-primary);
+}
+
+.renewal-info {
+    background: rgba(255, 255, 255, 0.01);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.renewal-info h5 {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+}
+
+.renewal-list {
+    list-style: none;
+    padding: 0;
+}
+
+.renewal-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.renewal-list li:last-child {
+    margin-bottom: 0;
+}
+
+.price-tag {
+    background: var(--accent-glow);
+    color: var(--accent-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    font-weight: 700;
+    white-space: nowrap;
+    font-size: 0.9rem;
+    border: 1px solid var(--accent-color);
+}
+
+@media (max-width: 768px) {
+    .pricing-note-card {
+        padding: 1.5rem;
+    }
+    
+    .renewal-list li {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
 /* ===== PILLAR CARD (index) ===== */
 .pillar-card-wrapper {
     display: flex;
@@ -1318,13 +1421,28 @@ body {
 
 .faq-item.open .faq-content {
     padding: 0 1.5rem 1.5rem 1.5rem;
-    max-height: 300px;
+    max-height: 1000px;
     opacity: 1;
 }
 
 .faq-content p {
-    margin: 0;
+    margin-bottom: 1rem;
     color: var(--text-secondary);
+}
+
+.faq-content p:last-child,
+.faq-content ul:last-child {
+    margin-bottom: 0;
+}
+
+.faq-content ul {
+    margin-bottom: 1rem;
+    padding-left: 1.2rem;
+    color: var(--text-secondary);
+}
+
+.faq-content li {
+    margin-bottom: 0.5rem;
 }
 
 /* ===== PLAN SELECTOR (Contact) ===== */
