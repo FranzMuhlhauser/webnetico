@@ -42,8 +42,8 @@ El formulario utiliza una **Vercel Serverless Function** situada en `/api/contac
 Para que funcione, debes configurar las siguientes variables de entorno en tu panel de Vercel (**Settings > Environment Variables**):
 
 - `RESEND_API_KEY`: Tu API Key de Resend (comienza con `re_`).
-- `FROM_EMAIL`: El email desde el cual se enviará el correo (debe estar verificado en Resend, ej: `Webnetico <hola@webnetico.cl>`).
-- `TO_EMAIL`: El email que recibirá las consultas (tu correo de Zoho, ej: `hola@webnetico.cl`).
+- `FROM_EMAIL`: El email desde el cual se enviará el correo (debe estar verificado en Resend, ej: `Webnetico <contacto@webnetico.cl>`).
+- `TO_EMAIL`: El email que recibirá las consultas (tu correo de Zoho, ej: `contacto@webnetico.cl`).
 
 ---
 
