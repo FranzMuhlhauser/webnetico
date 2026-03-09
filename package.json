@@ -18,7 +18,5 @@
     "url": "https://github.com/FranzMuhlhauser/webnetico/issues"
   },
   "homepage": "https://github.com/FranzMuhlhauser/webnetico#readme",
-  "dependencies": {
-    "@vercel/analytics": "^1.6.1"
-  }
+  "dependencies": {}
 }
