@@ -1,0 +1,24 @@
+{
+  "name": "webnetico",
+  "version": "1.0.0",
+  "description": "Webnetico es una agencia especializada en el desarrollo de sitios web de alto rendimiento, optimización SEO avanzada (incluyendo GEO y AEO) y mantenimiento de seguridad web en Chile.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FranzMuhlhauser/webnetico.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/FranzMuhlhauser/webnetico/issues"
+  },
+  "homepage": "https://github.com/FranzMuhlhauser/webnetico#readme",
+  "dependencies": {
+    "@vercel/analytics": "^1.6.1"
+  }
+}
