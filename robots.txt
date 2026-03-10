@@ -27,9 +27,6 @@ Disallow: /*.cgi
 Disallow: /index.html
 Disallow: /index.htm
 
-# Archivos sensibles
-Disallow: /contact.html
-
 # Velocidad de crawl (opcional, usar con precaución)
 Crawl-delay: 1
 

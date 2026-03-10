@@ -31,7 +31,7 @@ const componentObserver = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 /**
- * Loads shared HTML components (header, footer, whatsapp)
+ * Loads shared HTML components (header, footer, whatsapp, cookie banner)
  */
 async function loadComponents() {
   const components = [
@@ -40,6 +40,11 @@ async function loadComponents() {
     {
       id: "whatsapp-container",
       file: "components/whatsapp.html",
+      critical: false,
+    },
+    {
+      id: "cookie-banner-container",
+      file: "components/cookie-banner.html",
       critical: false,
     },
   ];

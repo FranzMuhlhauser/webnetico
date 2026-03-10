@@ -1,0 +1,100 @@
+<!-- Cookie Banner - GDPR/Ley Chilena Compliance -->
+<div id="cookie-banner" class="cookie-banner" role="alert" aria-live="polite">
+    <div class="cookie-banner-content">
+        <div class="cookie-banner-icon">🍪</div>
+        <div class="cookie-banner-text">
+            <strong>Usamos cookies</strong>
+            <p>Utilizamos cookies propias y de terceros para mejorar su experiencia de navegación, analizar tráfico y personalizar contenido. Al aceptar, usted consiente el uso de estas tecnologías.</p>
+            <div class="cookie-banner-links">
+                <a href="privacy.html#cookies">Política de Cookies</a>
+                <span class="cookie-divider">•</span>
+                <a href="privacy.html">Política de Privacidad</a>
+            </div>
+        </div>
+        <div class="cookie-banner-actions">
+            <button id="cookie-reject" class="cookie-btn cookie-btn-secondary" type="button" aria-label="Rechazar cookies">
+                Rechazar
+            </button>
+            <button id="cookie-accept" class="cookie-btn cookie-btn-primary" type="button" aria-label="Aceptar todas las cookies">
+                Aceptar
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    'use strict';
+    
+    const COOKIE_NAME = 'webnetico_cookie_consent';
+    const COOKIE_VALUE_ACCEPTED = 'accepted';
+    const COOKIE_VALUE_REJECTED = 'rejected';
+    const COOKIE_EXPIRY_DAYS = 365;
+    
+    function getCookie(name) {
+        const value = "; " + document.cookie;
+        const parts = value.split("; " + name + "=");
+        if (parts.length === 2) return parts.pop().split(";").shift();
+        return null;
+    }
+    
+    function setCookie(name, value, days) {
+        const expires = new Date();
+        expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+        document.cookie = name + "=" + value + ";expires=" + expires.toUTCString() + ";path=/;SameSite=Lax";
+    }
+    
+    function showBanner() {
+        var banner = document.getElementById('cookie-banner');
+        if (banner) {
+            banner.classList.add('cookie-banner-visible');
+        }
+    }
+    
+    function hideBanner() {
+        var banner = document.getElementById('cookie-banner');
+        if (banner) {
+            banner.classList.remove('cookie-banner-visible');
+        }
+    }
+    
+    function handleAccept() {
+        setCookie(COOKIE_NAME, COOKIE_VALUE_ACCEPTED, COOKIE_EXPIRY_DAYS);
+        hideBanner();
+        if (typeof dataLayer !== 'undefined') {
+            dataLayer.push({'event': 'cookie_consent', 'consent': 'granted'});
+        }
+    }
+    
+    function handleReject() {
+        setCookie(COOKIE_NAME, COOKIE_VALUE_REJECTED, COOKIE_EXPIRY_DAYS);
+        hideBanner();
+        if (typeof dataLayer !== 'undefined') {
+            dataLayer.push({'event': 'cookie_consent', 'consent': 'denied'});
+        }
+    }
+    
+    function init() {
+        var consent = getCookie(COOKIE_NAME);
+        if (!consent) {
+            setTimeout(showBanner, 500);
+        }
+        document.addEventListener('click', function(e) {
+            if (e.target.id === 'cookie-accept') handleAccept();
+            else if (e.target.id === 'cookie-reject') handleReject();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                var banner = document.getElementById('cookie-banner');
+                if (banner && banner.classList.contains('cookie-banner-visible')) handleReject();
+            }
+        });
+    }
+    
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
+</script>
