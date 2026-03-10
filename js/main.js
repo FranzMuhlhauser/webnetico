@@ -60,6 +60,12 @@ async function loadComponents() {
     const el = document.getElementById(comp.id);
     if (!el) return;
 
+    // Performance: If component is already in DOM (Server Side Rendered or hardcoded), skip fetch
+    if (el.innerHTML.trim().length > 0) {
+      console.log(`[Load] ${comp.id} already present, skipping fetch`);
+      return;
+    }
+
     try {
       // Force cache-control no-cache
       const response = await fetch(`${comp.file}?v=${VERSION}`, {

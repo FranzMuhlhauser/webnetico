@@ -282,7 +282,8 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
         <!-- Preload critical resources -->
-        <link rel="preload" href="css/styles.css" as="style" />
+        <link rel="preload" href="css/styles.css?v=1.0.9" as="style" />
+        <link rel="preload" href="images/logofinal.webp" as="image" type="image/webp" />
         <link
             rel="preload"
             href="images/hero_servicios.webp"
@@ -340,8 +341,48 @@
         <script src="js/main.js" defer></script>
     </head>
     <body>
-        <!-- ===== HEADER (Loaded dynamically) ===== -->
-        <header class="site-header" id="site-header"></header>
+        <!-- ===== HEADER (Static for FCP) ===== -->
+        <header class="site-header" id="site-header">
+            <div class="logo">
+                <a href="index.html">
+                    <img
+                        src="images/logofinal.webp"
+                        alt="Webnetico Logo"
+                        width="490"
+                        height="140"
+                    />
+                </a>
+            </div>
+            <nav class="nav-links" id="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="services.html">Servicios</a>
+                <a href="portfolio.html">Portafolio</a>
+                <a href="insights.html">Insights</a>
+                <a href="contact.html">Contacto</a>
+            </nav>
+            <div class="header-actions">
+                <a
+                    href="contact.html"
+                    class="btn btn-secondary header-cta btn-header-cta"
+                    >Diagnóstico Gratuito</a
+                >
+                <button
+                    class="mobile-menu-btn"
+                    id="mobile-menu-btn"
+                    aria-label="Abrir menú"
+                >
+                    <svg class="icon-svg icon-menu" viewBox="0 0 24 24">
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg>
+                    <svg class="icon-svg icon-close wa-hidden" viewBox="0 0 24 24">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+        </header>
 
         <!-- ===== HERO SECTION ===== -->
         <section class="hero-section">
@@ -744,7 +785,144 @@
 
         <!-- ===== WHATSAPP (Loaded dynamically) ===== -->
 
-        <footer class="site-footer" id="site-footer"></footer>
+        <footer class="site-footer" id="site-footer">
+            <div class="site-footer-inner">
+                <div class="container">
+                    <div class="footer-layout">
+                        <!-- Col 1: Logo -->
+                        <div class="footer-block-logo">
+                            <a href="index.html">
+                                <img
+                                    src="images/logofinal.webp"
+                                    alt="Webnetico"
+                                    width="180"
+                                    height="auto"
+                                    loading="lazy"
+                                />
+                            </a>
+                        </div>
+
+                        <!-- Col 2: Empresa -->
+                        <div class="footer-block-links">
+                            <h4 class="footer-heading">Empresa</h4>
+                            <ul>
+                                <li>
+                                    <a href="services.html"><span>Servicios</span></a>
+                                </li>
+                                <li>
+                                    <a href="portfolio.html"><span>Portafolio</span></a>
+                                </li>
+                                <li>
+                                    <a href="insights.html"><span>Insights</span></a>
+                                </li>
+                                <li>
+                                    <a href="contact.html"><span>Contacto</span></a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Col 3: Ubicación y contacto -->
+                        <div class="footer-block-contact">
+                            <h4 class="footer-heading">Ubicación y contacto</h4>
+                            <ul>
+                                <li>
+                                    <a href="mailto:contacto@webnetico.cl">
+                                        <span class="icon-wrapper">
+                                            <img
+                                                src="images/icons/email.svg"
+                                                class="contact-icon email-icon"
+                                                alt="Email"
+                                            />
+                                        </span>
+                                        <span>contacto@webnetico.cl</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="tel:+56994838304">
+                                        <span class="icon-wrapper">
+                                            <img
+                                                src="images/icons/phone.svg"
+                                                class="contact-icon phone-icon"
+                                                alt="Phone"
+                                            />
+                                        </span>
+                                        <span>+56 9 9483 8304</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="https://www.google.com/maps/place/Valpara%C3%ADso,+Chile"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="contact-location-link"
+                                    >
+                                        <span class="icon-wrapper">
+                                            <img
+                                                src="images/icons/location.svg"
+                                                class="contact-icon location-icon"
+                                                alt="Location"
+                                            />
+                                        </span>
+                                        <span>Valparaiso, Chile</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Col 4: Redes sociales -->
+                        <div class="footer-block-social">
+                            <h4 class="footer-heading">Redes sociales</h4>
+                            <div class="social-icons-wrapper">
+                                <a
+                                    href="https://facebook.com/webnetico"
+                                    class="social-btn fb"
+                                    aria-label="Facebook"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <img src="images/icons/fb.svg" alt="Facebook" />
+                                </a>
+                                <a
+                                    href="https://instagram.com/webnetico"
+                                    class="social-btn ig"
+                                    aria-label="Instagram"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <img src="images/icons/ig.svg" alt="Instagram" />
+                                </a>
+                                <a
+                                    href="https://tiktok.com/@webnetico"
+                                    class="social-btn tk"
+                                    aria-label="TikTok"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <img src="images/icons/tk.svg" alt="TikTok" />
+                                </a>
+                                <a
+                                    href="https://linkedin.com/company/webnetico"
+                                    class="social-btn li"
+                                    aria-label="LinkedIn"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <img src="images/icons/li.svg" alt="LinkedIn" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Segunda Fila: Información de la empresa -->
+                    <div class="footer-bottom-info">
+                        <p>
+                            &copy; 2026 Webnetico Engineering. Agencia de ingeniería web y
+                            soluciones digitales de alto rendimiento. Valparaíso, Chile.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
         <div id="whatsapp-container"></div>
         <div id="cookie-banner-container"></div>
         <!-- Google Tag Manager (noscript) -->
