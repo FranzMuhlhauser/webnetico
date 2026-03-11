@@ -2589,3 +2589,22 @@ img {
         font-size: 0.85rem;
     }
 }
+
+/* ===== PLAN SELECTOR FIELDSET (Accessibility reset) ===== */
+.plan-selector-fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+}
+
+.plan-selector-fieldset legend.form-label {
+    float: left;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0;
+}
+
+.plan-selector-fieldset legend.form-label + * {
+    clear: both;
+}
