@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="es-CL">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-KWPHS7LF");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#FFFFFF" />
+
+    <title>Insights | Ingeniería Web & GEO | Webnetico</title>
+    <meta
+      name="description"
+      content="Insights técnicos sobre arquitectura web, latencia cero, ciberseguridad y optimización para IA (GEO)."
+    />
+    <link rel="canonical" href="https://www.webnetico.cl/insights.html" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Insights | Webnetico" />
+    <meta
+      property="og:description"
+      content="Análisis técnico con enfoque premium: rendimiento real, seguridad y citabilidad (GEO)."
+    />
+    <meta property="og:url" content="https://www.webnetico.cl/insights.html" />
+
+    <link rel="icon" href="favicon.png" type="image/x-icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/styles.css?v=1.0.9" />
+    <script src="js/main.js" defer></script>
+
+    <!-- Vercel Analytics & Speed Insights -->
+    <script defer src="/_vercel/insights/script.js"></script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
+
+    <style>
+      /* ===== Light theme overrides (page-scoped) ===== */
+      body.insights-page {
+        --bg-color: #ffffff;
+        --text-primary: #1d1d1f;
+        --text-secondary: #86868b;
+        --text-muted: #6e6e73;
+        --border-color: rgba(0, 0, 0, 0.12);
+        --card-bg: #ffffff;
+        --card-hover-bg: rgba(0, 0, 0, 0.03);
+      }
+
+      body.insights-page .hero-category-tag {
+        color: #6e6e73;
+      }
+
+      .insights-hero-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        align-items: center;
+      }
+
+      @media (min-width: 992px) {
+        .insights-hero-grid {
+          grid-template-columns: 1.12fr 0.88fr;
+          gap: 4rem;
+        }
+      }
+
+      .insights-media {
+        border-radius: 30px;
+        border: 1px solid #e5e5ea;
+        background: #ffffff;
+        overflow: hidden;
+        box-shadow: 0 24px 90px rgba(0, 0, 0, 0.05);
+      }
+
+      .insights-media img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+      }
+
+      .insights-media-caption {
+        padding: 1.1rem 1.3rem 1.2rem 1.3rem;
+        color: #6e6e73;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+
+      .insights-hero-decor {
+        position: absolute;
+        left: -60px;
+        top: -80px;
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at 30% 30%,
+          rgba(0, 113, 227, 0.12),
+          rgba(0, 113, 227, 0.03) 45%,
+          transparent 70%
+        );
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .insights-quick-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1.75rem;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .insights-pill {
+        appearance: none;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        background: rgba(0, 0, 0, 0.02);
+        color: #1d1d1f;
+        padding: 0.7rem 1.1rem;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 750;
+        font-size: 0.95rem;
+        transition: transform 0.2s ease, background 0.2s ease,
+          border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .insights-pill:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 18px 55px rgba(0, 0, 0, 0.06);
+        background: rgba(0, 0, 0, 0.04);
+      }
+
+      .insights-articles {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+
+      .insights-articles .insight-article {
+        transition: transform 0.25s ease, box-shadow 0.25s ease,
+          border-color 0.25s ease;
+        box-shadow: 0 14px 40px rgba(0, 0, 0, 0.03);
+      }
+
+      .insights-articles .insight-article:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 28px 80px rgba(0, 0, 0, 0.06);
+        border-color: rgba(0, 0, 0, 0.18);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .insights-hero-decor {
+          transform: none !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="insights-page">
+    <!-- ===== HEADER (Static for FCP) ===== -->
+    <header class="site-header theme-light" id="site-header">
+      <a href="index.html" class="logo">
+        <img
+          src="images/logofinalheader.webp"
+          alt="Webnetico Logo"
+          width="160"
+          height="46"
+        />
+      </a>
+
+      <nav class="nav-links" id="nav-links" aria-label="Menú principal">
+        <a href="index.html">Inicio</a>
+        <a href="services.html">Servicios</a>
+        <a href="portfolio.html">Portafolio</a>
+        <a href="insights.html">Insights</a>
+        <a href="contact.html">Contacto</a>
+      </nav>
+
+      <div class="header-actions-wrapper">
+        <button
+          class="mobile-menu-btn"
+          id="mobile-menu-btn"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+        >
+          <svg class="icon-svg icon-menu" viewBox="0 0 24 24" aria-hidden="true">
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+
+          <svg
+            class="icon-svg icon-close wa-hidden"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="pt-header">
+      <!-- ===== HERO SECTION ===== -->
+      <section class="hero-section theme-light section" aria-labelledby="insights-title">
+        <div class="container" style="position: relative;">
+          <div class="insights-hero-decor" aria-hidden="true"></div>
+
+          <div class="insights-hero-grid" reveal-on-scroll>
+            <div class="hero-text-content">
+              <span class="hero-category-tag" style="display: inline-block"
+                >Laboratorio de Ingeniería</span
+              >
+              <h1 id="insights-title" class="h1" style="margin-bottom: 1rem">
+                Insights de
+                <span class="text-accent">Alta Autoridad</span>
+              </h1>
+              <p class="hero-description" style="max-width: 640px; margin-bottom: 0;">
+                Investigación y análisis técnico sobre el futuro de la web,
+                ciberseguridad y optimización para motores de respuesta
+                generativa (GEO).
+              </p>
+
+              <div class="hero-actions" style="margin-top: 2.25rem">
+                <a href="portfolio.html" class="btn" aria-label="Ver portafolio">
+                  Ver Portafolio
+                </a>
+                <a href="contact.html" class="btn btn-secondary" aria-label="Contactar">
+                  Contactar
+                </a>
+              </div>
+
+              <div class="insights-quick-nav" aria-label="Navegación por artículos">
+                <a class="insights-pill" href="#article-1">Latencia Cero</a>
+                <a class="insights-pill" href="#article-2">Inmunidad</a>
+                <a class="insights-pill" href="#article-3">GEO</a>
+                <a class="insights-pill" href="#article-4">SEO + GEO + AEO</a>
+              </div>
+            </div>
+
+            <div class="hero-visual-content">
+              <div class="insights-media">
+                <img
+                  src="images/seo.webp"
+                  alt="Ilustración de SEO y GEO para Insights"
+                  loading="lazy"
+                  decoding="async"
+                  width="800"
+                  height="450"
+                />
+                <div class="insights-media-caption">
+                  Rendimiento real, seguridad y citabilidad.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== ARTÍCULOS ===== -->
+      <section class="section theme-light" aria-label="Artículos de insights">
+        <div class="container">
+          <div class="insights-articles" role="list">
+            <article
+              class="insight-article"
+              id="article-1"
+              reveal-on-scroll
+              role="listitem"
+            >
+              <span class="academic-tag">Arquitectura &amp; Performance</span>
+              <h2>La Obsolescencia del CMS Tradicional ante el Paradigma de Latencia Cero</h2>
+
+              <div class="xml-block">
+                <h3>Hipótesis</h3>
+                <p>
+                  El diseño web contemporáneo se enfrenta a un "muro de latencia"
+                  provocado por el sobre-acoplamiento de sistemas CMS dinámicos.
+                  La arquitectura monolítica basada en SQL es incompatible con los
+                  estándares de User Experience (UX) y Search Intelligence de 2026.
+                  La solución reside en la transición hacia desarrollos nativos
+                  distribuidos en el Edge.
+                </p>
+              </div>
+
+              <h3>Desarrollo Técnico</h3>
+              <p>
+                A diferencia de los CMS que inyectan miles de líneas de CSS
+                innecesario, la metodología de Webnetico Engineering utiliza un
+                enfoque de CSS Atómico y Variables Semánticas. Esto no solo
+                reduce el peso de la página, sino que facilita el <em>Prompt Priming</em>
+                para IAs, permitiendo que un LLM identifique los nodos de autoridad
+                semántica sin "ruido" de plugins.
+              </p>
+              <p>
+                La integración de arquitecturas sin servidor (Serverless) elimina
+                el tiempo de procesamiento en el origen, moviendo la lógica de
+                renderizado al borde de la red (Edge Computing), alcanzando tiempos
+                de ejecución inferiores a los 100ms.
+              </p>
+
+              <h3>Citas y Referencias</h3>
+              <ul class="references-list">
+                <li>W3C (2025): Core Web Vitals Next Generation: Moving beyond LCP to Interaction to Next Paint (INP).</li>
+                <li>Nielsen Norman Group: The 100-millisecond Rule for real-time interaction.</li>
+                <li>Google AI Research: Towards Semantic Indexing: How Lean Codebases improve Knowledge Transfer.</li>
+              </ul>
+            </article>
+
+            <article
+              class="insight-article"
+              id="article-2"
+              reveal-on-scroll
+              role="listitem"
+            >
+              <span class="academic-tag">Ciberseguridad</span>
+              <h2>Inmunidad por Diseño: Mitigación de Vulnerabilidades en Entornos Estáticos</h2>
+
+              <div class="xml-block">
+                <h3>Hipótesis</h3>
+                <p>
+                  La mayoría de los ciberataques contra PYMES en Chile ocurren por
+                  vulnerabilidades en bases de datos relacionales y scripts de terceros.
+                  Proponemos que la "Inmunidad por Diseño" se logra eliminando la
+                  superficie de ataque dinámica, convirtiendo la web en un activo
+                  de solo lectura de alta seguridad.
+                </p>
+              </div>
+
+              <h3>Desarrollo Técnico</h3>
+              <p>
+                Al desarrollar con código puro y desacoplar el frontend del backend,
+                eliminamos vectores comunes de ataque como la inyección SQL y XSS
+                (Cross-Site Scripting). En una web dinámica tradicional, cada petición
+                es una oportunidad de brecha. En una arquitectura de ingeniería nativa,
+                el servidor solo entrega archivos planos pre-compilados.
+              </p>
+              <p>
+                Este enfoque reduce la carga de mantenimiento en un 90%, ya que no
+                se requieren actualizaciones de seguridad semanales para plugins o
+                núcleos de CMS.
+              </p>
+
+              <h3>Citas y Referencias</h3>
+              <ul class="references-list">
+                <li>OWASP Top 10: Vulnerabities in content management platforms.</li>
+                <li>Cloudflare Security Report: Trends in Serverless security and Edge protection.</li>
+              </ul>
+            </article>
+
+            <article
+              class="insight-article"
+              id="article-3"
+              reveal-on-scroll
+              role="listitem"
+            >
+              <span class="academic-tag">GEO &amp; Search Intelligence</span>
+              <h2>GEO: La Nueva Frontera del SEO en la Era de Gemini y Perplexity</h2>
+
+              <div class="xml-block">
+                <h3>Hipótesis</h3>
+                <p>
+                  El SEO tradicional (keywords) está cediendo ante el Generative Engine
+                  Optimization (GEO). Los motores de respuesta priorizan fuentes con alta
+                  densidad de entidades y marcado semántico riguroso. Quien no adapte su
+                  código para ser leído por una IA, quedará invisible en 2026.
+                </p>
+              </div>
+
+              <h3>Desarrollo Técnico</h3>
+              <p>
+                Optimizar para GEO requiere una infraestructura de "Datos Conectados".
+                Esto implica el uso masivo de Schema.org (JSON-LD) para definir no solo lo
+                que la empresa vende, sino lo que la empresa "SABE" (knowsAbout). La IA no
+                busca coincidencias de palabras; busca relaciones entre conceptos. Un sitio
+                web moderno debe ser un grafo de conocimiento en sí mismo.
+              </p>
+
+              <h3>Citas y Referencias</h3>
+              <ul class="references-list">
+                <li>ResearchGate: Semantic Search vs. Generative Answer Engines.</li>
+                <li>Schema.org: Official standards for professional service entities.</li>
+              </ul>
+            </article>
+
+            <article
+              class="insight-article"
+              id="article-4"
+              reveal-on-scroll
+              role="listitem"
+            >
+              <span class="academic-tag">Estrategia Omnicanal</span>
+              <h2>El Triángulo de Visibilidad: Sincronización entre SEO, GEO y AEO</h2>
+
+              <div class="xml-block">
+                <h3>Diferencias y Sinergias</h3>
+                <p>
+                  Mientras que el <strong>SEO</strong> tradicional se enfoca en la relevancia semántica
+                  para algoritmos de ranking (Blue Links), el <strong>GEO</strong> (Generative Engine Optimization)
+                  prioriza la citabilidad en resúmenes de IA. Por otro lado, el <strong>AEO</strong> (Answer Engine
+                  Optimization) busca la "Posición Cero" mediante fragmentos enriquecidos que responden dudas
+                  directas.
+                </p>
+              </div>
+
+              <h3>Ventajas de la Integración</h3>
+              <p>
+                La principal ventaja de este enfoque triple es la <strong>Resiliencia de Tráfico</strong>.
+                Si Google cambia su algoritmo de ranking, su autoridad en GEO asegura que las IAs sigan
+                recomendando su marca. Si el usuario realiza una búsqueda por voz, el AEO garantiza que usted
+                sea la respuesta única.
+              </p>
+              <p>
+                Implementar esta tríada reduce el costo de adquisición de clientes (CAC) al posicionar su web
+                como el "Nodo de Autoridad" en su nicho de mercado.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== FOOTER / COMPONENTS (Loaded dynamically) ===== -->
+    <footer class="site-footer" id="site-footer"></footer>
+    <div id="whatsapp-container"></div>
+    <div id="cookie-banner-container"></div>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-KWPHS7LF"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- ===== Optional micro-interaction: hero media parallax ===== -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduceMotion) return;
+
+        const hero = document.querySelector(".insights-hero-grid");
+        if (!hero) return;
+
+        const media = hero.querySelector(".insights-media");
+        if (!media) return;
+
+        let ticking = false;
+        const onScroll = () => {
+          if (ticking) return;
+          ticking = true;
+          window.requestAnimationFrame(() => {
+            const y = window.scrollY || 0;
+            const translate = Math.min(18, y * 0.02);
+            media.style.transform = "translateY(" + translate + "px)";
+            ticking = false;
+          });
+        };
+
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+      });
+    </script>
+  </body>
+</html>
+

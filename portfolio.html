@@ -1,0 +1,869 @@
+<!doctype html>
+<html lang="es-CL">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-KWPHS7LF");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#FFFFFF" />
+
+    <title>Portafolio | Proyectos Premium | Webnetico</title>
+    <meta
+      name="description"
+      content="Portafolio minimalista y premium: diseño web, desarrollo con código puro, branding y SEO. Proyectos con enfoque en rendimiento y conversión."
+    />
+    <link rel="canonical" href="https://www.webnetico.cl/portfolio.html" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Portafolio de Proyectos | Webnetico" />
+    <meta
+      property="og:description"
+      content="Proyectos digitales minimalistas con rendimiento real, estructura semántica y micro-interacciones sutiles."
+    />
+    <meta
+      property="og:url"
+      content="https://www.webnetico.cl/portfolio.html"
+    />
+
+    <link rel="icon" href="favicon.png" type="image/x-icon" />
+
+    <!-- Preconnect & Font (mantiene la base del sitio) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/styles.css?v=1.0.9" />
+    <script src="js/main.js" defer></script>
+
+    <!-- Vercel Analytics & Speed Insights -->
+    <script defer src="/_vercel/insights/script.js"></script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
+
+    <style>
+      /* ===== Portfolio (Light) - overrides para asegurar Apple-like premium feel ===== */
+      .portfolio-page {
+        background: #ffffff;
+      }
+
+      .portfolio-page .hero-section,
+      .portfolio-page section.theme-light {
+        background: #ffffff;
+      }
+
+      .portfolio-page .hero-category-tag {
+        color: #6e6e73; /* gris premium */
+      }
+
+      /* ===== Hero grid ===== */
+      .portfolio-hero-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        align-items: start;
+      }
+
+      @media (min-width: 992px) {
+        .portfolio-hero-grid {
+          grid-template-columns: 1.12fr 0.88fr;
+          gap: 4rem;
+        }
+      }
+
+      .portfolio-hero-note {
+        background: #ffffff;
+        border: 1px solid #e5e5ea;
+        border-radius: 28px;
+        padding: 2.25rem 2rem;
+        box-shadow: 0 18px 60px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .portfolio-hero-note::before {
+        content: "";
+        position: absolute;
+        inset: -120px -120px auto auto;
+        width: 260px;
+        height: 260px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at 30% 30%,
+          rgba(0, 113, 227, 0.08),
+          transparent 60%
+        );
+        pointer-events: none;
+      }
+
+      .portfolio-hero-note h3 {
+        margin-bottom: 0.75rem;
+        font-size: 1.35rem;
+        font-weight: 650;
+      }
+
+      .portfolio-hero-note p {
+        color: #6e6e73;
+        font-size: 1.05rem;
+        line-height: 1.65;
+        margin-bottom: 1.75rem;
+        max-width: 520px;
+      }
+
+      .portfolio-hero-mini-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.9rem;
+        margin-top: 1.25rem;
+      }
+
+      @media (max-width: 520px) {
+        .portfolio-hero-mini-stats {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .portfolio-hero-mini {
+        border: 1px solid #e5e5ea;
+        background: #ffffff;
+        border-radius: 18px;
+        padding: 0.9rem 0.85rem;
+      }
+
+      .portfolio-hero-mini .num {
+        font-weight: 900;
+        color: #1d1d1f;
+        font-size: 1.35rem;
+        margin-bottom: 0.15rem;
+        letter-spacing: -0.01em;
+      }
+
+      .portfolio-hero-mini .lbl {
+        color: #6e6e73;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: 800;
+      }
+
+      /* ===== Filters (Apple-like pills) ===== */
+      .portfolio-filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1.9rem;
+      }
+
+      .filter-pill {
+        appearance: none;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        background: rgba(0, 0, 0, 0.02);
+        color: #1d1d1f;
+        padding: 0.7rem 1.1rem;
+        border-radius: 999px;
+        cursor: pointer;
+        font-weight: 750;
+        font-size: 0.95rem;
+        transition: transform 0.2s ease, background 0.2s ease,
+          border-color 0.2s ease, box-shadow 0.2s ease;
+        text-decoration: none;
+      }
+
+      .filter-pill:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.06);
+      }
+
+      .filter-pill[aria-current="true"] {
+        background: #1d1d1f;
+        border-color: #1d1d1f;
+        color: #ffffff;
+        box-shadow: 0 18px 60px rgba(0, 0, 0, 0.14);
+      }
+
+      .filter-pill:focus-visible {
+        outline: 3px solid rgba(0, 113, 227, 0.25);
+        outline-offset: 2px;
+      }
+
+      /* ===== Projects grid responsive 1/2/3 ===== */
+      .portfolio-grid-responsive {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+        margin-top: 3.2rem;
+      }
+
+      @media (min-width: 768px) {
+        .portfolio-grid-responsive {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (min-width: 1120px) {
+        .portfolio-grid-responsive {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      .portfolio-results-meta {
+        margin-top: 1.1rem;
+        color: #6e6e73;
+        font-size: 0.98rem;
+        line-height: 1.6;
+      }
+
+      /* ===== Project cards: premium hover effect ===== */
+      .portfolio-page .project-card {
+        background: #ffffff;
+        border-color: #e5e5ea;
+        box-shadow: 0 14px 40px rgba(0, 0, 0, 0.04);
+      }
+
+      .portfolio-page .project-card:hover {
+        transform: translateY(-10px);
+        border-color: rgba(0, 0, 0, 0.18);
+        box-shadow: 0 28px 80px rgba(0, 0, 0, 0.08);
+      }
+
+      .portfolio-page .project-image {
+        background: linear-gradient(45deg, #f2f2f7, #f5f5f7);
+        border-bottom: 1px solid #e5e5ea;
+      }
+
+      .portfolio-page .project-image::after {
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.18) 0%,
+          rgba(0, 0, 0, 0) 55%
+        );
+        opacity: 0.75;
+        transition: opacity 0.35s ease;
+      }
+
+      .portfolio-page .project-card:hover .project-image::after {
+        opacity: 1;
+      }
+
+      .portfolio-page .project-image img {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: auto;
+        object-fit: cover;
+        transform: scale(1);
+        transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+
+      .portfolio-page .project-card:hover .project-image img {
+        transform: scale(1.035);
+      }
+
+      .portfolio-page .project-info {
+        padding: 1.85rem 1.85rem 1.95rem;
+      }
+
+      .portfolio-page .project-tags {
+        color: var(--accent-color);
+        margin-bottom: 0.75rem;
+      }
+
+      .portfolio-page .project-title {
+        font-size: 1.35rem;
+        font-weight: 650;
+        margin-bottom: 0.65rem;
+      }
+
+      .portfolio-page .project-desc {
+        color: #6e6e73;
+        font-size: 1.05rem;
+        line-height: 1.65;
+        margin-bottom: 1.15rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* 1-2 líneas */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .portfolio-page .project-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.35rem;
+      }
+
+      .portfolio-page .project-chip {
+        font-size: 0.8rem;
+        font-weight: 850;
+        color: #6e6e73;
+        background: #f5f5f7;
+        border: 1px solid #e5e5ea;
+        padding: 0.38rem 0.75rem;
+        border-radius: 999px;
+        letter-spacing: 0.01em;
+      }
+
+      .portfolio-page .case-view-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        text-decoration: none;
+        border-radius: 999px;
+        padding: 0.78rem 1.15rem;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        background: rgba(0, 0, 0, 0.02);
+        color: #1d1d1f;
+        font-weight: 800;
+        font-size: 0.95rem;
+        transition: all 0.2s ease;
+        width: 100%;
+      }
+
+      .portfolio-page .case-view-btn .arrow {
+        font-size: 1.1rem;
+        transform: translateY(-1px);
+        transition: transform 0.2s ease;
+      }
+
+      .portfolio-page .case-view-btn:hover {
+        background: #1d1d1f;
+        border-color: #1d1d1f;
+        color: #ffffff;
+        transform: translateY(-2px);
+        box-shadow: 0 18px 55px rgba(0, 0, 0, 0.12);
+      }
+
+      .portfolio-page .case-view-btn:hover .arrow {
+        transform: translateX(4px) translateY(-1px);
+      }
+
+      /* ===== Stats section (light-grey) ===== */
+      .portfolio-results-section {
+        background: #f5f5f7;
+      }
+
+      .portfolio-stats-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        margin-top: 3.25rem;
+      }
+
+      @media (min-width: 992px) {
+        .portfolio-stats-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      .portfolio-stat-card {
+        background: #ffffff;
+        border: 1px solid #e5e5ea;
+        border-radius: 28px;
+        padding: 2.1rem 1.8rem;
+        box-shadow: 0 14px 40px rgba(0, 0, 0, 0.04);
+      }
+
+      .portfolio-stat-card .num {
+        font-size: 2.7rem;
+        font-weight: 900;
+        color: #1d1d1f;
+        letter-spacing: -0.02em;
+        margin-bottom: 0.35rem;
+      }
+
+      .portfolio-stat-card .lbl {
+        color: #6e6e73;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        font-weight: 650;
+      }
+
+      /* ===== Final CTA ===== */
+      .portfolio-cta-card {
+        border: 1px solid #e5e5ea;
+        border-radius: 32px;
+        background: #ffffff;
+        padding: 4.25rem 1.5rem;
+        text-align: center;
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.05);
+      }
+
+      .portfolio-cta-card .cta-title {
+        font-size: clamp(2.2rem, 5vw, 3.6rem);
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        margin-bottom: 1rem;
+        font-weight: 850;
+        color: #1d1d1f;
+      }
+
+      .portfolio-cta-card .cta-sub {
+        color: #6e6e73;
+        font-size: 1.15rem;
+        line-height: 1.7;
+        max-width: 720px;
+        margin: 0 auto 2.35rem auto;
+      }
+
+      /* Override .btn style for this CTA */
+      .portfolio-cta-card .btn {
+        background: #1d1d1f;
+        color: #fff;
+        padding: 1.1rem 2.6rem;
+        font-size: 1.05rem;
+        border-radius: 999px;
+        box-shadow: 0 18px 60px rgba(0, 0, 0, 0.12);
+        border: none;
+        transition: transform 0.2s ease, box-shadow 0.2s ease,
+          background 0.2s ease;
+      }
+
+      .portfolio-cta-card .btn:hover {
+        background: #000000;
+        transform: translateY(-3px);
+        box-shadow: 0 22px 70px rgba(0, 0, 0, 0.18);
+      }
+
+      /* Decorative (light parallax orb) */
+      .portfolio-hero-decor {
+        position: absolute;
+        right: -50px;
+        top: -60px;
+        width: 210px;
+        height: 210px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at 30% 30%,
+          rgba(0, 113, 227, 0.12),
+          rgba(0, 113, 227, 0.03) 45%,
+          transparent 70%
+        );
+        pointer-events: none;
+        transform: translate3d(0, 0, 0);
+        z-index: -1;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .portfolio-hero-decor {
+          transform: none !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ===== HEADER (Static for FCP) ===== -->
+    <header class="site-header theme-light" id="site-header">
+      <a href="index.html" class="logo">
+        <img
+          src="images/logofinalheader.webp"
+          alt="Webnetico Logo"
+          width="160"
+          height="46"
+        />
+      </a>
+
+      <nav class="nav-links" id="nav-links" aria-label="Menú principal">
+        <a href="index.html">Inicio</a>
+        <a href="services.html">Servicios</a>
+        <a href="portfolio.html">Portafolio</a>
+        <a href="insights.html">Insights</a>
+        <a href="contact.html">Contacto</a>
+      </nav>
+
+      <div class="header-actions-wrapper">
+        <button
+          class="mobile-menu-btn"
+          id="mobile-menu-btn"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+        >
+          <svg
+            class="icon-svg icon-menu"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+
+          <svg
+            class="icon-svg icon-close wa-hidden"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="pt-header portfolio-page theme-light">
+      <!-- ===== HERO SECTION ===== -->
+      <section
+        class="hero-section theme-light section"
+        aria-labelledby="portfolio-title"
+      >
+        <div class="container">
+          <div class="portfolio-hero-grid">
+            <div>
+              <span class="hero-category-tag" style="display: inline-block"
+                >Proyectos con enfoque premium</span
+              >
+
+              <h1 id="portfolio-title" class="h1" style="margin-bottom: 1rem">
+                Portafolio
+              </h1>
+
+              <p
+                class="hero-description"
+                style="max-width: 680px; margin-bottom: 0"
+              >
+                Diseño minimalista y desarrollo con código puro para marcas
+                que necesitan rendimiento real, claridad visual y conversión.
+              </p>
+
+              <!-- Navegación interna -->
+              <div
+                class="portfolio-filters"
+                role="group"
+                aria-label="Navegación de proyectos en la página"
+              >
+                <a
+                  class="filter-pill"
+                  href="#portfolio-projects-grid"
+                  aria-current="true"
+                >
+                  Todos
+                </a>
+                <a
+                  class="filter-pill"
+                  href="#project-autoshock"
+                >
+                  AutoShock
+                </a>
+                <a
+                  class="filter-pill"
+                  href="#project-boss"
+                >
+                  Boss Asesorías
+                </a>
+              </div>
+            </div>
+
+            <aside
+              class="portfolio-hero-note"
+              aria-label="Resumen de resultados"
+              reveal-on-scroll
+            >
+              <div class="portfolio-hero-decor" aria-hidden="true"></div>
+
+              <h3>Claridad visual. Micro-interacciones sutiles.</h3>
+              <p>
+                Estructura semántica, tipografía cuidada y performance optimizada
+                para que tu sitio se sienta tan sólido como se ve.
+              </p>
+
+              <a
+                href="contact.html"
+                class="case-view-btn"
+                aria-label="Contactar para un nuevo proyecto"
+              >
+                Contactar
+                <span class="arrow" aria-hidden="true">→</span>
+              </a>
+
+              <div class="portfolio-hero-mini-stats" aria-hidden="true">
+                <div class="portfolio-hero-mini">
+                  <div class="num">98%</div>
+                  <div class="lbl">Satisfacción</div>
+                </div>
+                <div class="portfolio-hero-mini">
+                  <div class="num">+45</div>
+                  <div class="lbl">Proyectos</div>
+                </div>
+                <div class="portfolio-hero-mini">
+                  <div class="num">12</div>
+                  <div class="lbl">Países</div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== GRID DE PROYECTOS ===== -->
+      <section
+        class="theme-light section"
+        aria-label="Grid de proyectos"
+      >
+        <div class="container">
+          <div class="text-center" reveal-on-scroll>
+            <p class="hero-category-tag" style="margin-bottom: 0.5rem">
+              Selección
+            </p>
+            <h2 class="h2" style="margin-bottom: 0.9rem">Proyectos recientes</h2>
+            <p
+              style="
+                color: #6e6e73;
+                font-size: 1.05rem;
+                line-height: 1.7;
+                max-width: 720px;
+                margin: 0 auto;
+              "
+            >
+              Filtra por categoría para ver ejemplos del enfoque de Webnetico:
+              diseño limpio, ingeniería robusta y una experiencia premium.
+            </p>
+          </div>
+
+          <div
+            class="portfolio-results-meta"
+            id="portfolio-results-count"
+            aria-live="polite"
+          >
+            Navega entre los casos reales publicados.
+          </div>
+
+          <div
+            class="portfolio-grid-responsive"
+            id="portfolio-projects-grid"
+          >
+            <!-- Project 1 -->
+            <article
+              id="project-autoshock"
+              class="project-card portfolio-project-card"
+              data-project-categories="web-design,desarrollo"
+              reveal-on-scroll
+            >
+              <div class="project-image" aria-hidden="true">
+                <img
+                  src="images/autoshockweb.webp"
+                  alt="Amortiguadores AutoShock"
+                  loading="lazy"
+                  decoding="async"
+                  width="720"
+                  height="280"
+                  class="obj-cover w-full h-full"
+                />
+              </div>
+
+              <div class="project-info">
+                <span class="project-tags">Web Design • Estrategia</span>
+                <h3 class="project-title">Amortiguadores AutoShock</h3>
+
+                <p class="project-desc">
+                  Sitio rápido y elegante enfocado en conversión y estabilidad
+                  operativa para picos de demanda.
+                </p>
+
+                <div class="project-chips" aria-label="Etiquetas del proyecto">
+                  <span class="project-chip">Web Design</span>
+                  <span class="project-chip">Desarrollo</span>
+                </div>
+
+                <a
+                  class="case-view-btn"
+                  href="https://www.amortiguadoresautoshock.cl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Ver caso de Amortiguadores AutoShock"
+                >
+                  Ver caso
+                  <span class="arrow" aria-hidden="true">→</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- Project 2 -->
+            <article
+              id="project-boss"
+              class="project-card portfolio-project-card"
+              data-project-categories="web-design,mantenimiento"
+              reveal-on-scroll
+            >
+              <div class="project-image" aria-hidden="true">
+                <img
+                  src="images/boospagina.webp"
+                  alt="Boss Asesorías"
+                  loading="lazy"
+                  decoding="async"
+                  width="720"
+                  height="280"
+                  class="obj-cover w-full h-full"
+                />
+              </div>
+
+              <div class="project-info">
+                <span class="project-tags">Continuidad • Seguridad</span>
+                <h3 class="project-title">Boss Asesorías</h3>
+
+                <p class="project-desc">
+                  Arquitectura estática 24/7 con foco en seguridad, continuidad y
+                  una navegación fluida sin interrupciones.
+                </p>
+
+                <div class="project-chips" aria-label="Etiquetas del proyecto">
+                  <span class="project-chip">Web Design</span>
+                  <span class="project-chip">Mantenimiento</span>
+                </div>
+
+                <a
+                  class="case-view-btn"
+                  href="https://www.bossasesorias.cl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Ver caso de Boss Asesorías"
+                >
+                  Ver caso
+                  <span class="arrow" aria-hidden="true">→</span>
+                </a>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== STATS / RESULTADOS ===== -->
+      <section
+        class="section theme-grey portfolio-results-section"
+        aria-label="Resultados"
+      >
+        <div class="container">
+          <div class="text-center" reveal-on-scroll>
+            <p class="hero-category-tag" style="margin-bottom: 0.5rem">
+              Resultados
+            </p>
+            <h2 class="h2">Impacto medible</h2>
+            <p
+              style="
+                color: #6e6e73;
+                font-size: 1.05rem;
+                line-height: 1.7;
+                max-width: 720px;
+                margin: 0 auto;
+              "
+            >
+              Un enfoque premium: menos ruido, más claridad y performance que se
+              nota.
+            </p>
+          </div>
+
+          <div class="portfolio-stats-grid" role="list">
+            <div class="portfolio-stat-card" role="listitem" reveal-on-scroll>
+              <div class="num">+45</div>
+              <div class="lbl">Proyectos entregados con foco en conversión.</div>
+            </div>
+
+            <div class="portfolio-stat-card" role="listitem" reveal-on-scroll>
+              <div class="num">12</div>
+              <div class="lbl">Países con presencia digital optimizada.</div>
+            </div>
+
+            <div class="portfolio-stat-card" role="listitem" reveal-on-scroll>
+              <div class="num">98%</div>
+              <div class="lbl">Satisfacción por diseño, velocidad y estabilidad.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== FINAL CTA ===== -->
+      <section class="section theme-light" aria-label="Llamado a la acción final">
+        <div class="container">
+          <div class="portfolio-cta-card" reveal-on-scroll>
+            <p class="hero-category-tag" style="margin-bottom: 0.75rem">
+              Nuevo proyecto
+            </p>
+            <div class="cta-title">Hagamos que tu marca se sienta premium.</div>
+            <p class="cta-sub">
+              Te respondemos con un diagnóstico claro y un plan concreto. Diseño
+              minimalista, desarrollo robusto y micro-interacciones sutiles: todo en
+              el mismo estándar.
+            </p>
+
+            <a
+              href="contact.html"
+              class="btn"
+              aria-label="Cotizar nuevo proyecto"
+            >
+              Cotizar nuevo proyecto
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== WHATSAPP / FOOTER (Loaded dynamically) ===== -->
+    <footer class="site-footer" id="site-footer"></footer>
+    <div id="whatsapp-container"></div>
+    <div id="cookie-banner-container"></div>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-KWPHS7LF"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- ===== Portfolio interactions: internal nav + subtle parallax ===== -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)")
+          .matches;
+
+        // Parallax ligero sobre un decorado del hero (solo si NO hay reduced-motion)
+        if (!reduceMotion) {
+          const orb = document.querySelector(".portfolio-hero-decor");
+          if (orb) {
+            let ticking = false;
+
+            const onScroll = () => {
+              if (ticking) return;
+              ticking = true;
+
+              window.requestAnimationFrame(() => {
+                const y = window.scrollY || 0;
+                const ty = Math.min(120, y * 0.08);
+                orb.style.transform = "translate3d(0," + ty + "px,0)";
+                ticking = false;
+              });
+            };
+
+            onScroll();
+            window.addEventListener("scroll", onScroll, { passive: true });
+          }
+        }
+        const navPills = Array.from(document.querySelectorAll(".portfolio-filters .filter-pill"));
+        navPills.forEach((pill) => {
+          pill.addEventListener("click", () => {
+            navPills.forEach((p) => p.removeAttribute("aria-current"));
+            pill.setAttribute("aria-current", "true");
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

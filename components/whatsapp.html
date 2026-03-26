@@ -1,0 +1,69 @@
+<button
+  class="whatsapp-btn"
+  id="whatsapp-btn"
+  aria-label="Abrir chat WhatsApp"
+>
+  <img
+    src="images/iconwebwhatasap.webp"
+    alt="WhatsApp"
+    style="width: 100%; height: 100%; object-fit: contain; padding: 5px"
+  />
+</button>
+<div class="wa-overlay wa-hidden" id="wa-overlay"></div>
+<div class="wa-drawer wa-hidden" id="wa-drawer">
+  <div class="wa-drawer-header">
+    <div>
+      <h4>Webnetico Chat</h4>
+      <span class="wa-online">En línea ahora</span>
+    </div>
+    <button class="wa-drawer-close" id="wa-drawer-close">×</button>
+  </div>
+  <div class="wa-drawer-content">
+    <!-- Step 1: Name -->
+    <div id="wa-step-1">
+      <p>¡Hola! 👋 ¿Cuál es tu nombre para poder saludarte?</p>
+      <input type="text" id="wa-name" placeholder="Escribe tu nombre..." />
+      <button class="wa-continue-btn" id="wa-continue-1" disabled>
+        Continuar
+      </button>
+    </div>
+    <!-- Step 2: Category -->
+    <div id="wa-step-2" class="wa-hidden">
+      <button class="wa-back-btn" id="wa-back-2">← Volver</button>
+      <p id="wa-greeting-2">¿En qué podemos ayudarte hoy?</p>
+      <div class="wa-options-list">
+        <button class="wa-option-btn" data-category="Web">
+          🚀 Plan de Página Web
+        </button>
+        <button class="wa-option-btn" data-category="Mantenimiento">
+          🛡 Mantenimiento Web
+        </button>
+        <button class="wa-option-btn" data-category="Otro">
+          💡 Otros Servicios
+        </button>
+      </div>
+    </div>
+    <!-- Step 3: Plan -->
+    <div id="wa-step-3" class="wa-hidden">
+      <button class="wa-back-btn" id="wa-back-3">← Volver</button>
+      <p>Excelente elección. ¿Tienes algún plan en mente?</p>
+      <div class="wa-options-list" id="wa-plans-list"></div>
+    </div>
+    <!-- Step 4: Ready -->
+    <div id="wa-step-4" class="wa-hidden">
+      <button class="wa-back-btn" id="wa-back-4">← Volver</button>
+      <p>
+        ¡Perfecto! Todo listo para conversar. Haz clic abajo para enviarme
+        el mensaje por WhatsApp.
+      </p>
+      <a
+        class="wa-send-link"
+        id="wa-send-link"
+        href="#"
+        target="_blank"
+        rel="noopener"
+        >Enviar a WhatsApp</a
+      >
+    </div>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+# Robots.txt para Webnetico
+# Optimizado para SEO técnico
+
+# Agentes de búsqueda
+User-agent: *
+
+# Permitir acceso a todo el contenido público
+Allow: /
+
+# Sitemap principal
+Sitemap: https://www.webnetico.cl/sitemap.xml
+
+# Reglas de acceso
+# No indexar directorios de desarrollo o internos
+Disallow: /components/
+Disallow: /css/
+Disallow: /js/
+Disallow: /images/
+Disallow: /video/
+
+# No seguir enlaces de login o admin
+Disallow: /*?
+Disallow: /*.php
+Disallow: /*.cgi
+
+# Evitar duplicación de contenido
+Disallow: /index.html
+Disallow: /index.htm
+
+# Velocidad de crawl (opcional, usar con precaución)
+Crawl-delay: 1
+
+# Googlebot específico
+User-agent: Googlebot
+Allow: /
+Disallow: /components/
+
+# Googlebot Image
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /images/*
+
+# Googlebot Video
+User-agent: Googlebot-Video
+Allow: /video/
+Allow: /video/*
+
+# Bingbot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Slurp (Yahoo)
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+# DuckDuckBot
+User-agent: DuckDuckBot
+Allow: /
+
+# Applebot
+User-agent: Applebot
+Allow: /
+
+# Twitterbot
+User-agent: Twitterbot
+Allow: /
+
+# Metaetiquetas de archivo
+# Este archivo debe acompañarse de:
+# - sitemap.xml en la raíz
+# - Meta robots en cada página HTML
+# - Canonical URLs para evitar contenido duplicado
