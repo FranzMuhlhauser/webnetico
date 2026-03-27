@@ -1,13 +1,7 @@
 <!doctype html>
 <html lang="es-CL">
     <head>
-        <!-- Google Tag Manager -->
-        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-KWPHS7LF');</script>
-        <!-- End Google Tag Manager -->
+
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -306,7 +300,15 @@
         <link
             href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
             rel="stylesheet"
+            media="print"
+            onload="this.media='all'"
         />
+        <noscript>
+            <link
+                href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+                rel="stylesheet"
+            />
+        </noscript>
         <style>
             /* Font display swap for faster text visibility */
             @font-face {
@@ -334,9 +336,6 @@
             }
         </style>
 
-        <!-- Vercel Analytics & Speed Insights -->
-        <script defer src="/_vercel/insights/script.js"></script>
-        <script defer src="/_vercel/speed-insights/script.js"></script>
 
         <link rel="stylesheet" href="css/styles.css?v=1.0.9" />
         <script src="js/main.js" defer></script>
@@ -345,7 +344,7 @@
         <!-- ===== HEADER (Static for FCP) ===== -->
         <header class="site-header theme-light" id="site-header">
             <a href="index.html" class="logo">
-                <img src="images/logofinalheader.webp" alt="Webnetico Logo" width="160" height="46">
+                <img src="images/logofinalheader.webp" alt="Webnetico Logo" width="160" height="46" fetchpriority="high" decoding="sync">
             </a>
             <nav class="nav-links" id="nav-links" aria-label="Menú principal">
                 <a href="index.html">Inicio</a>
@@ -625,6 +624,41 @@
     <footer class="site-footer" id="site-footer"></footer>
         <div id="whatsapp-container"></div>
         <div id="cookie-banner-container"></div>
+        
+        <!-- Lazy Load Third-party Scripts -->
+        <script>
+            let scriptsLoaded = false;
+            const loadAnalyticsAndGTM = () => {
+                if (scriptsLoaded) return;
+                scriptsLoaded = true;
+
+                // 1. Google Tag Manager
+                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                })(window,document,'script','dataLayer','GTM-KWPHS7LF');
+
+                // 2. Vercel Insights & Speed Insights
+                const vercelInsights = document.createElement('script');
+                vercelInsights.src = "/_vercel/insights/script.js";
+                vercelInsights.defer = true;
+                document.body.appendChild(vercelInsights);
+
+                const vercelSpeed = document.createElement('script');
+                vercelSpeed.src = "/_vercel/speed-insights/script.js";
+                vercelSpeed.defer = true;
+                document.body.appendChild(vercelSpeed);
+            };
+
+            // Load on interaction for maximum performance initially
+            ['scroll', 'mousemove', 'touchstart', 'click'].forEach(event => {
+                window.addEventListener(event, loadAnalyticsAndGTM, { once: true, passive: true });
+            });
+
+            // Fallback load after 4 seconds if no interaction occurs
+            setTimeout(loadAnalyticsAndGTM, 4000);
+        </script>
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWPHS7LF"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
