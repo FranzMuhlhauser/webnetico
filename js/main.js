@@ -3,14 +3,34 @@ const PHONE_NUMBER = "56994838304";
 
 // Critical: Load components immediately
 document.addEventListener("DOMContentLoaded", async () => {
-    // Initialize reveal logic immediately (before loading components)
-    // so it's not blocked by fetch failures
+    // CRITICAL: Init reveal immediately for FCP (above-the-fold animations)
     initScrollReveal();
-    initDynamicHeader();
     
-    // Performance: Initialize UI features
-    initMobileMenu();
-    highlightActiveLink();
+    // DEFER: Non-critical init to idle periods to reduce main thread blocking
+    const deferredInits = [
+        () => initDynamicHeader(),
+        () => initMobileMenu(),
+        () => highlightActiveLink()
+    ];
+    
+    let taskIndex = 0;
+    const scheduleIdleTask = () => {
+        if (taskIndex >= deferredInits.length) return;
+        
+        if ("requestIdleCallback" in window) {
+            requestIdleCallback(() => {
+                deferredInits[taskIndex++]();
+                scheduleIdleTask();
+            }, { timeout: 100 });
+        } else {
+            setTimeout(() => {
+                deferredInits[taskIndex++]();
+                scheduleIdleTask();
+            }, 50);
+        }
+    };
+    
+    scheduleIdleTask();
 
     // Load components (navigation, footer, etc.)
     try {
@@ -49,11 +69,8 @@ function initScrollReveal() {
 
 /**
  * Dynamic Header Theme logic
- * Toggles .theme-light on header based on the section it's currently over
- */
-/**
- * Dynamic Header Theme logic
- * Toggles .theme-light on header based on the section it's currently over
+ * Toggles .theme-dark on header when over dark sections
+ * Optimized: Default is light theme to prevent flash on page load
  */
 function initDynamicHeader() {
     const header = document.getElementById('site-header');
@@ -62,52 +79,52 @@ function initDynamicHeader() {
 
     const updateHeader = () => {
         let activeSection = null;
-        const checkY = (header.offsetHeight || 60) / 2;
+        const headerHeight = header.offsetHeight || 60;
+        const checkY = headerHeight / 2;
 
-        for (let i = 0; i < sections.length; i++) {
-            const rect = sections[i].getBoundingClientRect();
+        // Batch all DOM reads first
+        const sectionRects = Array.from(sections).map(s => ({
+            element: s,
+            rect: s.getBoundingClientRect()
+        }));
+
+        // Process reads without additional DOM access
+        for (const { element, rect } of sectionRects) {
             if (rect.top <= checkY && rect.bottom > checkY) {
-                activeSection = sections[i];
+                activeSection = element;
                 break;
             }
         }
 
-        const isLight = !activeSection || 
-                        activeSection.classList.contains('theme-light') ||
-                        activeSection.classList.contains('theme-grey');
+        // Single DOM write operation
+        // Default is light, only add theme-dark for dark sections
+        const isDark = activeSection && 
+                       activeSection.classList.contains('theme-dark');
 
-        if (isLight) {
-            header.classList.add('theme-light');
-            // Remove any manual background color to allow CSS/Translucency to work
-            header.style.backgroundColor = '';
+        if (isDark) {
+            header.classList.add('theme-dark');
         } else {
-            header.classList.remove('theme-light');
+            header.classList.remove('theme-dark');
         }
     };
 
     // Export to global scope for the component loader to use
     window.updateHeaderGlobal = updateHeader;
 
-    // Initial evaluation
+    // Initial evaluation (runs immediately to set correct state)
     updateHeader();
 
-    // Multiple evaluations to handle lazy assets
     window.addEventListener('load', updateHeader);
-    setTimeout(updateHeader, 100);
-    setTimeout(updateHeader, 500);
-    setTimeout(updateHeader, 1000);
-    setTimeout(updateHeader, 2000); // Extra safety for slower connections
 
-    // Safely observe scroll and resize for dynamic updates
-    let ticking = false;
+    // Throttled scroll/resize updates (~30fps max)
+    let lastScrollTime = 0;
+    const SCROLL_THROTTLE = 33;
+
     const requestUpdate = () => {
-        if (!ticking) {
-            window.requestAnimationFrame(() => {
-                updateHeader();
-                ticking = false;
-            });
-            ticking = true;
-        }
+        const now = performance.now();
+        if (now - lastScrollTime < SCROLL_THROTTLE) return;
+        lastScrollTime = now;
+        window.requestAnimationFrame(updateHeader);
     };
 
     window.addEventListener('scroll', requestUpdate, { passive: true });
@@ -134,11 +151,11 @@ const componentObserver = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 /**
- * Loads shared HTML components (header, footer, whatsapp, cookie banner)
+ * Loads shared HTML components (footer, whatsapp, cookie banner)
+ * Note: Header is hardcoded in HTML for better FCP, not loaded via fetch
  */
 async function loadComponents() {
   const components = [
-    { id: "site-header", file: "components/header.html", critical: true },
     { id: "site-footer", file: "components/footer.html", critical: true },
     {
       id: "whatsapp-container",
@@ -179,17 +196,6 @@ async function loadComponents() {
         const html = await response.text();
         el.innerHTML = html;
         console.log(`[Load] ${comp.id} success, length: ${html.length}`);
-        
-        // CRITICAL: Re-initialize theme logic if header was just loaded
-        if (comp.id === 'site-header' && typeof initDynamicHeader === 'function') {
-           // Small delay to ensure DOM is painted
-           setTimeout(() => {
-             const header = document.getElementById('site-header');
-             if (header && typeof updateHeaderGlobal === 'function') {
-                updateHeaderGlobal();
-             }
-           }, 0);
-        }
       }
     } catch (err) {
       console.warn(`[Load] Component ${comp.file} failed:`, err.message);
@@ -202,20 +208,16 @@ async function loadComponents() {
   // Load non-critical components and THEN initialize features that depend on them
   const loadNonCritical = async () => {
     await Promise.all(nonCriticalComponents.map(loadComponent));
-    // Initialize features that depend on loaded components
-    initWhatsAppDrawer();
-    initFAQ();
-    initPlanSelector();
+    // Initialize features conditionally based on DOM presence (reduce unused JS execution)
+    if (document.getElementById('whatsapp-btn')) initWhatsAppDrawer();
+    if (document.getElementById('faq-list')) initFAQ();
+    if (document.querySelector('.plan-option-btn')) initPlanSelector();
   };
 
   if ("requestIdleCallback" in window) {
-    requestIdleCallback(() => {
-      loadNonCritical();
-    });
+    requestIdleCallback(() => loadNonCritical(), { timeout: 2000 });
   } else {
-    setTimeout(() => {
-      loadNonCritical();
-    }, 1000);
+    setTimeout(() => loadNonCritical(), 1000);
   }
 }
 

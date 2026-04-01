@@ -55,7 +55,7 @@
                 max-width: 600px;
             }
             .error-code {
-                font-size: 8rem;
+                font-size: clamp(2.75rem, 14vw, 8rem);
                 font-weight: 800;
                 color: var(--accent-color);
                 line-height: 1;
@@ -111,9 +111,6 @@
                 flex-wrap: wrap;
             }
             @media (max-width: 480px) {
-                .error-code {
-                    font-size: 5rem;
-                }
                 .error-title {
                     font-size: 1.5rem;
                 }

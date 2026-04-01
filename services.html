@@ -282,25 +282,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/styles.css?v=1.0.9">
+  <link rel="preload" href="css/styles.min.css?v=1.0.12" as="style" />
+  <link rel="stylesheet" href="css/styles.min.css?v=1.0.12" />
   <script src="js/main.js" defer></script>
         <!-- Vercel Analytics & Speed Insights -->
         <script defer src="/_vercel/insights/script.js"></script>
         <script defer src="/_vercel/speed-insights/script.js"></script>
-        <style>
-          .methodology-card:hover {
-            transform: translateY(-8px);
-            background: rgba(255,255,255,0.06) !important;
-            border-color: rgba(255,255,255,0.1) !important;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-          }
-        </style>
 </head>
 <body>
   <!-- ===== HEADER (Static for FCP) ===== -->
   <header class="site-header theme-light" id="site-header">
       <a href="index.html" class="logo">
-          <img src="images/logofinalheader.webp" alt="Webnetico Logo" width="160" height="46">
+          <img src="images/logofinalheader.webp" alt="Webnetico Logo" width="160" height="46" fetchpriority="high" decoding="async">
       </a>
       <nav class="nav-links" id="nav-links" aria-label="Menú principal">
           <a href="index.html">Inicio</a>
@@ -310,15 +303,21 @@
           <a href="contact.html">Contacto</a>
       </nav>
       <div class="header-actions-wrapper">
+          <a href="contact.html" class="btn btn-secondary header-cta btn-header-cta">Diagnóstico Gratuito</a>
           <button
               class="mobile-menu-btn"
               id="mobile-menu-btn"
               aria-label="Abrir menú"
+              aria-expanded="false"
           >
-              <svg class="icon-svg icon-menu" viewBox="0 0 24 24">
+              <svg class="icon-svg icon-menu" viewBox="0 0 24 24" aria-hidden="true">
                   <line x1="3" y1="12" x2="21" y2="12" />
                   <line x1="3" y1="6" x2="21" y2="6" />
                   <line x1="3" y1="18" x2="21" y2="18" />
+              </svg>
+              <svg class="icon-svg icon-close wa-hidden" viewBox="0 0 24 24" aria-hidden="true">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
               </svg>
           </button>
       </div>
@@ -330,9 +329,9 @@
         <div class="container">
             <div class="hero-reference-grid" reveal-on-scroll>
                 <div class="hero-text-content">
-                    <span class="hero-category-tag" style="text-transform: uppercase;">Nuestros Servicios</span>
-                    <h1 class="h1" style="font-size: 4.5rem;">Ingeniería que<br>genera resultados.</h1>
-                    <p class="hero-description" style="max-width: 500px;">
+                    <span class="hero-category-tag uppercase">Nuestros Servicios</span>
+                    <h1 class="h1 fs-hero-services">Ingeniería que<br>genera resultados.</h1>
+                    <p class="hero-description hero-description-narrow">
                         Soluciones técnicas precisas para empresas que buscan liderar lo digital.
                     </p>
                     <div class="hero-actions">
@@ -343,7 +342,7 @@
                 <div class="hero-visual-content">
                     <div class="hero-laptop-glow-container">
                         <div class="hero-video-wrapper shadow-premium">
-                            <img src="images/hero_servicios.webp" alt="Servicios Webnetico" class="hero-loop-video obj-cover w-full h-full" width="800" height="450">
+                            <img src="images/hero_servicios.webp" alt="Servicios Webnetico" class="hero-loop-video obj-cover w-full h-full" width="800" height="450" fetchpriority="high" decoding="async">
                         </div>
                     </div>
                 </div>
@@ -356,7 +355,7 @@
         <div class="container" reveal-on-scroll>
             <div class="services-grid">
                 <div class="service-card theme-light">
-                    <div style="color: var(--accent-color); margin-bottom: 1.5rem; display: flex; justify-content: center; align-items: center;">
+                    <div class="service-pillar-icon">
                         <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
                         </svg>
@@ -365,7 +364,7 @@
                     <p>Código puro que carga hasta 5x más rápido y sin vulnerabilidades conocidas.</p>
                 </div>
                 <div class="service-card theme-light">
-                    <div style="color: var(--accent-color); margin-bottom: 1.5rem; display: flex; justify-content: center; align-items: center;">
+                    <div class="service-pillar-icon">
                         <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
                             <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
@@ -377,7 +376,7 @@
                     <p>Cada pixel diseñado para su marca. Sin plantillas genéricas, sin repeticiones.</p>
                 </div>
                 <div class="service-card theme-light">
-                    <div style="color: var(--accent-color); margin-bottom: 1.5rem; display: flex; justify-content: center; align-items: center;">
+                    <div class="service-pillar-icon">
                         <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                         </svg>
@@ -390,58 +389,58 @@
     </section>
 
     <!-- ===== METODOLOGÍA ===== -->
-    <section class="section theme-dark" style="padding: 8rem 0;" id="metodologia">
+    <section class="section theme-dark section-py-fluid" id="metodologia">
         <div class="container" reveal-on-scroll>
             <div class="section-header text-center">
-                <p class="hero-category-tag" style="color: #86868b; text-transform: uppercase;">Nuestra Metodología</p>
-                <h2 class="h2" style="max-width: 800px; margin: 0 auto; line-height: 1.2;">Un proceso claro, estructurado y transparente.</h2>
-                <p class="max-w-700 mx-auto" style="color: #a1a1a6; font-size: 1.15rem; margin-top: 1.5rem;">
+                <p class="hero-category-tag subtle-grey uppercase">Nuestra Metodología</p>
+                <h2 class="h2 h2-max-800">Un proceso claro, estructurado y transparente.</h2>
+                <p class="max-w-700 mx-auto metodologia-lead">
                     Así transformamos su visión en una realidad digital de alto impacto.
                 </p>
             </div>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 5rem; text-align: left;">
-                
+
+            <div class="methodology-grid">
+
                 <!-- Paso 01 -->
-                <div class="methodology-card" style="padding: 2.5rem; border-radius: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);">
-                    <div style="color: var(--accent-color); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem;">Paso 01</div>
-                    <h3 style="font-size: 1.4rem; font-weight: 600; color: #fff; margin-bottom: 0.8rem;">Planificación</h3>
-                    <p style="color: #a1a1a6; font-size: 1.05rem; line-height: 1.5;">Definimos los objetivos y la estructura de su proyecto para asegurar un camino claro.</p>
+                <div class="methodology-card">
+                    <div class="methodology-step-label">Paso 01</div>
+                    <h3 class="methodology-step-title">Planificación</h3>
+                    <p class="methodology-step-text">Definimos los objetivos y la estructura de su proyecto para asegurar un camino claro.</p>
                 </div>
 
                 <!-- Paso 02 -->
-                <div class="methodology-card" style="padding: 2.5rem; border-radius: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);">
-                    <div style="color: var(--accent-color); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem;">Paso 02</div>
-                    <h3 style="font-size: 1.4rem; font-weight: 600; color: #fff; margin-bottom: 0.8rem;">Página de Prueba</h3>
-                    <p style="color: #a1a1a6; font-size: 1.05rem; line-height: 1.5;">Entregamos una versión inicial de estructura. Fase 01 de cambios: Aquí definimos el grueso del diseño.</p>
+                <div class="methodology-card">
+                    <div class="methodology-step-label">Paso 02</div>
+                    <h3 class="methodology-step-title">Página de Prueba</h3>
+                    <p class="methodology-step-text">Entregamos una versión inicial de estructura. Fase 01 de cambios: Aquí definimos el grueso del diseño.</p>
                 </div>
 
                 <!-- Paso 03 -->
-                <div class="methodology-card" style="padding: 2.5rem; border-radius: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);">
-                    <div style="color: var(--accent-color); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem;">Paso 03</div>
-                    <h3 style="font-size: 1.4rem; font-weight: 600; color: #fff; margin-bottom: 0.8rem;">Ingeniería Web</h3>
-                    <p style="color: #a1a1a6; font-size: 1.05rem; line-height: 1.5;">Construimos el sitio completo con HTML, CSS & JavaScript, integrando todas las funciones acordadas.</p>
+                <div class="methodology-card">
+                    <div class="methodology-step-label">Paso 03</div>
+                    <h3 class="methodology-step-title">Ingeniería Web</h3>
+                    <p class="methodology-step-text">Construimos el sitio completo con HTML, CSS & JavaScript, integrando todas las funciones acordadas.</p>
                 </div>
 
                 <!-- Paso 04 -->
-                <div class="methodology-card" style="padding: 2.5rem; border-radius: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);">
-                    <div style="color: var(--accent-color); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem;">Paso 04</div>
-                    <h3 style="font-size: 1.4rem; font-weight: 600; color: #fff; margin-bottom: 0.8rem;">Entrega Completa</h3>
-                    <p style="color: #a1a1a6; font-size: 1.05rem; line-height: 1.5;">Presentamos el sitio terminado. Fase 02 de cambios: Últimos ajustes mínimos de textos o imágenes.</p>
+                <div class="methodology-card">
+                    <div class="methodology-step-label">Paso 04</div>
+                    <h3 class="methodology-step-title">Entrega Completa</h3>
+                    <p class="methodology-step-text">Presentamos el sitio terminado. Fase 02 de cambios: Últimos ajustes mínimos de textos o imágenes.</p>
                 </div>
 
                 <!-- Paso 05 -->
-                <div class="methodology-card" style="padding: 2.5rem; border-radius: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);">
-                    <div style="color: var(--accent-color); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem;">Paso 05</div>
-                    <h3 style="font-size: 1.4rem; font-weight: 600; color: #fff; margin-bottom: 0.8rem;">Optimización SEO</h3>
-                    <p style="color: #a1a1a6; font-size: 1.05rem; line-height: 1.5;">Configuramos la velocidad y metadatos para que Google posicione su sitio de inmediato.</p>
+                <div class="methodology-card">
+                    <div class="methodology-step-label">Paso 05</div>
+                    <h3 class="methodology-step-title">Optimización SEO</h3>
+                    <p class="methodology-step-text">Configuramos la velocidad y metadatos para que Google posicione su sitio de inmediato.</p>
                 </div>
 
                 <!-- Paso 06 -->
-                <div class="methodology-card" style="padding: 2.5rem; border-radius: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);">
-                    <div style="color: var(--accent-color); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem;">Paso 06</div>
-                    <h3 style="font-size: 1.4rem; font-weight: 600; color: #fff; margin-bottom: 0.8rem;">Cierre y Lanzamiento</h3>
-                    <p style="color: #a1a1a6; font-size: 1.05rem; line-height: 1.5;">Se considera el proyecto terminado. Cambios posteriores requieren de un plan de mantenimiento.</p>
+                <div class="methodology-card">
+                    <div class="methodology-step-label">Paso 06</div>
+                    <h3 class="methodology-step-title">Cierre y Lanzamiento</h3>
+                    <p class="methodology-step-text">Se considera el proyecto terminado. Cambios posteriores requieren de un plan de mantenimiento.</p>
                 </div>
 
             </div>
@@ -452,9 +451,9 @@
     <section id="planes" class="pricing-summary-section theme-light section">
         <div class="container">
             <div class="section-header text-center" reveal-on-scroll>
-                <p class="hero-category-tag" style="text-transform: uppercase;">Diseño Web</p>
+                <p class="hero-category-tag uppercase">Diseño Web</p>
                 <h2 class="h2">Desde landing hasta sitios corporativos.</h2>
-                <p class="max-w-700 mx-auto" style="color: #6e6e73; font-size: 1.1rem; margin-top: 1rem;">
+                <p class="max-w-700 mx-auto section-lead-muted">
                     Sin costos ocultos. Sin sorpresas.
                 </p>
             </div>
@@ -507,7 +506,7 @@
             <!-- TABLA COMPARATIVA DETALLADA -->
             <div style="max-width: 1000px; margin: 6rem auto 0; overflow-x: auto; padding-bottom: 1rem;" reveal-on-scroll>
                 <div class="text-center" style="margin-bottom: 3rem;">
-                    <h3 class="h3" style="font-size: 2rem;">Compara los planes detalladamente</h3>
+                    <h3 class="h3 fs-table-section-title">Compara los planes detalladamente</h3>
                 </div>
                 <table style="width: 100%; border-collapse: collapse; text-align: left; min-width: 750px;">
                     <thead>
@@ -608,26 +607,26 @@
             </div>
 
             <!-- NOTA IMPORTANTE -->
-            <div style="max-width: 1000px; margin: 3rem auto 0; padding: 2.5rem 3rem; background: #f5f5f7; border-radius: 20px; border-left: 4px solid var(--accent-color);" reveal-on-scroll>
-                <div style="display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.5rem;">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top: 2px;">
+            <div class="services-nota-card" reveal-on-scroll>
+                <div class="services-nota-header">
+                    <svg class="icon-info" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <circle cx="12" cy="12" r="10"></circle>
                         <line x1="12" y1="8" x2="12" y2="12"></line>
                         <line x1="12" y1="16" x2="12.01" y2="16"></line>
                     </svg>
-                    <h4 style="font-size: 1.15rem; font-weight: 700; color: #1d1d1f; margin: 0;">Información Importante sobre su Servicio</h4>
+                    <h4 class="services-nota-title">Información Importante sobre su Servicio</h4>
                 </div>
 
-                <p style="color: #424245; font-size: 0.97rem; line-height: 1.7; margin-bottom: 1.2rem;">
+                <p class="services-nota-body">
                     Para su total tranquilidad, <strong>TODOS</strong> nuestros planes incluyen el <strong>Hosting profesional, Dominio .cl y Certificado SSL</strong> de forma gratuita por el primer año. Utilizamos servidores de alta velocidad para garantizar que su activo digital sea rápido y seguro desde el primer día.
                 </p>
 
-                <p style="font-size: 0.9rem; font-weight: 700; color: #86868b; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.2rem;">RENOVACIÓN DEL SERVICIO (A PARTIR DEL 2do AÑO):</p>
+                <p class="services-nota-kicker">RENOVACIÓN DEL SERVICIO (A PARTIR DEL 2do AÑO):</p>
 
-                <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
-                    <div style="background: #fff; border-radius: 14px; padding: 1.5rem 1.8rem; border: 1px solid #e5e5ea;">
-                        <div style="font-size: 1.8rem; font-weight: 700; color: #1d1d1f; margin-bottom: 0.3rem;">$50.000 <span style="font-size: 1rem; color: #86868b; font-weight: 500;">CLP/año</span></div>
-                        <p style="color: #6e6e73; font-size: 0.95rem; line-height: 1.5; margin: 0;">Costo anual único por concepto de <strong>Renovación de Hosting profesional y Mantenimiento de Dominio .cl</strong>. Sin cobros sorpresa ni costos ocultos.</p>
+                <div class="renewal-grid">
+                    <div class="renewal-price-box">
+                        <div class="renewal-price-amount">$50.000 <span class="renewal-price-unit">CLP/año</span></div>
+                        <p class="renewal-price-caption">Costo anual único por concepto de <strong>Renovación de Hosting profesional y Mantenimiento de Dominio .cl</strong>. Sin cobros sorpresa ni costos ocultos.</p>
                     </div>
                 </div>
             </div>
@@ -639,9 +638,9 @@
     <section id="mantenimiento" class="pricing-summary-section theme-grey section" style="padding-top: 4rem;">
         <div class="container">
             <div class="section-header text-center" reveal-on-scroll>
-                <p class="hero-category-tag" style="text-transform: uppercase;">Mantenimiento</p>
+                <p class="hero-category-tag uppercase">Mantenimiento</p>
                 <h2 class="h2">Cuidamos su sitio mientras usted cuida su negocio.</h2>
-                <p class="max-w-700 mx-auto" style="color: #6e6e73; font-size: 1.1rem; margin-top: 1rem;">
+                <p class="max-w-700 mx-auto section-lead-muted">
                     Planes mensuales sin permanencia.
                 </p>
             </div>
@@ -692,7 +691,7 @@
             <!-- TABLA COMPARATIVA DETALLADA MANTENIMIENTO -->
             <div style="max-width: 1000px; margin: 6rem auto 0; overflow-x: auto; padding-bottom: 1rem;" reveal-on-scroll>
                 <div class="text-center" style="margin-bottom: 3rem;">
-                    <h3 class="h3" style="font-size: 2rem;">¿Qué incluye cada plan de soporte?</h3>
+                    <h3 class="h3 fs-table-section-title">¿Qué incluye cada plan de soporte?</h3>
                 </div>
                 <!-- theme-grey table background needs borders that mix well -->
                 <table style="width: 100%; border-collapse: collapse; text-align: left; min-width: 750px; background: transparent;">
