@@ -21,7 +21,9 @@
 
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.webnetico.cl/" />
+            <meta property="og:site_name" content="Webnetico" />
+    <meta property="og:locale" content="es_CL" />
+<meta property="og:url" content="https://www.webnetico.cl/" />
         <meta
             property="og:title"
             content="Webnetico | Expertos en Diseño Web & Respuesta de IA"
@@ -292,7 +294,9 @@
 
         <link rel="icon" href="favicon.png" type="image/x-icon" />
 
-        <!-- DNS Prefetch for external resources -->
+                <link rel="apple-touch-icon" href="favicon.png" />
+<link rel="manifest" href="/manifest.webmanifest" />
+<!-- DNS Prefetch for external resources -->
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
         <link rel="dns-prefetch" href="//www.google-analytics.com" />
@@ -378,6 +382,7 @@
         <script src="js/main.js" defer></script>
     </head>
     <body>
+    <a class="skip-link" href="#main-content">Saltar al contenido</a>
         <!-- ===== HEADER (Static for FCP) ===== -->
         <header class="site-header theme-light" id="site-header">
             <a href="index.html" class="logo">
@@ -430,7 +435,7 @@
             </div>
         </header>
 
-        <main>
+        <main id="main-content">
             <!-- ===== HERO SECTION (Reference Match) ===== -->
             <section class="hero-section theme-light section">
                 <div class="container">

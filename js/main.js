@@ -1,5 +1,12 @@
 // Performance: Use passive listeners for better scrolling performance
+window.dataLayer = window.dataLayer || [];
 const PHONE_NUMBER = "56994838304";
+
+function trackEvent(eventName, payload = {}) {
+    if (window.dataLayer && typeof window.dataLayer.push === "function") {
+        window.dataLayer.push(Object.assign({ event: eventName }, payload));
+    }
+}
 
 // Critical: Load components immediately
 document.addEventListener("DOMContentLoaded", async () => {
@@ -32,11 +39,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     
     scheduleIdleTask();
 
-    // Load components (navigation, footer, etc.)
-    try {
-        await loadComponents();
-    } catch (err) {
-        // Component load failure ignored in production.
+    if ("requestIdleCallback" in window) {
+        requestIdleCallback(initNonCriticalFeatures, { timeout: 200 });
+    } else {
+        setTimeout(initNonCriticalFeatures, 200);
     }
 });
 
@@ -131,91 +137,36 @@ function initDynamicHeader() {
     window.addEventListener('resize', requestUpdate, { passive: true });
 }
 
-// Performance: Lazy load components when they enter viewport
-const observerOptions = {
-  root: null,
-  rootMargin: "100px",
-  threshold: 0,
-};
+function initNonCriticalFeatures() {
+  if (document.getElementById('whatsapp-btn')) initWhatsAppDrawer();
+  if (document.getElementById('faq-list')) initFAQ();
+  if (document.querySelector('.plan-option-btn')) initPlanSelector();
+  initSiteTracking();
+}
 
-const componentObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      const target = entry.target;
-      if (target.dataset.load === "lazy") {
-        loadComponents();
-        componentObserver.disconnect();
-      }
-    }
+function initSiteTracking() {
+  const trackedElements = document.querySelectorAll(
+    'a.btn-cta-lg, a[href*="contact.html"], a[href*="services.html"], button.wa-option-btn, button.plan-option-btn'
+  );
+
+  trackedElements.forEach((element) => {
+    element.addEventListener(
+      'click',
+      () => {
+        trackEvent('site_cta_click', {
+          label: element.textContent.trim().slice(0, 64),
+          href: element.getAttribute('href') || null,
+        });
+      },
+      { passive: true }
+    );
   });
-}, observerOptions);
 
-/**
- * Loads shared HTML components (footer, whatsapp, cookie banner)
- * Note: Header is hardcoded in HTML for better FCP, not loaded via fetch
- */
-async function loadComponents() {
-  const components = [
-    { id: "site-footer", file: "components/footer.html", critical: true },
-    {
-      id: "whatsapp-container",
-      file: "components/whatsapp.html",
-      critical: false,
-    },
-    {
-      id: "cookie-banner-container",
-      file: "components/cookie-banner.html",
-      critical: false,
-    },
-  ];
-
-  // Increment version to bypass browser cache
-  const VERSION = "1.3.1";
-
-  // Performance: Load critical components first, then non-critical
-  const criticalComponents = components.filter((c) => c.critical);
-  const nonCriticalComponents = components.filter((c) => !c.critical);
-
-  const loadComponent = async (comp) => {
-    const el = document.getElementById(comp.id);
-    if (!el) return;
-
-    // Performance: If component is already in DOM (Server Side Rendered or hardcoded), skip fetch
-    if (el.innerHTML.trim().length > 0) {
-      return;
-    }
-
-    try {
-      // Force cache-control no-cache
-      const response = await fetch(`${comp.file}?v=${VERSION}`, {
-        cache: 'no-store'
-      });
-
-      if (response.ok) {
-        const html = await response.text();
-        el.innerHTML = html;
-      }
-    } catch (err) {
-      // Silently ignore missing non-critical components in production.
-    }
-  };
-
-  // Load critical components first in parallel
-  await Promise.all(criticalComponents.map(loadComponent));
-
-  // Load non-critical components and THEN initialize features that depend on them
-  const loadNonCritical = async () => {
-    await Promise.all(nonCriticalComponents.map(loadComponent));
-    // Initialize features conditionally based on DOM presence (reduce unused JS execution)
-    if (document.getElementById('whatsapp-btn')) initWhatsAppDrawer();
-    if (document.getElementById('faq-list')) initFAQ();
-    if (document.querySelector('.plan-option-btn')) initPlanSelector();
-  };
-
-  if ("requestIdleCallback" in window) {
-    requestIdleCallback(() => loadNonCritical(), { timeout: 2000 });
-  } else {
-    setTimeout(() => loadNonCritical(), 1000);
+  const whatsappLink = document.getElementById('wa-send-link');
+  if (whatsappLink) {
+    whatsappLink.addEventListener('click', () =>
+      trackEvent('whatsapp_lead', { label: 'WhatsApp Drawer' })
+    );
   }
 }
 

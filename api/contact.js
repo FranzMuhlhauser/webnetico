@@ -1,9 +1,22 @@
+const escapeHtml = (value) => String(value)
+  .replace(/&/g, '&amp;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;')
+  .replace(/"/g, '&quot;')
+  .replace(/'/g, '&#39;');
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Solo POST permitido' });
   }
 
   const { name, email, subject, urgency, message } = req.body;
+
+  const safeName = escapeHtml(name);
+  const safeEmailDisplay = escapeHtml(email);
+  const safeSubject = escapeHtml(subject || 'No especificado');
+  const safeUrgency = escapeHtml(urgency || 'No especificada');
+  const safeMessage = escapeHtml(message);
 
   // Validación server-side
   if (!name || !email || !message) {
@@ -29,18 +42,18 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         from: 'Contactos Webnético <contacto@webnetico.cl>',
         to: 'contacto@webnetico.cl',
-        subject: `Lead Webnético: ${subject || 'Consulta'} ${urgency ? `(${urgency})` : ''}`,
-        reply_to: email, // Permite responder directamente al cliente
+        subject: `Lead Webnético: ${safeSubject || 'Consulta'} ${safeUrgency ? `(${safeUrgency})` : ''}`,
+        reply_to: safeEmailDisplay, // Permite responder directamente al cliente (sanitizado)
         html: `
           <div style="font-family: sans-serif; max-width: 600px; margin: auto; border: 1px solid #eee; padding: 20px;">
             <h2 style="color: #22c55e;">🆕 Nuevo Lead - Webnético.cl</h2>
-            <p><strong>Nombre:</strong> ${name}</p>
-            <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-            <p><strong>Asunto:</strong> ${subject || 'No especificado'}</p>
-            <p><strong>Urgencia:</strong> ${urgency || 'No especificada'}</p>
+            <p><strong>Nombre:</strong> ${safeName}</p>
+            <p><strong>Email:</strong> <a href="mailto:${safeEmailDisplay}">${safeEmailDisplay}</a></p>
+            <p><strong>Asunto:</strong> ${safeSubject}</p>
+            <p><strong>Urgencia:</strong> ${safeUrgency}</p>
             <div style="background: #f9fafb; padding: 15px; border-radius: 8px; margin-top: 20px;">
               <strong>Mensaje:</strong><br>
-              <p style="white-space: pre-wrap;">${message}</p>
+              <p style="white-space: pre-wrap;">${safeMessage}</p>
             </div>
             <hr style="margin-top: 30px; border: 0; border-top: 1px solid #eee;">
             <small style="color: #666;">Enviado desde webnetico.cl el ${new Date().toLocaleString('es-CL', { timeZone: 'America/Santiago' })}</small>

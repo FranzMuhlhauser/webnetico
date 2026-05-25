@@ -21,6 +21,13 @@
  */
 
 document.addEventListener("DOMContentLoaded", () => {
+  window.dataLayer = window.dataLayer || [];
+  const trackEvent = (eventName, payload = {}) => {
+    if (window.dataLayer && typeof window.dataLayer.push === "function") {
+      window.dataLayer.push(Object.assign({ event: eventName }, payload));
+    }
+  };
+
   const form = document.getElementById("contact-form");
   if (!form) return;
 
@@ -85,6 +92,13 @@ document.addEventListener("DOMContentLoaded", () => {
             "success",
           );
         }
+        if (typeof trackEvent === "function") {
+          trackEvent("contact_form_submission", {
+            form_status: "success",
+            subject,
+            urgency,
+          });
+        }
         form.reset();
 
         // Restablecer selección de plan
@@ -101,6 +115,13 @@ document.addEventListener("DOMContentLoaded", () => {
         throw new Error(data.error || "Error desconocido al enviar el formulario.");
       }
     } catch (err) {
+      if (window.dataLayer && typeof window.dataLayer.push === "function") {
+        window.dataLayer.push({
+          event: "contact_form_submission",
+          form_status: "error",
+          error_message: err.message,
+        });
+      }
       if (window.showToast) {
         window.showToast(
           err.message,

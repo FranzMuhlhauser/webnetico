@@ -34,7 +34,9 @@
 
         <!-- Open Graph -->
         <meta property="og:type" content="website" />
-        <meta
+            <meta property="og:site_name" content="Webnetico" />
+    <meta property="og:locale" content="es_CL" />
+<meta
             property="og:title"
             content="Portafolio de Proyectos | Webnetico"
         />
@@ -46,6 +48,13 @@
             property="og:url"
             content="https://www.webnetico.cl/portfolio.html"
         />
+        <meta property="og:image" content="https://www.webnetico.cl/images/logofinal.webp" />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content="Portafolio de Proyectos | Webnetico" />
+        <meta property="twitter:description" content="Proyectos digitales minimalistas con rendimiento real, estructura semántica y micro-interacciones sutiles." />
+        <meta property="twitter:image" content="https://www.webnetico.cl/images/logofinal.webp" />
 
         <!-- Structured Data (JSON-LD) - Portafolio y Autoridad -->
         <script type="application/ld+json">
@@ -75,7 +84,9 @@
         </script>
         <link rel="icon" href="favicon.png" type="image/x-icon" />
 
-        <!-- Preconnect & Font (mantiene la base del sitio) -->
+                <link rel="apple-touch-icon" href="favicon.png" />
+<link rel="manifest" href="/manifest.webmanifest" />
+<!-- Preconnect & Font (mantiene la base del sitio) -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -508,6 +519,7 @@
     </head>
 
     <body>
+    <a class="skip-link" href="#main-content">Saltar al contenido</a>
         <!-- ===== HEADER (Static for FCP) ===== -->
         <header class="site-header theme-light" id="site-header">
             <a href="index.html" class="logo">
@@ -561,7 +573,7 @@
             </div>
         </header>
 
-        <main class="pt-header portfolio-page theme-light">
+        <main id="main-content" class="pt-header portfolio-page theme-light">
             <!-- ===== HERO SECTION ===== -->
             <section
                 class="hero-section theme-light section"
