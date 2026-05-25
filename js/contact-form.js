@@ -83,7 +83,24 @@ document.addEventListener("DOMContentLoaded", () => {
         }),
       });
 
-      const data = await response.json();
+      let data = null;
+      try {
+        // Intentar parsear JSON solo si la respuesta tiene Content-Type json
+        const ct = response.headers.get('content-type') || '';
+        if (ct.includes('application/json')) {
+          data = await response.json();
+        } else {
+          // Intentar leer texto y parsear por si acaso
+          const text = await response.text();
+          try {
+            data = text ? JSON.parse(text) : null;
+          } catch (e) {
+            data = null;
+          }
+        }
+      } catch (parseErr) {
+        data = null;
+      }
 
       if (response.ok) {
         if (window.showToast) {
@@ -112,7 +129,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const subjectInput = document.getElementById("subject");
         if (subjectInput) subjectInput.value = "Landing Page";
       } else {
-        throw new Error(data.error || "Error desconocido al enviar el formulario.");
+        const msg = (data && data.error) || (data && data.message) || 'Error desconocido al enviar el formulario.';
+        throw new Error(msg);
       }
     } catch (err) {
       if (window.dataLayer && typeof window.dataLayer.push === "function") {

@@ -24,6 +24,7 @@ export default async function handler(req, res) {
   }
 
   const RESEND_API_KEY = process.env.RESEND_API_KEY;
+  const DEBUG = process.env.DEBUG === '1' || process.env.DEBUG === 'true';
 
   if (!RESEND_API_KEY) {
     return res.status(500).json({ 
@@ -33,6 +34,11 @@ export default async function handler(req, res) {
   }
 
   try {
+    if (DEBUG) {
+      try {
+        console.log('[DEBUG] /api/contact request keys:', Object.keys(req.body || {}));
+      } catch (e) {}
+    }
     const response = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
@@ -62,11 +68,36 @@ export default async function handler(req, res) {
       }),
     });
 
-    const data = await response.json();
+    // Manejar posibles respuestas no JSON de Resend
+    let resendText = '';
+    try {
+      resendText = await response.text();
+    } catch (e) {
+      resendText = '';
+    }
+
+    let data = null;
+    try {
+      data = resendText ? JSON.parse(resendText) : null;
+    } catch (e) {
+      data = null;
+    }
+
+    if (DEBUG) {
+      try {
+        console.log('[DEBUG] /api/contact resend preview:', {
+          status: response.status,
+          statusText: response.statusText,
+          bodyPreview: resendText ? (resendText.length > 1000 ? resendText.slice(0, 1000) + '...[truncated]' : resendText) : null,
+        });
+      } catch (e) {}
+    }
 
     if (response.ok) {
       res.status(200).json({ success: true });
-    } else {      res.status(400).json({ error: data.message || 'Error de Resend al procesar el envío' });
+    } else {
+      const msg = (data && (data.error || data.message)) || resendText || 'Error de Resend al procesar el envío';
+      res.status(400).json({ error: msg });
     }
   } catch (error) {    res.status(500).json({ error: 'Error interno del servidor al intentar conectar con Resend' });
   }
