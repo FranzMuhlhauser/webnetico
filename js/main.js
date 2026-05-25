@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     try {
         await loadComponents();
     } catch (err) {
-        console.warn('Components failed to load:', err);
+        // Component load failure ignored in production.
     }
 });
 
@@ -182,7 +182,6 @@ async function loadComponents() {
 
     // Performance: If component is already in DOM (Server Side Rendered or hardcoded), skip fetch
     if (el.innerHTML.trim().length > 0) {
-      console.log(`[Load] ${comp.id} already present, skipping fetch`);
       return;
     }
 
@@ -195,10 +194,9 @@ async function loadComponents() {
       if (response.ok) {
         const html = await response.text();
         el.innerHTML = html;
-        console.log(`[Load] ${comp.id} success, length: ${html.length}`);
       }
     } catch (err) {
-      console.warn(`[Load] Component ${comp.file} failed:`, err.message);
+      // Silently ignore missing non-critical components in production.
     }
   };
 

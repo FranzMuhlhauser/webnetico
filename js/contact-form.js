@@ -101,10 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
         throw new Error(data.error || "Error desconocido al enviar el formulario.");
       }
     } catch (err) {
-      console.error("Form Error:", err);
-
       if (window.showToast) {
-        // Mostramos el mensaje de error específico para que el usuario pueda depurar
         window.showToast(
           err.message,
           "error",

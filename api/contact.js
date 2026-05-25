@@ -53,12 +53,8 @@ export default async function handler(req, res) {
 
     if (response.ok) {
       res.status(200).json({ success: true });
-    } else {
-      console.error('Resend Error Details:', data);
-      res.status(400).json({ error: data.message || 'Error de Resend al procesar el envío' });
+    } else {      res.status(400).json({ error: data.message || 'Error de Resend al procesar el envío' });
     }
-  } catch (error) {
-    console.error('Resend Exception:', error);
-    res.status(500).json({ error: 'Error interno del servidor al intentar conectar con Resend' });
+  } catch (error) {    res.status(500).json({ error: 'Error interno del servidor al intentar conectar con Resend' });
   }
 }
