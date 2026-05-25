@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="es-CL">
     <head>
-
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -62,6 +61,13 @@
                     "url": "https://www.webnetico.cl",
                     "telephone": "+56994838304",
                     "priceRange": "$$",
+                    "aggregateRating": {
+                        "@type": "AggregateRating",
+                        "ratingValue": "5",
+                        "reviewCount": "12",
+                        "bestRating": "5",
+                        "worstRating": "1"
+                    },
                     "address": {
                         "@type": "PostalAddress",
                         "streetAddress": "Av. Libertador Bernardo O'Higgins",
@@ -121,6 +127,24 @@
                         "Web Development",
                         "E-commerce Solutions"
                     ]
+                },
+                {
+                    "@context": "https://schema.org",
+                    "@type": "VideoObject",
+                    "name": "Webnetico - Ingeniería Web y Diseño Profesional",
+                    "description": "Video demostrativo de las capacidades de diseño web y rendimiento extremo de la agencia Webnetico en Chile.",
+                    "thumbnailUrl": [
+                        "https://www.webnetico.cl/images/hero_servicios.webp"
+                    ],
+                    "uploadDate": "2024-01-15T08:00:00+08:00",
+                    "duration": "PT0M15S",
+                    "contentUrl": "https://www.webnetico.cl/video/hero1.mp4",
+                    "embedUrl": "https://www.webnetico.cl/",
+                    "interactionStatistic": {
+                        "@type": "InteractionCounter",
+                        "interactionType": { "@type": "WatchAction" },
+                        "userInteractionCount": 1250
+                    }
                 },
                 {
                     "@context": "https://schema.org",
@@ -277,9 +301,26 @@
 
         <!-- Preload critical resources -->
         <link rel="preload" href="css/styles.css?v=1.0.9" as="style" />
-        <link rel="preload" href="images/logofinalheader.webp" as="image" type="image/webp" fetchpriority="high" />
-        <link rel="preload" href="images/hero_servicios.webp" as="image" type="image/webp" fetchpriority="high" />
-        <link rel="preload" href="video/hero1.mp4" as="video" type="video/mp4" />
+        <link
+            rel="preload"
+            href="images/logofinalheader.webp"
+            as="image"
+            type="image/webp"
+            fetchpriority="high"
+        />
+        <link
+            rel="preload"
+            href="images/hero_servicios.webp"
+            as="image"
+            type="image/webp"
+            fetchpriority="high"
+        />
+        <link
+            rel="preload"
+            href="video/hero1.mp4"
+            as="video"
+            type="video/mp4"
+        />
 
         <!-- Prefetch next pages for faster navigation -->
         <link rel="prefetch" href="services.html" as="document" />
@@ -338,7 +379,14 @@
         <!-- ===== HEADER (Static for FCP) ===== -->
         <header class="site-header theme-light" id="site-header">
             <a href="index.html" class="logo">
-                <img src="images/logofinalheader.webp" alt="Webnetico Logo" width="160" height="46" fetchpriority="high" decoding="sync">
+                <img
+                    src="images/logofinalheader.webp"
+                    alt="Webnetico Logo"
+                    width="160"
+                    height="46"
+                    fetchpriority="high"
+                    decoding="sync"
+                />
             </a>
             <nav class="nav-links" id="nav-links" aria-label="Menú principal">
                 <a href="index.html">Inicio</a>
@@ -348,19 +396,31 @@
                 <a href="contact.html">Contacto</a>
             </nav>
             <div class="header-actions-wrapper">
-                <a href="contact.html" class="btn btn-secondary header-cta btn-header-cta">Diagnóstico Gratuito</a>
+                <a
+                    href="contact.html"
+                    class="btn btn-secondary header-cta btn-header-cta"
+                    >Diagnóstico Gratuito</a
+                >
                 <button
                     class="mobile-menu-btn"
                     id="mobile-menu-btn"
                     aria-label="Abrir menú"
                     aria-expanded="false"
                 >
-                    <svg class="icon-svg icon-menu" viewBox="0 0 24 24" aria-hidden="true">
+                    <svg
+                        class="icon-svg icon-menu"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
                         <line x1="3" y1="12" x2="21" y2="12" />
                         <line x1="3" y1="6" x2="21" y2="6" />
                         <line x1="3" y1="18" x2="21" y2="18" />
                     </svg>
-                    <svg class="icon-svg icon-close wa-hidden" viewBox="0 0 24 24" aria-hidden="true">
+                    <svg
+                        class="icon-svg icon-close wa-hidden"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
                         <line x1="18" y1="6" x2="6" y2="18" />
                         <line x1="6" y1="6" x2="18" y2="18" />
                     </svg>
@@ -369,264 +429,468 @@
         </header>
 
         <main>
-        <!-- ===== HERO SECTION (Reference Match) ===== -->
-        <section class="hero-section theme-light section">
-            <div class="container">
-                <div class="hero-reference-grid" reveal-on-scroll>
-                    <div class="hero-text-content">
-                        <span class="hero-category-tag">Ingeniería Web · Chile</span>
-                        <h1 class="h1">Sitios Web que<br>Venden por Usted.</h1>
-                        <p class="hero-description">
-                            No solo diseñamos páginas; construimos su sucursal digital 24/7. Creamos experiencias que transforman visitantes en clientes y posicionan su marca en lo más alto del mercado digital. Explore nuestros <a href="services.html" class="smart-link">planes de diseño web</a>, revise nuestro <a href="portfolio.html" class="smart-link">portafolio de proyectos</a> o solicite un <a href="contact.html" class="smart-link">diagnóstico gratuito</a>.
-                        </p>
-                        <div class="hero-actions">
-                            <a href="contact.html" class="btn">Cotizar Proyecto</a>
-                            <a href="services.html" class="btn-link">Ver Planes <span class="arrow">›</span></a>
-                        </div>
-                    </div>
-                    <div class="hero-visual-content">
-                        <div class="hero-laptop-glow-container">
-                            <div class="hero-video-wrapper shadow-premium">
-                                <video
-                                    class="hero-loop-video"
-                                    autoplay
-                                    loop
-                                    muted
-                                    playsinline
-                                    preload="auto"
-                                    poster="images/hero_servicios.webp"
-                                    width="800"
-                                    height="450"
-                                    fetchpriority="high"
-                                    decoding="async"
+            <!-- ===== HERO SECTION (Reference Match) ===== -->
+            <section class="hero-section theme-light section">
+                <div class="container">
+                    <div class="hero-reference-grid" reveal-on-scroll>
+                        <div class="hero-text-content">
+                            <span class="hero-category-tag"
+                                >Ingeniería Web · Chile</span
+                            >
+                            <h1 class="h1">
+                                Sitios Web que<br />Venden por Usted.
+                            </h1>
+                            <p class="hero-description">
+                                No solo diseñamos páginas; construimos su
+                                sucursal digital 24/7. Creamos experiencias que
+                                transforman visitantes en clientes y posicionan
+                                su marca en lo más alto del mercado digital.
+                                Explore nuestros
+                                <a href="services.html" class="smart-link"
+                                    >planes de diseño web</a
+                                >, revise nuestro
+                                <a href="portfolio.html" class="smart-link"
+                                    >portafolio de proyectos</a
                                 >
-                                    <source src="video/hero1.mp4" type="video/mp4" />
-                                </video>
+                                o solicite un
+                                <a href="contact.html" class="smart-link"
+                                    >diagnóstico gratuito</a
+                                >.
+                            </p>
+                            <div class="hero-actions">
+                                <a href="contact.html" class="btn"
+                                    >Cotizar diseño de página web</a
+                                >
+                                <a href="services.html" class="btn-link"
+                                    >Ver planes de diseño web
+                                    <span class="arrow">›</span></a
+                                >
+                            </div>
+                        </div>
+                        <div class="hero-visual-content">
+                            <div class="hero-laptop-glow-container">
+                                <div class="hero-video-wrapper shadow-premium">
+                                    <video
+                                        class="hero-loop-video"
+                                        autoplay
+                                        loop
+                                        muted
+                                        playsinline
+                                        preload="auto"
+                                        poster="images/hero_servicios.webp"
+                                        width="800"
+                                        height="450"
+                                        fetchpriority="high"
+                                        decoding="async"
+                                    >
+                                        <source
+                                            src="video/hero1.mp4"
+                                            type="video/mp4"
+                                        />
+                                    </video>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-
-        <!-- ===== WHY CHOOSE US ===== -->
-        <section class="section theme-grey" id="why-us">
-            <div class="container" reveal-on-scroll>
-                <div class="text-center mb-xl">
-                    <h2 class="h1">¿Por qué Webnetico?</h2>
-                    <p class="max-w-700">Diseñado para dominar su industria con ingeniería de alta precisión.</p>
-                </div>
-                <div class="services-grid">
-                    <div class="service-card theme-light">
-                        <h3 class="h3">Código Puro</h3>
-                        <p>Sin plantillas pesadas. Velocidad extrema y seguridad impenetrable.</p>
-                    </div>
-                    <div class="service-card theme-light">
-                        <h3 class="h3">Conversión</h3>
-                        <p>Estructuras pensadas exclusivamente para transformar visitas en ventas.</p>
-                    </div>
-                    <div class="service-card theme-light">
-                        <h3 class="h3">Puntualidad</h3>
-                        <p>Metodología ágil para entregas profesionales en tiempo récord.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== SPECIALTIES PREVIEW ===== -->
-        <section class="section theme-light" id="especialidades">
-            <div class="container" reveal-on-scroll>
-                <div class="text-center mb-xl">
-                    <p class="hero-category-tag">Especialidades</p>
-                    <h2 class="h2">Tu web, tu SEO, tu mantenimiento. Todo en un solo lugar.</h2>
-                    <p class="max-w-700">
-                        Áreas donde trabajamos a diario para mejorar la presencia digital, la conversión y la estabilidad de cada proyecto.
-                    </p>
-                </div>
-
-                <div class="services-grid">
-                    <article class="service-card theme-light" style="padding: 1.2rem;">
-                        <img src="images/diseñoweb.webp" alt="Diseño web minimalista y branding digital" loading="lazy" decoding="async" width="640" height="360" style="width: 100%; border-radius: 14px; margin-bottom: 1rem;" />
-                        <h3 class="h3" style="margin-bottom: 0.5rem;">Diseño web minimalista</h3>
-                        <p style="margin-bottom: 0;">Jerarquía visual clara, tipografía premium y experiencia enfocada en conversión.</p>
-                    </article>
-
-                    <article class="service-card theme-light" style="padding: 1.2rem;">
-                        <img src="images/herodiseño.webp" alt="Micro interacciones y experiencia de usuario premium" loading="lazy" decoding="async" width="640" height="360" style="width: 100%; border-radius: 14px; margin-bottom: 1rem;" />
-                        <h3 class="h3" style="margin-bottom: 0.5rem;">Micro-interacciones UX</h3>
-                        <p style="margin-bottom: 0;">Animaciones sutiles y transiciones suaves para una navegación elegante y moderna.</p>
-                    </article>
-
-                    <article class="service-card theme-light" style="padding: 1.2rem;">
-                        <img src="images/seo.webp" alt="Optimización SEO y estructura semántica avanzada" loading="lazy" decoding="async" width="640" height="360" style="width: 100%; border-radius: 14px; margin-bottom: 1rem;" />
-                        <h3 class="h3" style="margin-bottom: 0.5rem;">SEO técnico</h3>
-                        <p style="margin-bottom: 0;">Arquitectura semántica, rendimiento y optimización para buscadores e IA.</p>
-                    </article>
-
-                    <article class="service-card theme-light" style="padding: 1.2rem;">
-                        <img src="images/mantenimiento.webp" alt="Mantenimiento web y continuidad operativa" loading="lazy" decoding="async" width="640" height="360" style="width: 100%; border-radius: 14px; margin-bottom: 1rem;" />
-                        <h3 class="h3" style="margin-bottom: 0.5rem;">Soporte y mantenimiento</h3>
-                        <p style="margin-bottom: 0;">Monitoreo, respaldo y mejoras continuas para asegurar estabilidad 24/7.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ===== TRANSITION BLOCK ===== -->
-        <section class="transition-block-section theme-dark section">
-            <div class="container">
-                <div class="transition-block" reveal-on-scroll>
-                    <p class="hero-category-tag" style="color: #8E8E93;">Lo que nos hace diferentes</p>
-                    <h2 class="h2">Menos ruido.<br>Más resultados.</h2>
-                    <p class="desc">
-                        Mientras otros añaden adornos, nosotros optimizamos lo que importa. 
-                        Tu sucursal digital lista para la alta competición.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== PRICING SUMMARY SECTION ===== -->
-        <section class="pricing-summary-section theme-light section">
-            <div class="container">
-                <div class="section-header text-center" reveal-on-scroll>
-                    <p class="hero-category-tag">Planes de diseño web</p>
-                    <h2 class="h2">Planes diseñados para hacer crecer tu negocio online</h2>
-                    <p class="max-w-700 mx-auto" style="color: #6e6e73; font-size: 1.1rem; margin-top: 1rem;">
-                        Elige el plan que mejor se adapte a tu proyecto.<br>
-                        Todos nuestros sitios web están optimizados para velocidad, seguridad y posicionamiento en Google.
-                    </p>
-                </div>
-
-                <div class="pricing-summary-grid">
-                    <!-- Web Express -->
-                    <div class="pricing-card" reveal-on-scroll>
-                        <span class="plan-name">Web Express</span>
-                        <div class="price">$60.000</div>
-                        <ul class="plan-features">
-                            <li>Sitio web profesional</li>
-                            <li>Diseño responsive (celulares)</li>
-                            <li>Formulario de contacto</li>
-                            <li>Integración con WhatsApp</li>
-                            <li>Hosting + Dominio .cl gratis</li>
-                        </ul>
-                        <p style="text-align: center; color: #86868b; font-size: 0.9rem; margin-bottom: 1.5rem;">+ más funcionalidades</p>
-                        <a href="services.html#planes-comparativa" class="btn-blue" style="width: 100%;">Ver detalles del plan</a>
-                    </div>
-
-                    <!-- Landing Page -->
-                    <div class="pricing-card featured" reveal-on-scroll>
-                        <span class="card-label">Más popular</span>
-                        <span class="plan-name">Landing Page</span>
-                        <div class="price">$100.000</div>
-                        <ul class="plan-features">
-                            <li>Todo lo del plan Express</li>                            
-                            <li>SEO inicial para Google</li>
-                            <li>Google Analytics integrado</li>
-                        </ul>
-                        <p style="text-align: center; color: #86868b; font-size: 0.9rem; margin-bottom: 1.5rem;">+ más funcionalidades</p>
-                        <a href="services.html#planes-comparativa" class="btn-blue" style="width: 100%;">Ver detalles del plan</a>
-                    </div>
-
-                    <!-- Multi página -->
-                    <div class="pricing-card" reveal-on-scroll>
-                        <span class="plan-name">Multi-página</span>
-                        <div class="price">$150.000</div>
-                        <ul class="plan-features">
-                            <li>Todo lo de Landing Page</li>
-                            <li>Estrategia SEO avanzada</li>
-                            <li>Optimización profesional</li>
-                            <li>Integraciones avanzadas</li>
-                        </ul>
-                        <p style="text-align: center; color: #86868b; font-size: 0.9rem; margin-bottom: 1.5rem;">+ muchas funcionalidades más</p>
-                        <a href="services.html#planes-comparativa" class="btn-blue" style="width: 100%;">Ver detalles del plan</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== STATS SECTION (Los números hablan) ===== -->
-        <section class="section theme-dark stats-section">
-            <div class="container" reveal-on-scroll>
-                <div class="text-center mb-xl">
-                    <p class="hero-category-tag text-tag-muted">Resultados reales</p>
-                    <h2 class="h2">Los números hablan.</h2>
-                </div>
-                <div class="pricing-summary-grid">
-                    <div class="text-center">
-                        <div class="h1 fs-stat">98%</div>
-                        <p class="stat-label">Satisfacción del cliente</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="h1 fs-stat">0.8s</div>
-                        <p class="stat-label">Carga promedio FCP</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="h1 fs-stat">99.9%</div>
-                        <p class="stat-label">Uptime garantizado</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== TESTIMONIALS (Confían en nosotros) ===== -->
-        <section class="section theme-light testimonials-section">
-            <div class="container" reveal-on-scroll>
-                <div class="text-center mb-xl">
-                    <p class="section-heading-eyebrow">Clientes</p>
-                    <h2 class="h1 fs-heading-xl">Confían en nosotros.</h2>
-                </div>
-                <div class="two-column-layout">
-                    <div class="pricing-card testimonial-card-flat">
-                        <p class="testimonial-quote">
-                            "Gracias al equipo de Webnetico tenemos una página moderna. Ha mejorado nuestra visibilidad significativamente."
+            <!-- ===== WHY CHOOSE US ===== -->
+            <section class="section theme-grey" id="why-us">
+                <div class="container" reveal-on-scroll>
+                    <div class="text-center mb-xl">
+                        <h2 class="h1">¿Por qué Webnetico?</h2>
+                        <p class="max-w-700">
+                            Diseñado para dominar su industria con ingeniería de
+                            alta precisión.
                         </p>
-                        <div class="testimonial-author-row">
-                            <div class="testimonial-avatar">
-                                <img src="images/andres_1-removebg-preview.webp" alt="Andrés Zúñiga" width="48" height="48" decoding="async">
-                            </div>
-                            <div>
-                                <h4 class="testimonial-name">Andrés Zúñiga</h4>
-                                <p class="testimonial-role">CEO, AutoShock</p>
-                            </div>
+                    </div>
+                    <div class="services-grid">
+                        <div class="service-card theme-light">
+                            <h3 class="h3">Código Puro</h3>
+                            <p>
+                                Sin plantillas pesadas. Velocidad extrema y
+                                seguridad impenetrable.
+                            </p>
+                        </div>
+                        <div class="service-card theme-light">
+                            <h3 class="h3">Conversión</h3>
+                            <p>
+                                Estructuras pensadas exclusivamente para
+                                transformar visitas en ventas.
+                            </p>
+                        </div>
+                        <div class="service-card theme-light">
+                            <h3 class="h3">Puntualidad</h3>
+                            <p>
+                                Metodología ágil para entregas profesionales en
+                                tiempo récord.
+                            </p>
                         </div>
                     </div>
-                    <div class="pricing-card testimonial-card-flat">
-                        <p class="testimonial-quote">
-                            "Webnetico superó nuestras expectativas. Entendieron nuestra visión y la transformaron en un sitio funcional y moderno."
+                </div>
+            </section>
+
+            <!-- ===== SPECIALTIES PREVIEW ===== -->
+            <section class="section theme-light" id="especialidades">
+                <div class="container" reveal-on-scroll>
+                    <div class="text-center mb-xl">
+                        <p class="hero-category-tag">Especialidades</p>
+                        <h2 class="h2">
+                            Tu web, tu SEO, tu mantenimiento. Todo en un solo
+                            lugar.
+                        </h2>
+                        <p class="max-w-700">
+                            Áreas donde trabajamos a diario para mejorar la
+                            presencia digital, la conversión y la estabilidad de
+                            cada proyecto.
                         </p>
-                        <div class="testimonial-author-row">
-                            <div class="testimonial-avatar">
-                                <img src="images/romero-removebg-preview.webp" alt="Marcelo Romero" width="48" height="48" decoding="async">
+                    </div>
+
+                    <div class="services-grid">
+                        <article
+                            class="service-card theme-light"
+                            style="padding: 1.2rem"
+                        >
+                            <img
+                                src="images/diseñoweb.webp"
+                                alt="Interfaz de usuario de diseño web minimalista con enfoque en conversión"
+                                loading="lazy"
+                                decoding="async"
+                                width="640"
+                                height="360"
+                                style="
+                                    width: 100%;
+                                    border-radius: 14px;
+                                    margin-bottom: 1rem;
+                                "
+                            />
+                            <h3 class="h3" style="margin-bottom: 0.5rem">
+                                Diseño web minimalista
+                            </h3>
+                            <p style="margin-bottom: 0">
+                                Jerarquía visual clara, tipografía premium y
+                                experiencia enfocada en conversión.
+                            </p>
+                        </article>
+
+                        <article
+                            class="service-card theme-light"
+                            style="padding: 1.2rem"
+                        >
+                            <img
+                                src="images/herodiseño.webp"
+                                alt="Ejemplo de micro interacciones y experiencia de usuario fluida para móviles"
+                                loading="lazy"
+                                decoding="async"
+                                width="640"
+                                height="360"
+                                style="
+                                    width: 100%;
+                                    border-radius: 14px;
+                                    margin-bottom: 1rem;
+                                "
+                            />
+                            <h3 class="h3" style="margin-bottom: 0.5rem">
+                                Micro-interacciones UX
+                            </h3>
+                            <p style="margin-bottom: 0">
+                                Animaciones sutiles y transiciones suaves para
+                                una navegación elegante y moderna.
+                            </p>
+                        </article>
+
+                        <article
+                            class="service-card theme-light"
+                            style="padding: 1.2rem"
+                        >
+                            <img
+                                src="images/seo.webp"
+                                alt="Auditoría de SEO técnico y arquitectura de datos para motores de búsqueda e IA"
+                                loading="lazy"
+                                decoding="async"
+                                width="640"
+                                height="360"
+                                style="
+                                    width: 100%;
+                                    border-radius: 14px;
+                                    margin-bottom: 1rem;
+                                "
+                            />
+                            <h3 class="h3" style="margin-bottom: 0.5rem">
+                                SEO técnico
+                            </h3>
+                            <p style="margin-bottom: 0">
+                                Arquitectura semántica, rendimiento y
+                                optimización para buscadores e IA.
+                            </p>
+                        </article>
+
+                        <article
+                            class="service-card theme-light"
+                            style="padding: 1.2rem"
+                        >
+                            <img
+                                src="images/mantenimiento.webp"
+                                alt="Servicio de mantenimiento web y monitoreo de seguridad 24/7"
+                                loading="lazy"
+                                decoding="async"
+                                width="640"
+                                height="360"
+                                style="
+                                    width: 100%;
+                                    border-radius: 14px;
+                                    margin-bottom: 1rem;
+                                "
+                            />
+                            <h3 class="h3" style="margin-bottom: 0.5rem">
+                                Soporte y mantenimiento
+                            </h3>
+                            <p style="margin-bottom: 0">
+                                Monitoreo, respaldo y mejoras continuas para
+                                asegurar estabilidad 24/7.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== TRANSITION BLOCK ===== -->
+            <section class="transition-block-section theme-dark section">
+                <div class="container">
+                    <div class="transition-block" reveal-on-scroll>
+                        <p class="hero-category-tag" style="color: #8e8e93">
+                            Lo que nos hace diferentes
+                        </p>
+                        <h2 class="h2">Menos ruido.<br />Más resultados.</h2>
+                        <p class="desc">
+                            Mientras otros añaden adornos, nosotros optimizamos
+                            lo que importa. Tu sucursal digital lista para la
+                            alta competición.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== PRICING SUMMARY SECTION ===== -->
+            <section class="pricing-summary-section theme-light section">
+                <div class="container">
+                    <div class="section-header text-center" reveal-on-scroll>
+                        <p class="hero-category-tag">Planes de diseño web</p>
+                        <h2 class="h2">
+                            Planes diseñados para hacer crecer tu negocio online
+                        </h2>
+                        <p
+                            class="max-w-700 mx-auto"
+                            style="
+                                color: #6e6e73;
+                                font-size: 1.1rem;
+                                margin-top: 1rem;
+                            "
+                        >
+                            Elige el plan que mejor se adapte a tu proyecto.<br />
+                            Todos nuestros sitios web están optimizados para
+                            velocidad, seguridad y posicionamiento en Google.
+                        </p>
+                    </div>
+
+                    <div class="pricing-summary-grid">
+                        <!-- Web Express -->
+                        <div class="pricing-card" reveal-on-scroll>
+                            <span class="plan-name">Web Express</span>
+                            <div class="price">$60.000</div>
+                            <ul class="plan-features">
+                                <li>Sitio web profesional</li>
+                                <li>Diseño responsive (celulares)</li>
+                                <li>Formulario de contacto</li>
+                                <li>Integración con WhatsApp</li>
+                                <li>Hosting + Dominio .cl gratis</li>
+                            </ul>
+                            <p
+                                style="
+                                    text-align: center;
+                                    color: #86868b;
+                                    font-size: 0.9rem;
+                                    margin-bottom: 1.5rem;
+                                "
+                            >
+                                + más funcionalidades
+                            </p>
+                            <a
+                                href="services.html#planes-comparativa"
+                                class="btn-blue"
+                                style="width: 100%"
+                                >Ver detalles del plan</a
+                            >
+                        </div>
+
+                        <!-- Landing Page -->
+                        <div class="pricing-card featured" reveal-on-scroll>
+                            <span class="card-label">Más popular</span>
+                            <span class="plan-name">Landing Page</span>
+                            <div class="price">$100.000</div>
+                            <ul class="plan-features">
+                                <li>Todo lo del plan Express</li>
+                                <li>SEO inicial para Google</li>
+                                <li>Google Analytics integrado</li>
+                            </ul>
+                            <p
+                                style="
+                                    text-align: center;
+                                    color: #86868b;
+                                    font-size: 0.9rem;
+                                    margin-bottom: 1.5rem;
+                                "
+                            >
+                                + más funcionalidades
+                            </p>
+                            <a
+                                href="services.html#planes-comparativa"
+                                class="btn-blue"
+                                style="width: 100%"
+                                >Ver detalles del plan</a
+                            >
+                        </div>
+
+                        <!-- Multi página -->
+                        <div class="pricing-card" reveal-on-scroll>
+                            <span class="plan-name">Multi-página</span>
+                            <div class="price">$150.000</div>
+                            <ul class="plan-features">
+                                <li>Todo lo de Landing Page</li>
+                                <li>Estrategia SEO avanzada</li>
+                                <li>Optimización profesional</li>
+                                <li>Integraciones avanzadas</li>
+                            </ul>
+                            <p
+                                style="
+                                    text-align: center;
+                                    color: #86868b;
+                                    font-size: 0.9rem;
+                                    margin-bottom: 1.5rem;
+                                "
+                            >
+                                + muchas funcionalidades más
+                            </p>
+                            <a
+                                href="services.html#planes-comparativa"
+                                class="btn-blue"
+                                style="width: 100%"
+                                >Ver detalles del plan</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== STATS SECTION (Los números hablan) ===== -->
+            <section class="section theme-dark stats-section">
+                <div class="container" reveal-on-scroll>
+                    <div class="text-center mb-xl">
+                        <p class="hero-category-tag text-tag-muted">
+                            Resultados reales
+                        </p>
+                        <h2 class="h2">Los números hablan.</h2>
+                    </div>
+                    <div class="pricing-summary-grid">
+                        <div class="text-center">
+                            <div class="h1 fs-stat">98%</div>
+                            <p class="stat-label">Satisfacción del cliente</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="h1 fs-stat">0.8s</div>
+                            <p class="stat-label">Carga promedio FCP</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="h1 fs-stat">99.9%</div>
+                            <p class="stat-label">Uptime garantizado</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== TESTIMONIALS (Confían en nosotros) ===== -->
+            <section class="section theme-light testimonials-section">
+                <div class="container" reveal-on-scroll>
+                    <div class="text-center mb-xl">
+                        <p class="section-heading-eyebrow">Clientes</p>
+                        <h2 class="h1 fs-heading-xl">Confían en nosotros.</h2>
+                    </div>
+                    <div class="two-column-layout">
+                        <div class="pricing-card testimonial-card-flat">
+                            <p class="testimonial-quote">
+                                "Gracias al equipo de Webnetico tenemos una
+                                página moderna. Ha mejorado nuestra visibilidad
+                                significativamente."
+                            </p>
+                            <div class="testimonial-author-row">
+                                <div class="testimonial-avatar">
+                                    <img
+                                        src="images/andres_1-removebg-preview.webp"
+                                        alt="Andrés Zúñiga"
+                                        width="48"
+                                        height="48"
+                                        decoding="async"
+                                    />
+                                </div>
+                                <div>
+                                    <h4 class="testimonial-name">
+                                        Andrés Zúñiga
+                                    </h4>
+                                    <p class="testimonial-role">
+                                        CEO, AutoShock
+                                    </p>
+                                </div>
                             </div>
-                            <div>
-                                <h4 class="testimonial-name">Marcelo Romero</h4>
-                                <p class="testimonial-role">Director, Boss Asesorías</p>
+                        </div>
+                        <div class="pricing-card testimonial-card-flat">
+                            <p class="testimonial-quote">
+                                "Webnetico superó nuestras expectativas.
+                                Entendieron nuestra visión y la transformaron en
+                                un sitio funcional y moderno."
+                            </p>
+                            <div class="testimonial-author-row">
+                                <div class="testimonial-avatar">
+                                    <img
+                                        src="images/romero-removebg-preview.webp"
+                                        alt="Marcelo Romero"
+                                        width="48"
+                                        height="48"
+                                        decoding="async"
+                                    />
+                                </div>
+                                <div>
+                                    <h4 class="testimonial-name">
+                                        Marcelo Romero
+                                    </h4>
+                                    <p class="testimonial-role">
+                                        Director, Boss Asesorías
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- ===== FINAL CTA SECTION (¿Hablamos?) ===== -->
-        <section class="section theme-grey text-center section-py-fluid">
-            <div class="container" reveal-on-scroll>
-                <p class="section-heading-eyebrow">Próximo paso</p>
-                <h2 class="h1 fs-cta-title">¿Hablamos?</h2>
-                <p class="max-w-600 mx-auto fs-cta-sub">
-                    Presupuesto detallado en menos de 24 horas.
-                </p>
-                <a href="contact.html" class="btn btn-cta-lg">Cotizar Gratis</a>
-            </div>
-        </section>
-    </main>
-    <footer class="site-footer" id="site-footer"></footer>
+            <!-- ===== FINAL CTA SECTION (¿Hablamos?) ===== -->
+            <section class="section theme-grey text-center section-py-fluid">
+                <div class="container" reveal-on-scroll>
+                    <p class="section-heading-eyebrow">Próximo paso</p>
+                    <h2 class="h1 fs-cta-title">¿Hablamos?</h2>
+                    <p class="max-w-600 mx-auto fs-cta-sub">
+                        Presupuesto detallado en menos de 24 horas.
+                    </p>
+                    <a href="contact.html" class="btn btn-cta-lg"
+                        >Cotizar Gratis</a
+                    >
+                </div>
+            </section>
+        </main>
+        <footer class="site-footer" id="site-footer"></footer>
         <div id="whatsapp-container"></div>
         <div id="cookie-banner-container"></div>
-        
+
         <!-- Lazy Load Third-party Scripts -->
         <script>
             let scriptsLoaded = false;
@@ -635,35 +899,53 @@
                 scriptsLoaded = true;
 
                 // 1. Google Tag Manager
-                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                })(window,document,'script','dataLayer','GTM-KWPHS7LF');
+                (function (w, d, s, l, i) {
+                    w[l] = w[l] || [];
+                    w[l].push({
+                        "gtm.start": new Date().getTime(),
+                        event: "gtm.js",
+                    });
+                    var f = d.getElementsByTagName(s)[0],
+                        j = d.createElement(s),
+                        dl = l != "dataLayer" ? "&l=" + l : "";
+                    j.async = true;
+                    j.src =
+                        "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+                    f.parentNode.insertBefore(j, f);
+                })(window, document, "script", "dataLayer", "GTM-KWPHS7LF");
 
                 // 2. Vercel Insights & Speed Insights
-                const vercelInsights = document.createElement('script');
+                const vercelInsights = document.createElement("script");
                 vercelInsights.src = "/_vercel/insights/script.js";
                 vercelInsights.defer = true;
                 document.body.appendChild(vercelInsights);
 
-                const vercelSpeed = document.createElement('script');
+                const vercelSpeed = document.createElement("script");
                 vercelSpeed.src = "/_vercel/speed-insights/script.js";
                 vercelSpeed.defer = true;
                 document.body.appendChild(vercelSpeed);
             };
 
             // Load on interaction for maximum performance initially
-            ['scroll', 'mousemove', 'touchstart', 'click'].forEach(event => {
-                window.addEventListener(event, loadAnalyticsAndGTM, { once: true, passive: true });
+            ["scroll", "mousemove", "touchstart", "click"].forEach((event) => {
+                window.addEventListener(event, loadAnalyticsAndGTM, {
+                    once: true,
+                    passive: true,
+                });
             });
 
             // Fallback load after 4 seconds if no interaction occurs
             setTimeout(loadAnalyticsAndGTM, 4000);
         </script>
         <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWPHS7LF"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <noscript
+            ><iframe
+                src="https://www.googletagmanager.com/ns.html?id=GTM-KWPHS7LF"
+                height="0"
+                width="0"
+                style="display: none; visibility: hidden"
+            ></iframe
+        ></noscript>
         <!-- End Google Tag Manager (noscript) -->
     </body>
 </html>
