@@ -48,3 +48,25 @@ Para que funcione, debes configurar las siguientes variables de entorno en tu pa
 ---
 
 © 2026 Webnetico Engineering. Valparaíso, Chile.
+
+## Usar pnpm (recomendado)
+
+Se recomienda usar `pnpm` en lugar de `npm` para instalar dependencias y evitar problemas de seguridad asociados al lockfile. Pasos rápidos:
+
+```bash
+# Habilita Corepack (gestor de paquetes incluido en Node moderno)
+corepack enable
+
+# Prepara y activa pnpm (instala localmente la versión indicada)
+corepack prepare pnpm@latest --activate
+
+# Instala dependencias con pnpm
+pnpm install
+```
+
+Si prefieres no usar Corepack, instala pnpm globalmente:
+
+```bash
+npm install -g pnpm
+pnpm install
+```

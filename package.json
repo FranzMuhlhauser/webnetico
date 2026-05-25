@@ -1,6 +1,7 @@
 {
   "name": "webnetico",
   "version": "1.0.0",
+  "packageManager": "pnpm@latest",
   "description": "Webnetico es una agencia especializada en el desarrollo de sitios web de alto rendimiento, optimización SEO avanzada (incluyendo GEO y AEO) y mantenimiento de seguridad web en Chile.",
   "main": "index.js",
   "scripts": {
