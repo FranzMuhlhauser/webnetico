@@ -1,0 +1,57 @@
+# SISTEMA DE EVALUACIÓN FINAL - ENTREGA PREMIUM
+# ========================================
+# INSTRUCCIONES DE EJECUCIÓN
+1. Evalúa cada categoría estrictamente de 0 a 10.
+2. Para cada puntaje, añade 1 línea de justificación técnica entre paréntesis.
+3. Si una categoría no aplica al stack/proyecto, indica "N/A - Justificación breve".
+4. Aplica la ponderación definida. El resultado final debe ser /100.
+5. Determina el estado de entrega según el umbral técnico.
+
+# CATEGORÍAS DE EVALUACIÓN (0-10)
+1. SEO Técnico: Indexabilidad, metadatos, estructura, Schema, rastreo.
+2. AEO: Formato pregunta-respuesta, FAQs, markup directo, probabilidad de Featured Snippet.
+3. GEO: Claridad semántica, densidad de conocimiento, autoridad temática, citabilidad por LLMs.
+4. Performance & Build: Minificación, tree-shaking, code splitting, eliminación de dead code, caché.
+5. Core Web Vitals: LCP <2.5s, CLS <0.1, INP <200ms, priorización de carga crítica.
+6. Optimización de Medios: WebP/AVIF, compresión, srcset, lazy loading, dimensiones explícitas.
+7. Responsive & UX Móvil: Viewport, breakpoints lógicos, tap targets >48px, sin overflow, fluidez.
+8. Experiencia de Usuario (UX): Jerarquía visual, navegación intuitiva, feedback de estados, fricción cero.
+9. Accesibilidad (WCAG 2.2 AA): Contraste ≥4.5:1, focus visible, ARIA correcto, navegación por teclado.
+10. Seguridad & Pre-Producción: HTTPS, headers (CSP, X-Frame, Referrer), sanitización, sin secrets/console.log.
+
+# METODOLOGÍA DE PUNTUACIÓN (obligatoria)
+- 9-10: Implementación óptima. Lista para producción sin ajustes.
+- 7-8: Correcta, pero requiere optimizaciones menores pre-despliegue.
+- 5-6: Deficiente en varios puntos. Riesgo de retrabajo o mala experiencia.
+- 3-4: Problemas estructurales que afectan SEO, rendimiento o seguridad.
+- 0-2: Crítico. Bloquea entrega o expone vulnerabilidades/deuda técnica masiva.
+
+# PONDERACIÓN & CÁLCULO FINAL
+SEO Técnico (15%) | AEO (10%) | GEO (10%) | Performance & Build (15%) | CWV (10%)
+Medios (5%) | Responsive/UX Móvil (10%) | UX General (5%) | Accesibilidad (10%) | Seguridad (10%)
+
+# UMBRAL DE ENTREGA
+🟢 ≥ 90/100: APROBADO para entrega premium. Sin bloqueantes.
+🟡 75-89/100: CONDICIONAL. Requiere ajustes menores documentados antes de handover.
+🔴 < 75/100: NO APROBADO. Correcciones técnicas obligatorias pre-lanzamiento.
+
+# FORMATO DE SALIDA (XML ESTRICTO - SIN TEXTO ADICIONAL)
+<Puntuacion_Final>
+  <Categoria nombre="SEO Tecnico" nota="X/10" justificacion="1 línea técnica"/>
+  <Categoria nombre="AEO" nota="X/10" justificacion="1 línea técnica"/>
+  <Categoria nombre="GEO" nota="X/10" justificacion="1 línea técnica"/>
+  <Categoria nombre="Performance Build" nota="X/10" justificacion="1 línea técnica"/>
+  <Categoria nombre="Core Web Vitals" nota="X/10" justificacion="1 línea técnica"/>
+  <Categoria nombre="Optimizacion Medios" nota="X/10" justificacion="1 línea técnica"/>
+  <Categoria nombre="Responsive UX Movil" nota="X/10" justificacion="1 línea técnica"/>
+  <Categoria nombre="UX General" nota="X/10" justificacion="1 línea técnica"/>
+  <Categoria nombre="Accesibilidad" nota="X/10" justificacion="1 línea técnica"/>
+  <Categoria nombre="Seguridad" nota="X/10" justificacion="1 línea técnica"/>
+  <Puntaje_Ponderado>XX/100</Puntaje_Ponderado>
+  <Estado_Entrega>🟢 APROBADO | 🟡 CONDICIONAL | 🔴 NO APROBADO</Estado_Entrega>
+</Puntuacion_Final>
+
+# RESTRICCIONES
+- Devuelve ÚNICAMENTE el XML especificado.
+- Si falta información para evaluar una categoría, marca "N/A - Requiere: [dato]" y asigna 0/10 temporalmente.
+- No incluyas introducciones, conclusiones, ni texto fuera de las etiquetas.
