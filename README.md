@@ -70,3 +70,18 @@ Si prefieres no usar Corepack, instala pnpm globalmente:
 npm install -g pnpm
 pnpm install
 ```
+
+## Analytics y bloqueadores de anuncios
+
+Hemos cambiado la inclusión automática de Vercel Insights/Speed Insights a un cargador opt-in (`js/insights-optin.js`) para evitar errores en consola causados por extensiones tipo adblock (`net::ERR_BLOCKED_BY_CLIENT`).
+
+- Para habilitar las métricas en tu navegador localmente, ejecuta en la consola del sitio:
+
+```js
+localStorage.setItem('allowInsights','1');
+// o llamar a la función expuesta
+window.enableInsights && window.enableInsights();
+```
+
+- Si quieres probar sin interferencias, desactiva temporalmente el adblocker para el dominio.
+- Si prefieres que las métricas estén siempre activas, podemos añadir un banner de consentimiento y habilitarlas automáticamente cuando el usuario acepte.
