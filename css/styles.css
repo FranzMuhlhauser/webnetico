@@ -3207,7 +3207,9 @@ img {
     bottom: -100%;
     left: 0;
     right: 0;
-    background: var(--card-bg);
+    /* Use a dedicated variable so we can increase opacity for the cookie banner
+       without affecting other components. Default provides strong contrast on dark themes. */
+    background: var(--cookie-bg, rgba(0,0,0,0.75));
     border-top: 1px solid var(--border-color);
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
     z-index: 9999;
@@ -3240,7 +3242,7 @@ img {
     display: block;
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
-    color: var(--text-primary);
+    color: var(--cookie-text, var(--text-primary));
 }
 
 .cookie-banner-text p {
@@ -3299,8 +3301,8 @@ img {
 
 .cookie-btn-secondary {
     background: transparent;
-    color: var(--text-secondary);
-    border: 1px solid var(--border-color);
+    color: var(--cookie-text, var(--text-secondary));
+    border: 1px solid rgba(255,255,255,0.12);
 }
 
 .cookie-btn-secondary:hover {
@@ -3343,6 +3345,19 @@ img {
         width: 100%;
         text-align: center;
     }
+}
+
+/* Theme overrides: light theme should use light cookie background with dark text */
+.theme-light .cookie-banner {
+    --cookie-bg: rgba(255,255,255,0.96);
+    --cookie-text: #111827; /* dark text */
+    border-top-color: rgba(0,0,0,0.06);
+}
+
+/* If there's a grey/light theme variant */
+.theme-grey .cookie-banner {
+    --cookie-bg: rgba(255,255,255,0.98);
+    --cookie-text: #111827;
 }
 
 @media (max-width: 480px) {

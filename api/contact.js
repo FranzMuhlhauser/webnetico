@@ -46,7 +46,14 @@ export default async function handler(req, res) {
   try {
     if (DEBUG) {
       try {
+        console.log('[DEBUG] /api/contact request method:', req.method);
         console.log('[DEBUG] /api/contact request keys:', Object.keys(req.body || {}));
+        // mostrar origen y content-type para diagnostico
+        console.log('[DEBUG] /api/contact headers:', {
+          origin: req.headers && req.headers.origin,
+          referer: req.headers && req.headers.referer,
+          'content-type': req.headers && req.headers['content-type'],
+        });
       } catch (e) {}
     }
     const response = await fetch('https://api.resend.com/emails', {
