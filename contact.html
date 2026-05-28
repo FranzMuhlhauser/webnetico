@@ -56,6 +56,7 @@
     <!-- Non-critical CSS loaded asynchronously -->
     <link rel="preload" href="css/styles.min.css?v=1.0.12" as="style" />
     <link rel="stylesheet" href="css/styles.min.css?v=1.0.12" />
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
     <script src="js/main.js" defer></script>
     <script src="js/contact-form.js" defer></script>
 
@@ -175,6 +176,7 @@
         <a href="portfolio.html">Portafolio</a>
         <a href="insights.html">Insights</a>
         <a href="contact.html">Contacto</a>
+                <a href="contact.html#agenda-cita">Agendar cita</a>
       </nav>
 
       <div class="header-actions-wrapper">
@@ -280,6 +282,13 @@
                     Valparaíso, Chile<br />
                     <span class="fs-tiny text-muted">Servicio con alcance global.</span>
                   </p>
+                </div>
+                <div class="contact-info-item mini-card">
+                  <h3 class="contact-info-label">Reserva directa</h3>
+                  <p class="contact-info-value">
+                    <a href="https://calendly.com/contacto-webnetico/30min" target="_blank" rel="noopener noreferrer">Agendar reunión de 30 minutos</a>
+                  </p>
+                  <p class="fs-tiny text-muted">Elige fecha y hora al instante con Calendly.</p>
                 </div>
               </div>
             </div>
@@ -435,6 +444,20 @@
           </div>
         </div>
       </section>
+
+      <section class="section theme-light section-border" aria-label="Agenda tu cita" id="agenda-cita">
+        <div class="container">
+          <div class="section-header">
+            <p class="eyebrow">Reserva</p>
+            <h2>Agenda tu diagnóstico de 30 minutos</h2>
+            <p class="section-copy">Selecciona la hora que mejor te convenga y reserva una llamada directa con nuestro equipo.</p>
+          </div>
+          <div class="bg-card p-3 border-all br-lg">
+            <a href="https://calendly.com/contacto-webnetico/30min" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" aria-label="Abrir calendario Calendly">Abrir Calendario</a>
+            <div class="calendly-inline-widget" data-url="https://calendly.com/contacto-webnetico/30min" style="min-width:320px;height:720px;margin-top:1.5rem;"></div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- ===== FOOTER / COMPONENTS ===== -->
@@ -457,6 +480,7 @@
           <li><a href="portfolio.html"><span>Portafolio</span></a></li>
           <li><a href="insights.html"><span>Insights</span></a></li>
           <li><a href="contact.html"><span>Contacto</span></a></li>
+          <li><a href="https://calendly.com/contacto-webnetico/30min" target="_blank" rel="noopener noreferrer"><span>Agenda tu cita</span></a></li>
         </ul>
       </div>
 
@@ -703,6 +727,7 @@
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
 
+    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
     <!-- ===== Optional micro-interaction: subtle form glow ===== -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
