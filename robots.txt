@@ -16,18 +16,11 @@ Disallow: /components/
 
 # No seguir enlaces de login o admin
 Disallow: /*?
-Disallow: /*.php
-Disallow: /*.cgi
 
 # Evitar duplicación de contenido
 
 # Velocidad de crawl (opcional, usar con precaución)
 Crawl-delay: 1
-
-# Googlebot específico
-User-agent: Googlebot
-Allow: /
-Disallow: /components/
 
 # Googlebot Image
 User-agent: Googlebot-Image

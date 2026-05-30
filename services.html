@@ -1,23 +1,6 @@
 <!doctype html>
 <html lang="es-CL">
     <head>
-        <!-- Google Tag Manager -->
-        <script>
-            (function (w, d, s, l, i) {
-                w[l] = w[l] || [];
-                w[l].push({
-                    "gtm.start": new Date().getTime(),
-                    event: "gtm.js",
-                });
-                var f = d.getElementsByTagName(s)[0],
-                    j = d.createElement(s),
-                    dl = l != "dataLayer" ? "&l=" + l : "";
-                j.async = true;
-                j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-                f.parentNode.insertBefore(j, f);
-            })(window, document, "script", "dataLayer", "GTM-KWPHS7LF");
-        </script>
-        <!-- End Google Tag Manager -->
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <meta name="theme-color" content="#050507" />
@@ -45,6 +28,10 @@
         <meta
             property="og:url"
             content="https://www.webnetico.cl/services.html"
+        />
+        <meta
+            property="og:image"
+            content="https://www.webnetico.cl/images/logofinal.webp"
         />
 
         <!-- Structured Data - Optimizado para SEO, GEO y AEO -->
@@ -344,6 +331,53 @@
         <script src="js/main.js" defer></script>
         <!-- Vercel Analytics & Speed Insights (opt-in loader) -->
         <script defer src="js/insights-optin.js"></script>
+
+        <!-- Lazy Load Third-party Scripts -->
+        <script>
+            let scriptsLoaded = false;
+            const loadAnalyticsAndGTM = () => {
+                if (scriptsLoaded) return;
+                scriptsLoaded = true;
+
+                // 1. Google Tag Manager
+                (function (w, d, s, l, i) {
+                    w[l] = w[l] || [];
+                    w[l].push({
+                        "gtm.start": new Date().getTime(),
+                        event: "gtm.js",
+                    });
+                    var f = d.getElementsByTagName(s)[0],
+                        j = d.createElement(s),
+                        dl = l != "dataLayer" ? "&l=" + l : "";
+                    j.async = true;
+                    j.src =
+                        "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+                    f.parentNode.insertBefore(j, f);
+                })(window, document, "script", "dataLayer", "GTM-KWPHS7LF");
+
+                // 2. Vercel Insights & Speed Insights
+                const vercelInsights = document.createElement("script");
+                vercelInsights.src = "/_vercel/insights/script.js";
+                vercelInsights.defer = true;
+                document.body.appendChild(vercelInsights);
+
+                const vercelSpeed = document.createElement("script");
+                vercelSpeed.src = "/_vercel/speed-insights/script.js";
+                vercelSpeed.defer = true;
+                document.body.appendChild(vercelSpeed);
+            };
+
+            // Load on interaction for maximum performance initially
+            ["scroll", "mousemove", "touchstart", "click"].forEach((event) => {
+                window.addEventListener(event, loadAnalyticsAndGTM, {
+                    once: true,
+                    passive: true,
+                });
+            });
+
+            // Fallback load after 4 seconds if no interaction occurs
+            setTimeout(loadAnalyticsAndGTM, 4000);
+        </script>
     </head>
     <body>
     <a class="skip-link" href="#main-content">Saltar al contenido</a>
