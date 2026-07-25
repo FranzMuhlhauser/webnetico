@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "skills": {
+    "code-auditor": {
+      "source": "mhattingpete/claude-skills-marketplace",
+      "sourceType": "github",
+      "skillPath": "productivity-skills-plugin/skills/code-auditor/SKILL.md",
+      "computedHash": "0e256f0158b9cc5ececffc81d628bf09addf6fa59fba2f2bde8f22e22e20205a"
+    },
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "computedHash": "93f53fd1c0352d3d7ec17b8f73d7351bf76f4821e55d123c9d2abc2c53ba48e4"
+    },
+    "production-code-audit": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/production-code-audit/SKILL.md",
+      "computedHash": "90c6a9b234d15d81b92dbb49afa8099e6e347cd5b23d8e0f67328dffed61e98d"
+    },
+    "skill-sentinel": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/skill-sentinel/SKILL.md",
+      "computedHash": "6034831aa2248bf185054394b313215ba6bd05c572204f12a0e9b65d8484daf1"
+    },
+    "ui-ux-pro-max": {
+      "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/ui-ux-pro-max/SKILL.md",
+      "computedHash": "ce0af583006d2fd4731663adc50c0a5df1121f0d49a5bb9c308eca4ee295c60a"
+    },
+    "web-design-guidelines": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/web-design-guidelines/SKILL.md",
+      "computedHash": "f3bc47f890f42a44db1007ab390709ec368e4b8c089baee6b0007182236ac474"
+    }
+  }
+}
