@@ -21,12 +21,22 @@ Este proyecto está construido con **código puro (Vanilla JavaScript, HTML5 y C
 - `index.html`: Página principal.
 - `services.html`: Detalle de servicios de diseño y mantenimiento.
 - `portfolio.html`: Casos de éxito y portafolio de proyectos.
+- `about.html`: Página "Sobre mí" con foto, biografía y Person + BreadcrumbList + Speakable schema.
+- `blog.html`: Listado de artículos del blog con CollectionPage schema.
+- `blog/`: Artículos del blog (cada uno con Article + FAQPage schema).
 - `insights.html`: Artículos y contenido de autoridad.
 - `contact.html`: Formulario de contacto avanzado.
+- `diseno-web-santiago.html`: Landing SEO para diseño web en Santiago.
+- `diseno-web-vina.html`: Landing SEO para diseño web en Viña del Mar.
+- `diseno-web-valparaiso.html`: Landing SEO para diseño web en Valparaíso.
+- `precio-diseno-web-chile.html`: Landing SEO para precios de diseño web en Chile.
 - `components/`: Fragmentos de HTML reutilizables (Header, Footer, WhatsApp).
 - `css/`: Estilos globales y específicos.
 - `js/`: Lógica del sitio, carga de componentes y gestión de formularios.
 - `images/`: Recursos visuales optimizados en formato WebP y SVG.
+- `sitemap.xml`: Sitemap con todas las URLs del sitio.
+- `robots.txt`: Configuración de crawling.
+- `docs/`: Documentación técnica y de investigación.
 
 ## Características Destacadas
 

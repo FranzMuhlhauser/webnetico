@@ -1,5 +1,33 @@
 # Changelog
 
+## [1.3.0] - 2026-07-25
+
+### Added
+
+- **about.html**: Página "Sobre mí" con foto, biografía y Person + BreadcrumbList + Speakable schema.
+- **blog.html**: Listado del blog con CollectionPage schema y tarjeta de artículo.
+- **blog/cuanto-cuesta-una-pagina-web-en-chile.html**: Artículo completo con tabla de precios, FAQ accordion, Article + BreadcrumbList + FAQPage + WebPage schema.
+- **diseno-web-santiago.html**: Landing SEO para diseño web en Santiago (BreadcrumbList + WebPage + FAQPage schema).
+- **diseno-web-vina.html**: Landing SEO para diseño web en Viña del Mar (BreadcrumbList + WebPage + FAQPage schema).
+- **diseno-web-valparaiso.html**: Landing SEO para diseño web en Valparaíso (BreadcrumbList + WebPage + FAQPage schema).
+- **precio-diseno-web-chile.html**: Landing SEO para precios de diseño web en Chile (BreadcrumbList + WebPage + FAQPage schema).
+- **Link "Blog"** agregado al nav y footer de todas las páginas.
+
+### Fixed
+
+- **URLs canónicas en blog article**: eliminada extensión .html para compatibilidad con `cleanUrls` en vercel.json.
+- **Precios en blog article**: actualizados según investigación de mercado (Web Express: $250k, Landing: $350k, Multi: $550k).
+- **robots.txt**: regla `Disallow: /*?` eliminada.
+- **services.html**: precios corregidos en JSON-LD ($250k / $350k / $550k).
+
+### Changed
+
+- **about.html**: hero actualizado con datos del CV, tagline profesional.
+- **insights.html**: enlace directo al artículo reemplazado por enlace al listado blog.html.
+- **sitemap.xml**: URLs nuevas agregadas (about, blog, 4 landings).
+
+---
+
 ## [1.1.1] - 2026-07-24
 
 ### Corregido
