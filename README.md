@@ -95,3 +95,13 @@ window.enableInsights && window.enableInsights();
 
 - Si quieres probar sin interferencias, desactiva temporalmente el adblocker para el dominio.
 - Si prefieres que las métricas estén siempre activas, podemos añadir un banner de consentimiento y habilitarlas automáticamente cuando el usuario acepte.
+
+## Próximos pasos SEO
+
+### Pendientes de indexar en Google Search Console
+
+- `https://www.webnetico.cl/diseno-web-valparaiso`
+- `https://www.webnetico.cl/precio-diseno-web-chile`
+- `https://www.webnetico.cl/contact.html`
+- `https://www.webnetico.cl/privacy.html`
+- `https://www.webnetico.cl/terms.html`
