@@ -1,0 +1,73 @@
+<Errores_Criticos>
+• [CRÍTICA] Problema: Contraste de colores falla WCAG AA — --text-muted (#6e6e73) y --text-secondary (#86868b) no alcanzan ratio mínimo 4.5:1 en fondos oscuros y claros | Impacto: Accesibilidad | Solución: Oscurecer --text-muted a #595959 y --text-secondary a #595959 (o similar) para alcanzar ≥4.5:1 | Evidencia: 🟢 Hecho confirmado — css/styles.css:620-621, usado en 30+ selectores
+• [CRÍTICA] Problema: CORS abierto `Access-Control-Allow-Origin: *` en api/contact.js:10 permite cualquier origen enviar formularios | Impacto: Seguridad | Solución: Restringir a `https://www.webnetico.cl` específicamente | Evidencia: 🟢 Hecho confirmado — api/contact.js:10
+• [CRÍTICA] Problema: Sin rate limiting en endpoint /api/contact — vulnerable a spam y agotamiento de cuota Resend | Impacto: Seguridad | Solución: Implementar rate limiting via Vercel Edge Config, middleware, o bucket pattern en serverless function | Evidencia: 🟢 Hecho confirmado — api/contact.js:8-121 sin restricciones de tasa
+• [CRÍTICA] Problema: Focus states ausentes en nav links, botones interactivos y elementos de navegación — solo cookie banner tiene :focus-visible | Impacto: Accesibilidad | Solución: Agregar estilos :focus-visible globales para nav a, .btn, .faq-header, .plan-card-btn, .whatsapp-btn | Evidencia: 🟢 Hecho confirmado — css/styles.css solo tiene focus-visible en líneas 3303, 3337, 3394 (cookie banner)
+• [CRÍTICA] Problema: CSP script-src usa 'unsafe-inline' en vercel.json:34 — permite cualquier script inline, debilita protección XSS | Impacto: Seguridad | Solución: Migrar scripts inline (cookie banner, GTM loader, analytics) a archivos externos, usar nonces o hashes | Evidencia: 🟢 Hecho confirmado — vercel.json:34
+• [CRÍTICA] Problema: CERO tests automatizados — package.json:8 tiene script test vacío, sin archivos .test.* ni .spec.* | Impacto: Mantenibilidad | Solución: Agregar tests básicos: (1) unit test para escapeHtml() en api/contact.js, (2) test de integración para endpoint POST /api/contact | Evidencia: 🟢 Hecho confirmado — package.json:8, directorio sin archivos de test
+</Errores_Criticos>
+
+<Oportunidades_Mejora>
+• [ALTA] Optimización: CSS monolítico 48KB minificado cargado en todas las páginas — cada página usa ~60-70% del CSS | Beneficio: Rendimiento — reducir FCP/LCP al eliminar CSS no utilizado | Implementación: (1) Identificar CSS por página con herramientas como purgecss, (2) Crear styles-services.css, styles-contact.css, etc., (3) O usar critical CSS inlining + carga diferida del CSS completo | Evidencia: 🟢 — css/styles.min.css:48KB, 3514 líneas
+• [ALTA] Optimización: Sin herramientas de linting/formatting — sin ESLint, Prettier, ni configuración de calidad | Beneficio: Mantenibilidad — prevenir bugs, mantener consistencia de código | Implementación: (1) npm i -D eslint prettier, (2) Configuración mínima .eslintrc.json con reglas essenciales, (3) Agregar scripts lint y format a package.json | Evidencia: 🟢 — package.json sin devDependencies
+• [ALTA] Optimización: Cookie banner HTML (~115 líneas) duplicado idénticamente en 8 archivos HTML | Beneficio: Mantenibilidad — cambio en un solo lugar | Implementación: (1) Crear cookie-banner.js que injecte el HTML dinámicamente, (2) Cargar desde un solo archivo, (3) Mantener components/cookie-banner.html como fuente | Evidencia: 🟢 — Todos los archivos HTML contienen el mismo cookie banner
+• [ALTA] Optimización: .gitignore mínimo (2 líneas) — no excluye .env, node_modules, OS files | Beneficio: Seguridad — prevenir commits de secrets y archivos innecesarios | Implementación: Agregar: .env, .env.*, node_modules/, .DS_Store, Thumbs.db, *.log | Evidencia: 🟢 — .gitignore:2 líneas
+• [ALTA] Optimización: Sin validación server-side de formato de email en api/contact.js:32-34 | Beneficio: Seguridad — prevenir emails inválidos y ahorrar llamadas a Resend API | Implementación: Agregar regex `/^[^\s@]+@[^\s@]+\.[^\s@]+$/` antes de procesar | Evidencia: 🟢 — api/contact.js:32 solo verifica existencia
+• [ALTA] Optimización: Sin límites de longitud en inputs (name, subject, message) en api/contact.js | Beneficio: Seguridad — prevenir payloads excesivamente grandes | Implementación: Agregar maxLength: name(100), subject(200), message(5000) | Evidencia: 🟢 — api/contact.js:23-29 sin restricciones
+• [MEDIA] Optimización: ~100+ inline style="" en archivos HTML — subutiliza sistema de diseño CSS | Beneficio: Mantenibilidad — consistencia, reutilización, menor HTML | Implementación: (1) Migrar estilos repetidos a utility classes en CSS, (2) Crear clases .mb-1rem, .max-w-640px, etc. | Evidencia: 🟢 — 100+ instancias en index.html, services.html, portfolio.html, etc.
+• [MEDIA] Optimización: GTM cargado sincrónicamente en contact.html (render-blocking) vs lazy load en index.html | Beneficio: Rendimiento — mejorar FCP en página de contacto | Implementación: Mism patrón de index.html: cargar en primera interacción con fallback 4s | Evidencia: 🟢 — contact.html carga GTM en head sin defer
+• [MEDIA] Optimización: sitemap.xml falta privacy.html y terms.html | Beneficio: SEO — páginas reales con contenido indexables | Implementación: Agregar URLs con priority 0.3 y changefreq monthly | Evidencia: 🟢 — sitemap.xml solo tiene 5 páginas
+• [MEDIA] Optimización: robots.txt faltaDisallow para /scripts/ y /api/ | Beneficio: SEO — evitar indexación de archivos internos | Implementación: Agregar Disallow: /scripts/ y Disallow: /api/ | Evidencia: 🟢 — robots.txt:15 solo bloquea /components/
+• [MEDIA] Optimización: 16 declaraciones !important en CSS (5 en footer) — guerras de especificidad | Beneficio: Mantenibilidad — CSS más limpio y predecible | Implementación: Refactorizar selectores con mayor especificidad en vez de !important | Evidencia: 🟢 — css/styles.css:83,598-601,735,3056,3059,3068-3070,3082,3113,3115-3116
+• [MEDIA] Optimización: Twitter Cards usan property="twitter:*" en vez de name="twitter:*" | Beneficio: SEO — cumplir con especificación oficial de Twitter/X | Implementación: Cambiar property por name en todas las meta tags de Twitter | Evidencia: 🟢 — index.html meta tags Twitter
+• [MEDIA] Optimización: Footer logo usa height="auto" en vez de dimensión explícita | Beneficio: CLS — prevenir layout shift | Implementación: Usar height="46" (misma proporción que width="180") | Evidencia: 🟢 — index.html footer logo
+• [MEDIA] Optimización: Testimonial avatars sin loading="lazy" (posición media de página) | Beneficio: Rendimiento — cargar bajo fold solo cuando sea necesario | Implementación: Agregar loading="lazy" decoding="async" | Evidencia: 🟢 — index.html testimonial images
+• [MEDIA] Optimización: error messages en api/contact.js:116 filtran detalles de Resend API | Beneficio: Seguridad — no exponer implementación interna | Implementación: Usar mensaje genérico "Error al enviar el mensaje" | Evidencia: 🟢 — api/contact.js:116
+• [MEDIA] Optimización: reply_to usa mailto sin encodeURIComponent en api/contact.js:74 | Beneficio: Seguridad — prevenir inyección en URI mailto | Implementación: Usar encodeURIComponent(safeEmailDisplay) | Evidencia: 🟢 — api/contact.js:74
+• [MEDIA] Optimización: inputs no stripan newlines (\r\n) — vulnerable a email header injection | Beneficio: Seguridad — prevenir inyección SMTP | Implementación: Agregar .replace(/[\r\n]/g, '') antes de escapeHtml | Evidencia: 🟢 — api/contact.js:25-29
+• [MEDIA] Optimización: scripts/send_real_from_csv.mjs referencia CSV de API keys local | Beneficio: Seguridad — prevenir exposición accidental de keys | Implementación: Agregar scripts/ a .gitignore o eliminar archivo | Evidencia: 🟢 — scripts/send_real_from_csv.mjs:5
+• [MEDIA] Optimización: contact-form.js re-define trackEvent y dataLayer redundante | Beneficio: Mantenibilidad — código duplicado | Implementación: Extraer tracking a módulo compartido o usar global de main.js | Evidencia: 🟢 — contact-form.js redefine funciones de main.js
+• [BAJA] Optimización: Footer layout usa grid-template-columns en padre display:flex (dead code) | Beneficio: Rendimiento — eliminar CSS muerto | Implementación: Remover declaraciones grid en media queries del footer | Evidencia: 🟢 — css/styles.css footer media queries
+• [BAJA] Optimización: WhatsApp drawer sin focus trap para navegación por teclado | Beneficio: Accesibilidad — mejorar UX para usuarios de teclado | Implementación: Implementar focus trap al abrir drawer, return focus al cerrar | Evidencia: 🟡 Inferencia probable — main.js:266-284 sin focus management
+• [BAJA] Optimización: VideoObject.uploadDate (2024-01-15) y userInteractionCount (1250) pueden ser fabricados | Beneficio: SEO — evitar penalización por datos falsos en structured data | Implementación: Verificar que datos reflejen métricas reales | Evidencia: 🟡 Inferencia probable — index.html JSON-LD
+• [BAJA] Optimización: aggregateRating (5 estrellas, 12 reviews) puede no ser verificable | Beneficio: SEO — evitar penalización por rating no auténtico | Implementación: Verificar que rating sea de fuente confiable (Google My Business, etc.) | Evidencia: 🟡 Inferencia probable — index.html JSON-LD
+</Oportunidades_Mejora>
+
+<Analisis_AEO>
+Probabilidad Featured Snippets: Alta - Justificación: FAQPage Schema con 6 preguntas-respuesta bien estructurado, HowTo Schema con 5 pasos, SpeakableSpecification para voz/IA, contenido en formato Q&A directo
+Schemas implementados: ProfessionalService, VideoObject, BreadcrumbList, WebPage (con speakable), FAQPage, HowTo, Article | Schemas faltantes críticos: LocalBusiness (recomendado para reemplazar ProfessionalService para SEO local), Service (para cada servicio ofrecido)
+</Analisis_AEO>
+
+<Analisis_GEO>
+Claridad semántica: 8/10 - (Estructura HTML semántica con nav, main, section, article; headings jerárquicos H1-H4; contenido denso y directo)
+Probabilidad de citación por IA: Alta - Factores clave: ProfessionalService schema con knowsAbout y serviceType, FAQPage con respuestas concisas, WebPage con speakable, densidad de conocimiento técnica en contenido, interconexión temática entre páginas
+</Analisis_GEO>
+
+<Puntaje_Fase1>
+Estructura Código: 5/10 - (Vanilla JS limpio y bien optimizado, pero sin build tools, sin tests, sin linting, componentes duplicados en 8 archivos, CSS monolítico)
+SEO Técnico: 9/10 - (Schema.org con 7 tipos excelente, title/meta/canonical/hreflang óptimos, sitemap/robots buenos con gaps menores)
+AEO: 8/10 - (FAQPage y HowTo Schema presentes, SpeakableSpecification, formato Q&A bien estructurado, falta LocalBusiness y Service schemas)
+GEO: 8/10 - (Alta claridad semántica, densidad informativa buena, autoridad técnica en markup, interconexión temática entre páginas)
+Performance/Build: 6/10 - (JS excelente con IntersectionObserver/passive listeners/throttled scroll, pero CSS 48KB innecesario por página, sin code splitting ni minificación automatizada)
+UX/Responsividad: 8/10 - (Fluid typography con clamp, media queries lógicas, mobile-first, transiciones suaves, prefers-reduced-motion respetado)
+Accesibilidad: 4/10 - (Contraste falla WCAG AA en 2 colores principales, focus states ausentes en nav/buttons, FAQ no navegable por teclado, skip links presentes)
+Seguridad: 6/10 - (Headers HSTS/X-Frame/XSS-Protection buenos, pero CORS abierto *, sin rate limiting, CSP unsafe-inline, .gitignore mínimo)
+CRO/Entrega: 8/10 - (GTM + Vercel Analytics configurados, eventos de conversión en dataLayer, formularios con validación, documentación presente)
+</Puntaje_Fase1>
+
+<Checklist_PreLanzamiento>
+⚠️ Eliminar console.log, debuggers y comentarios de desarrollo — 4 console.log en api/contact.js:49-52,105 (gated por DEBUG flag, aceptable en desarrollo pero no en producción)
+✅ Validar variables de entorno y secrets management — RESEND_API_KEY desde process.env, no hardcodeada
+❌ Confirmar minificación, tree-shaking y code splitting activos — Sin build system, CSS minificado manualmente, sin tree-shaking, sin code splitting
+✅ Verificar metadatos SEO/OG dinámicos por ruta — Title, meta description, OG tags, Twitter Cards presentes en todas las páginas
+❌ Probar contraste, focus states y navegación por teclado — --text-muted y --text-secondary fallan WCAG AA, focus states ausentes en nav, FAQ no navegable por teclado
+✅ Confirmar tracking (GA4/Píxeles) y eventos de conversión — GTM-KWPHS7LF configurado, Vercel Analytics opt-in, dataLayer events para CTA clicks y form submissions
+⚠️ Generar sitemap.xml y robots.txt para producción — Sitemap presente pero falta privacy.html y terms.html; robots.txt faltaDisallow para /scripts/ y /api/
+✅ Documentar estructura, mantenimiento y escalabilidad — README.md y CHANGELOG.md presentes
+</Checklist_PreLanzamiento>
+
+<Notas_Entrega>
+- Estado actual: Sitio web funcional y optimizado con SEO excepcional, pero con deuda técnica en accesibilidad (contraste, focus, teclado), seguridad (CORS, rate limiting, CSP), y mantenibilidad (sin tests, sin linting, componentes duplicados)
+- Riesgos conocidos: (1) Violaciones WCAG AA pueden generar demandas de accesibilidad, (2) CORS abierto permite spam en formulario de contacto, (3) Sin rate limiting puede agotar cuota Resend, (4) CSS monolítico afecta métricas de rendimiento
+- Recomendaciones: (1) Priorizar corrección de contraste de colores y focus states (impacto alto, esfuerzo bajo), (2) Restringir CORS y agregar rate limiting antes de launch, (3) Considerar agregar build mínimo (esbuild/PurgeCSS) para CSS splitting
+</Notas_Entrega>

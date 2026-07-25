@@ -52,4 +52,22 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="es-CL" href="https://www.webnetico.cl/contact.html"/>
   </url>
+
+  <!-- Política de Privacidad -->
+  <url>
+    <loc>https://www.webnetico.cl/privacy.html</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="es-CL" href="https://www.webnetico.cl/privacy.html"/>
+  </url>
+
+  <!-- Términos y Condiciones -->
+  <url>
+    <loc>https://www.webnetico.cl/terms.html</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="es-CL" href="https://www.webnetico.cl/terms.html"/>
+  </url>
 </urlset>

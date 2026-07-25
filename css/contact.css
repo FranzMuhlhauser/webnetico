@@ -1,0 +1,204 @@
+/* contact.css — Estilos específicos de contact.html */
+
+/* ===== CONTACT ===== */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 6rem;
+    margin-top: 3rem;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+    width: 100%;
+    padding: 1.2rem;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+    color: var(--text-primary);
+    border-radius: var(--border-radius-md);
+    font-family: inherit;
+    transition: var(--transition-fast);
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background: var(--card-hover-bg);
+}
+
+.form-select option {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 180px;
+}
+
+.contact-info-item {
+    margin-bottom: 3rem;
+}
+
+.contact-info-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent-color);
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+}
+
+.contact-info-value {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--text-primary);
+}
+
+.contact-info-value a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.contact-info-value a:hover {
+    color: var(--accent-color);
+}
+
+/* ===== PLAN SELECTOR (Contact) ===== */
+.plan-selector-grid {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--border-color);
+}
+
+.plan-selector-col {
+    flex: 1;
+}
+
+.plan-selector-col h4 {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.plan-option-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1rem 1.5rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+}
+
+.plan-option-btn:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    background: var(--card-hover-bg);
+}
+
+.plan-option-btn.selected {
+    border-color: var(--accent-color);
+    background: var(--accent-color);
+    box-shadow: 0 0 20px var(--accent-glow);
+    color: #fff;
+}
+
+.plan-option-indicator {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+    flex-shrink: 0;
+}
+
+.plan-option-btn.selected .plan-option-indicator {
+    background: #fff;
+    border-color: #fff;
+    position: relative;
+}
+
+.plan-option-btn.selected .plan-option-indicator::after {
+    content: "✓";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--accent-color);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.plan-options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.contact-info-value .fs-tiny {
+    font-size: 0.9rem;
+}
+
+.plan-selector-col h4 {
+    color: var(--accent-color);
+}
+
+.plan-selector-col .plan-options-list {
+    margin-top: 1rem;
+}
+
+.plan-selector-other {
+    margin-top: 1rem;
+}
+
+.form-submit-btn {
+    width: 100%;
+}
+
+/* ===== PLAN SELECTOR FIELDSET (Accessibility reset) ===== */
+.plan-selector-fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+}
+
+.plan-selector-fieldset legend.form-label {
+    float: left;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0;
+}
+
+.plan-selector-fieldset legend.form-label + * {
+    clear: both;
+}

@@ -1,0 +1,166 @@
+/* services.css — Estilos específicos de services.html */
+
+/* Services page */
+.h1.fs-hero-services {
+    font-size: clamp(2rem, 8vw, 4.5rem);
+}
+
+.hero-description-narrow {
+    max-width: 500px;
+}
+
+.h2-max-800 {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.2;
+}
+
+.metodologia-lead {
+    color: #a1a1a6;
+    font-size: 1.15rem;
+    margin-top: 1.5rem;
+}
+
+.methodology-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 1.5rem;
+    margin-top: 5rem;
+    text-align: left;
+}
+
+.methodology-card {
+    padding: clamp(1.25rem, 4vw, 2.5rem);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.methodology-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.methodology-step-label {
+    color: var(--accent-color);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.methodology-step-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.8rem;
+}
+
+.methodology-step-text {
+    color: #a1a1a6;
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+
+.section-lead-muted {
+    color: #6e6e73;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+.services-nota-card {
+    max-width: 1000px;
+    margin: 3rem auto 0;
+    padding: clamp(1.25rem, 4vw, 2.5rem) clamp(1rem, 4vw, 3rem);
+    background: #f5f5f7;
+    border-radius: 20px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.services-nota-header {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.services-nota-header .icon-info {
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.services-nota-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1d1d1f;
+    margin: 0;
+}
+
+.services-nota-body {
+    color: #424245;
+    font-size: 0.97rem;
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+}
+
+.services-nota-kicker {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #595959;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 1.2rem;
+}
+
+.renewal-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.renewal-price-box {
+    background: #fff;
+    border-radius: 14px;
+    padding: clamp(1rem, 3vw, 1.5rem) clamp(1rem, 3vw, 1.8rem);
+    border: 1px solid #e5e5ea;
+}
+
+.renewal-price-amount {
+    font-size: clamp(1.35rem, 5vw, 1.8rem);
+    font-weight: 700;
+    color: #1d1d1f;
+    margin-bottom: 0.3rem;
+}
+
+.renewal-price-unit {
+    font-size: 1rem;
+    color: #595959;
+    font-weight: 500;
+}
+
+.renewal-price-caption {
+    color: #6e6e73;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.h3.fs-table-section-title {
+    font-size: clamp(1.25rem, 4vw, 2rem);
+}
+
+.service-pillar-icon {
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-category-tag.subtle-grey {
+    color: #595959;
+}

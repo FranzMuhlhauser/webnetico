@@ -1,0 +1,38 @@
+<Checklist_15_Puntos>
+<Item numero="1" estado="⚠️" nota="7/10" justificacion="HTML semántico (nav, main, section) y H1-H4 jerárquico correcto, pero cookie banner duplicado en 8 archivos y componentes no modularizados"/>
+<Item numero="2" estado="✅" nota="9/10" justificacion="Title 57 chars, meta description ~155 chars, keywords en H1/H2, alt descriptivo en todas las imágenes — cumplimiento óptimo"/>
+<Item numero="3" estado="⚠️" nota="8/10" justificacion="Schema.org con 7 tipos excelente, sitemap/robots presentes, pero sitemap falta privacy.html/terms.html y robots.txt falta Disallow para /scripts/ y /api/"/>
+<Item numero="4" estado="✅" nota="8/10" justificacion="FAQPage Schema con 6 preguntas, HowTo con 5 pasos, SpeakableSpecification para voz/IA — formato Q&A bien estructurado"/>
+<Item numero="5" estado="✅" nota="8/10" justificacion="Claridad semántica alta con HTML estructurado, densidad informativa buena, interconexión temática entre páginas via enlaces internos"/>
+<Item numero="6" estado="❌" nota="4/10" justificacion="Sin build system, sin tree-shaking, sin code splitting, JS no minificado, CSS minificado manualmente — depende completamente de proceso manual"/>
+<Item numero="7" estado="⚠️" nota="7/10" justificacion="CLS prevenido con dimensiones explícitas, content-visibility:auto, critical CSS inlined, pero GTM render-blocking en contact.html y sin datos Lighthouse reales"/>
+<Item numero="8" estado="⚠️" nota="7/10" justificacion="Todas WebP, dimensiones explícitas, lazy loading en below-fold, pero sin srcset/sizes para responsive images, footer logo height=auto, avatares sin lazy"/>
+<Item numero="9" estado="✅" nota="8/10" justificacion="Viewport correcto, media queries lógicas (768px, 992px), fluid typography con clamp(), mobile-first approach, sin overflow detectado"/>
+<Item numero="10" estado="✅" nota="8/10" justificacion="Navegación clara con menú sticky, jerarquía visual H1-H4, CTAs con estilo distinctivo, toast system para feedback, error handling en formularios"/>
+<Item numero="11" estado="❌" nota="5/10" justificacion="--text-muted y --text-secondary fallan contraste WCAG AA (~3.8:1), focus states ausentes en nav/buttons, FAQ no navegable por teclado, skip links y ARIA presentes"/>
+<Item numero="12" estado="⚠️" nota="6/10" justificacion="HTTPS/HSTS y headers de seguridad buenos, HTML escaping en API, pero CORS abierto *, sin rate limiting, CSP unsafe-inline, .gitignore mínimo"/>
+<Item numero="13" estado="✅" nota="8/10" justificacion="Open Graph completo, Twitter Cards summary_large_image, favicon multiformato (ico+png), pero Twitter Cards usan property en vez de name"/>
+<Item numero="14" estado="✅" nota="8/10" justificacion="GTM-KWPHS7LF configurado, Vercel Analytics opt-in con consent, dataLayer events para CTA clicks y form submissions — tracking funcional"/>
+<Item numero="15" estado="✅" nota="8/10" justificacion="CTAs estratégicos en hero y secciones clave, formulario de contacto con campos mínimos, README.md y CHANGELOG.md documentados, integración Calendly"/>
+</Checklist_15_Puntos>
+
+<Errores_Bloqueantes>
+• No se detectaron errores bloqueantes 🚫 para lanzamiento — el sitio es funcional y operacional. Los errores identificados en Fase 1 son mejoras de calidad, no bloqueantes funcionales.
+</Errores_Bloqueantes>
+
+<Optimizaciones_PreLanzamiento>
+• [Alto] Optimización: Corregir contraste de colores --text-muted y --text-secondary para cumplir WCAG AA | Beneficio: Accesibilidad — evitar demandas y mejorar UX para usuarios con baja visión | Implementación: Cambiar #6e6e73 → #595959 y #86868b → #595959 en css/styles.css:620-621
+• [Alto] Optimización: Restringir CORS a dominio específico en api/contact.js | Beneficio: Seguridad — prevenir abuso del formulario de contacto | Implementación: Cambiar Access-Control-Allow-Origin: * por https://www.webnetico.cl en api/contact.js:10
+• [Alto] Optimización: Agregar rate limiting a /api/contact | Beneficio: Seguridad — prevenir spam y agotamiento de cuota Resend | Implementación: Implementar counter pattern con Vercel KV o Edge Config, limitar a 5 requests/min por IP
+• [Alto] Optimización: Agregar :focus-visible styles globales | Beneficio: Accesibilidad — mejorar navegación por teclado | Implementación: Agregar regla global en css/styles.css: *:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 2px; }
+• [Medio] Optimización: Expandir .gitignore para excluir .env, node_modules, OS files | Beneficio: Seguridad — prevenir commits de secrets | Implementación: Agregar .env, .env.*, node_modules/, .DS_Store, Thumbs.db a .gitignore
+• [Medio] Optimización: Agregar validación server-side de email y límites de longitud | Beneficio: Seguridad — prevenir inputs maliciosos | Implementación: Regex de email + maxLength en api/contact.js:32-34
+• [Medio] Optimización: Agregar Disallow para /scripts/ y /api/ en robots.txt | Beneficio: SEO — evitar indexación de archivos internos | Implementación: Agregar líneas Disallow en robots.txt después de línea 15
+• [Bajo] Optimización: Agregar privacy.html y terms.html al sitemap.xml | Beneficio: SEO — indexación de páginas legales | Implementación: Agregar URLs con priority 0.3 en sitemap.xml
+</Optimizaciones_PreLanzamiento>
+
+<Notas_Entrega>
+- Estado actual: Sitio web premium funcional con SEO excepcional (Schema.org 7 tipos), pero con deuda técnica en accesibilidad (contraste, focus, teclado) y seguridad (CORS, rate limiting) que requiere atención pre-lanzamiento
+- Riesgos post-lanzamiento: (1) Violaciones WCAG AA exponen a demandas de accesibilidad, (2) CORS abierto permite spam en formulario, (3) Sin rate limiting puede agotar cuota Resend API, (4) CSS monolítico afecta métricas de rendimiento
+- Recomendaciones de mantenimiento: (1) Establecer pipeline de minificación CSS (manual actualmente), (2) Agregar tests básicos para API endpoint, (3) Implementar revisiones de accesibilidad periódicas con Lighthouse
+</Notas_Entrega>

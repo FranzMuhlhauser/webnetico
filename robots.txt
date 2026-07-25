@@ -13,6 +13,8 @@ Sitemap: https://www.webnetico.cl/sitemap.xml
 # Reglas de acceso
 # No indexar directorios de desarrollo o internos
 Disallow: /components/
+Disallow: /scripts/
+Disallow: /api/
 
 # No seguir enlaces de login o admin
 Disallow: /*?
