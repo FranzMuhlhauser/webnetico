@@ -1,0 +1,382 @@
+/* blog.css — Estilos para artículos del blog */
+
+/* ===== Blog Article Page ===== */
+.blog-page {
+    background: #ffffff;
+}
+
+.blog-page section.theme-light {
+    background: #ffffff;
+}
+
+.blog-page .hero-category-tag {
+    color: #6e6e73;
+}
+
+/* ===== Article Hero ===== */
+.blog-hero {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+}
+
+.blog-hero .hero-category-tag {
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.blog-hero h1 {
+    font-size: clamp(2rem, 4.5vw, 2.8rem);
+    font-weight: 850;
+    color: #1d1d1f;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+}
+
+.blog-hero .blog-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    align-items: center;
+    color: #6e6e73;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.blog-hero .blog-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.blog-hero .blog-meta .dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #d2d2d7;
+}
+
+/* ===== Article Content ===== */
+.blog-article {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.blog-article h2 {
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    font-weight: 750;
+    color: #1d1d1f;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+.blog-article h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1d1d1f;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.blog-article p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #424245;
+    margin-bottom: 1.5rem;
+}
+
+.blog-article p:last-child {
+    margin-bottom: 0;
+}
+
+.blog-article ul,
+.blog-article ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.blog-article li {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: #424245;
+    margin-bottom: 0.6rem;
+}
+
+.blog-article strong {
+    color: #1d1d1f;
+    font-weight: 700;
+}
+
+/* ===== Answer Block (Featured Snippet) ===== */
+.blog-answer-block {
+    background: #f5f5f7;
+    border: 1px solid #e5e5ea;
+    border-radius: 18px;
+    padding: 1.75rem 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.blog-answer-block p {
+    font-size: 1.15rem;
+    line-height: 1.75;
+    color: #1d1d1f;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+/* ===== Price Table ===== */
+.blog-table-wrapper {
+    overflow-x: auto;
+    margin: 2rem 0 2.5rem;
+    border-radius: 18px;
+    border: 1px solid #e5e5ea;
+}
+
+.blog-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    min-width: 600px;
+}
+
+.blog-table thead {
+    background: #f5f5f7;
+}
+
+.blog-table th {
+    padding: 1rem 1.25rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #6e6e73;
+    border-bottom: 2px solid #e5e5ea;
+}
+
+.blog-table td {
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+    color: #424245;
+    border-bottom: 1px solid #e5e5ea;
+}
+
+.blog-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.blog-table tbody tr:hover {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.blog-table .price-highlight {
+    font-weight: 700;
+    color: #1d1d1f;
+}
+
+/* ===== Callout Box ===== */
+.blog-callout {
+    border-left: 3px solid #0071e3;
+    background: rgba(0, 113, 227, 0.04);
+    border-radius: 0 14px 14px 0;
+    padding: 1.5rem 1.75rem;
+    margin: 2rem 0;
+}
+
+.blog-callout p {
+    margin-bottom: 0;
+    color: #1d1d1f;
+}
+
+.blog-callout strong {
+    color: #0071e3;
+}
+
+/* ===== FAQ Section ===== */
+.blog-faq {
+    max-width: 800px;
+    margin: 3rem auto 0;
+}
+
+.blog-faq h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.blog-faq-item {
+    border: 1px solid #e5e5ea;
+    border-radius: 16px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+}
+
+.blog-faq-item:hover {
+    border-color: rgba(0, 0, 0, 0.15);
+}
+
+.blog-faq-question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    background: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1.05rem;
+    font-weight: 650;
+    color: #1d1d1f;
+    text-align: left;
+    transition: background 0.2s ease;
+}
+
+.blog-faq-question:hover {
+    background: #f5f5f7;
+}
+
+.blog-faq-question .faq-icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    margin-left: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.blog-faq-item.open .blog-faq-question .faq-icon {
+    transform: rotate(45deg);
+}
+
+.blog-faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+
+.blog-faq-item.open .blog-faq-answer {
+    max-height: 500px;
+}
+
+.blog-faq-answer-inner {
+    padding: 0 1.5rem 1.5rem;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #424245;
+}
+
+/* ===== CTA Section ===== */
+.blog-cta-card {
+    border: 1px solid #e5e5ea;
+    border-radius: 32px;
+    background: #ffffff;
+    padding: 4rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.05);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.blog-cta-card .cta-title {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    font-weight: 850;
+    color: #1d1d1f;
+}
+
+.blog-cta-card .cta-sub {
+    color: #6e6e73;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 550px;
+    margin: 0 auto 2rem auto;
+}
+
+.blog-cta-card .btn {
+    background: #1d1d1f;
+    color: #fff;
+    padding: 1rem 2.4rem;
+    font-size: 1rem;
+    border-radius: 999px;
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.12);
+    border: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.blog-cta-card .btn:hover {
+    background: #000000;
+    transform: translateY(-3px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+}
+
+/* ===== Related Articles ===== */
+.blog-related {
+    max-width: 800px;
+    margin: 3rem auto 0;
+    padding-top: 3rem;
+    border-top: 1px solid #e5e5ea;
+}
+
+.blog-related h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1d1d1f;
+    margin-bottom: 1.25rem;
+}
+
+.blog-related-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.blog-related-pill {
+    display: inline-block;
+    padding: 0.65rem 1.1rem;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background: rgba(0, 0, 0, 0.02);
+    color: #1d1d1f;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 650;
+    font-size: 0.9rem;
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blog-related-pill:hover {
+    transform: translateY(-2px);
+    background: rgba(0, 0, 0, 0.04);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .blog-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .blog-answer-block {
+        padding: 1.25rem 1.5rem;
+    }
+
+    .blog-table-wrapper {
+        margin: 1.5rem -1rem 2rem;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .blog-faq-question .faq-icon {
+        transition: none;
+    }
+    .blog-faq-answer {
+        transition: none;
+    }
+}

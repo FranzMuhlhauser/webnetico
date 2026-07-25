@@ -16,9 +16,6 @@ Disallow: /components/
 Disallow: /scripts/
 Disallow: /api/
 
-# No seguir enlaces de login o admin
-Disallow: /*?
-
 # Evitar duplicación de contenido
 
 # Velocidad de crawl (opcional, usar con precaución)
