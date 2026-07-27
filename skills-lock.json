@@ -31,6 +31,12 @@
       "skillPath": "skills/seo-aeo-best-practices/SKILL.md",
       "computedHash": "b6b2dd3af3c92f82f04b830dab2cc323f299d7c2e57f7d3619a5886caa7eeb08"
     },
+    "seo-aeo-geo": {
+      "source": "rampstackco/claude-skills",
+      "sourceType": "github",
+      "skillPath": "skills/seo-aeo-geo/SKILL.md",
+      "computedHash": "6bf9a92f8b29d5442ded782db0a647fbf8e73bc66df7b038edf2f34759bff0df"
+    },
     "seo-audit": {
       "source": "coreyhaines31/marketingskills",
       "sourceType": "github",
