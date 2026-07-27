@@ -19,117 +19,126 @@
 
   <!-- Servicios -->
   <url>
-    <loc>https://www.webnetico.cl/services.html</loc>
+    <loc>https://www.webnetico.cl/services</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="es-CL" href="https://www.webnetico.cl/services.html"/>
+    <xhtml:link rel="alternate" hreflang="es-CL" href="https://www.webnetico.cl/services"/>
   </url>
 
   <!-- Portafolio -->
   <url>
-    <loc>https://www.webnetico.cl/portfolio.html</loc>
+    <loc>https://www.webnetico.cl/portfolio</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="es-CL" href="https://www.webnetico.cl/portfolio.html"/>
+    <xhtml:link rel="alternate" hreflang="es-CL" href="https://www.webnetico.cl/portfolio"/>
   </url>
 
   <!-- Sobre Mí -->
   <url>
-    <loc>https://www.webnetico.cl/about.html</loc>
+    <loc>https://www.webnetico.cl/about</loc>
     <lastmod>2026-07-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="es-CL" href="https://www.webnetico.cl/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es-CL" href="https://www.webnetico.cl/about"/>
     <image:image>
       <image:loc>https://www.webnetico.cl/images/franz-muhlhauser.webp</image:loc>
       <image:title>Franz Mühlhauser - Fundador de Webnetico</image:title>
     </image:image>
   </url>
 
-  <!-- Insights/Blog -->
+  <!-- Blog (listado) -->
   <url>
-    <loc>https://www.webnetico.cl/insights.html</loc>
-    <lastmod>2026-07-25</lastmod>
+    <loc>https://www.webnetico.cl/blog</loc>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="es-CL" href="https://www.webnetico.cl/insights.html"/>
+    <xhtml:link rel="alternate" hreflang="es-CL" href="https://www.webnetico.cl/blog"/>
   </url>
 
   <!-- Blog: Cuánto cuesta una página web en Chile -->
   <url>
-    <loc>https://www.webnetico.cl/blog/cuanto-cuesta-una-pagina-web-en-chile.html</loc>
+    <loc>https://www.webnetico.cl/blog/cuanto-cuesta-una-pagina-web-en-chile</loc>
     <lastmod>2026-07-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="es-CL" href="https://www.webnetico.cl/blog/cuanto-cuesta-una-pagina-web-en-chile.html"/>
+    <xhtml:link rel="alternate" hreflang="es-CL" href="https://www.webnetico.cl/blog/cuanto-cuesta-una-pagina-web-en-chile"/>
     <image:image>
       <image:loc>https://www.webnetico.cl/images/logofinal.webp</image:loc>
       <image:title>Cuánto cuesta una página web en Chile - Guía de precios 2026</image:title>
     </image:image>
   </url>
 
+  <!-- Insights -->
+  <url>
+    <loc>https://www.webnetico.cl/insights</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es-CL" href="https://www.webnetico.cl/insights"/>
+  </url>
+
   <!-- Diseño Web Santiago -->
   <url>
-    <loc>https://www.webnetico.cl/diseno-web-santiago.html</loc>
+    <loc>https://www.webnetico.cl/diseno-web-santiago</loc>
     <lastmod>2026-07-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="es-CL" href="https://www.webnetico.cl/diseno-web-santiago.html"/>
+    <xhtml:link rel="alternate" hreflang="es-CL" href="https://www.webnetico.cl/diseno-web-santiago"/>
   </url>
 
   <!-- Diseño Web Viña del Mar -->
   <url>
-    <loc>https://www.webnetico.cl/diseno-web-vina.html</loc>
+    <loc>https://www.webnetico.cl/diseno-web-vina</loc>
     <lastmod>2026-07-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="es-CL" href="https://www.webnetico.cl/diseno-web-vina.html"/>
+    <xhtml:link rel="alternate" hreflang="es-CL" href="https://www.webnetico.cl/diseno-web-vina"/>
   </url>
 
   <!-- Diseño Web Valparaíso -->
   <url>
-    <loc>https://www.webnetico.cl/diseno-web-valparaiso.html</loc>
+    <loc>https://www.webnetico.cl/diseno-web-valparaiso</loc>
     <lastmod>2026-07-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="es-CL" href="https://www.webnetico.cl/diseno-web-valparaiso.html"/>
+    <xhtml:link rel="alternate" hreflang="es-CL" href="https://www.webnetico.cl/diseno-web-valparaiso"/>
   </url>
 
   <!-- Precio Diseño Web Chile -->
   <url>
-    <loc>https://www.webnetico.cl/precio-diseno-web-chile.html</loc>
+    <loc>https://www.webnetico.cl/precio-diseno-web-chile</loc>
     <lastmod>2026-07-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="es-CL" href="https://www.webnetico.cl/precio-diseno-web-chile.html"/>
+    <xhtml:link rel="alternate" hreflang="es-CL" href="https://www.webnetico.cl/precio-diseno-web-chile"/>
   </url>
 
   <!-- Contacto -->
   <url>
-    <loc>https://www.webnetico.cl/contact.html</loc>
+    <loc>https://www.webnetico.cl/contact</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="es-CL" href="https://www.webnetico.cl/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="es-CL" href="https://www.webnetico.cl/contact"/>
   </url>
 
   <!-- Política de Privacidad -->
   <url>
-    <loc>https://www.webnetico.cl/privacy.html</loc>
+    <loc>https://www.webnetico.cl/privacy</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
-    <xhtml:link rel="alternate" hreflang="es-CL" href="https://www.webnetico.cl/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="es-CL" href="https://www.webnetico.cl/privacy"/>
   </url>
 
   <!-- Términos y Condiciones -->
   <url>
-    <loc>https://www.webnetico.cl/terms.html</loc>
+    <loc>https://www.webnetico.cl/terms</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
-    <xhtml:link rel="alternate" hreflang="es-CL" href="https://www.webnetico.cl/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="es-CL" href="https://www.webnetico.cl/terms"/>
   </url>
 </urlset>
