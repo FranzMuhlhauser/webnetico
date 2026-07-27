@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.4.0] - 2026-07-27
+
+### Added
+
+- **privacy.html**: Header completo (logo, nav, menú móvil, CTA), WhatsApp drawer multi-step, cookie banner.
+- **terms.html**: Header completo (logo, nav, menú móvil, CTA), WhatsApp drawer multi-step, cookie banner.
+- **404.html**: Header completo, footer completo, WhatsApp drawer multi-step, cookie banner.
+
+### Changed
+
+- **Analytics**: Migración de GTM de eager (snippet en `<head>`) a lazy loader por interacción en `privacy.html`, `terms.html` y `404.html` — consistente con el resto del sitio. GTM se carga al primer scroll, mousemove, touchstart o click, con fallback a 4 segundos.
+
 ## [1.3.0] - 2026-07-25
 
 ### Added
