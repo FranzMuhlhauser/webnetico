@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.4.1] - 2026-07-29
+
+### Fixed
+
+- **terms.html + privacy.html**: Quitado `<meta name="robots" content="noindex">`. Ambas páginas tenían `noindex` a pesar de estar incluidas en el sitemap, enviando señales contradictorias a Google. Cambiado a `index, follow`.
+- **vercel.json**: Agregadas 7 redirecciones 301 permanentes:
+  - 4 para resolver errores de redirección en URLs con `.html` (`/diseno-web-vina.html`, `/blog/cuanto-cuesta-una-pagina-web-en-chile.html`, `/contact.html`, `/portfolio.html`)
+  - 3 para rutas viejas en español sin redirección (`/sobre-nosotros` → `/about`, `/servicios` → `/services`, `/portafolio` → `/portfolio`)
+- **sitemap.xml**: Regenerado con `lastmod` reales desde `git log` para las 14 URLs.
+
+### Archivos modificados
+
+- `privacy.html` — noindex → index
+- `terms.html` — noindex → index
+- `vercel.json` — nuevo bloque `redirects` con 7 reglas
+- `sitemap.xml` — lastmod actualizados por URL
+
 ## [1.4.0] - 2026-07-27
 
 ### Added

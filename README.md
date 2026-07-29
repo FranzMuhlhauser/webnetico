@@ -96,12 +96,17 @@ window.enableInsights && window.enableInsights();
 - Si quieres probar sin interferencias, desactiva temporalmente el adblocker para el dominio.
 - Si prefieres que las métricas estén siempre activas, podemos añadir un banner de consentimiento y habilitarlas automáticamente cuando el usuario acepte.
 
-## Próximos pasos SEO
+## Historial de correcciones SEO
 
-### Pendientes de indexar en Google Search Console
+### 2026-07-29 — Corrección de indexación y redirecciones (v1.4.1)
 
-- `https://www.webnetico.cl/diseno-web-valparaiso`
-- `https://www.webnetico.cl/precio-diseno-web-chile`
-- `https://www.webnetico.cl/contact.html`
-- `https://www.webnetico.cl/privacy.html`
-- `https://www.webnetico.cl/terms.html`
+**Problema:** 20 incidencias en Google Search Console (noindex contradictorio, 404s, redirects rotos).
+
+**Correcciones aplicadas:**
+1. **noindex eliminado** de `terms.html` y `privacy.html` — ambas tenían `noindex` pese a estar en el sitemap, enviando señales contradictorias a Google.
+2. **7 redirects 301** agregados en `vercel.json`:
+   - 4 para URLs `.html` con error de redirección: `/diseno-web-vina.html`, `/blog/cuanto-cuesta-una-pagina-web-en-chile.html`, `/contact.html`, `/portfolio.html`
+   - 3 para rutas viejas en español con 404: `/sobre-nosotros` → `/about`, `/servicios` → `/services`, `/portafolio` → `/portfolio`
+3. **Sitemap regenerado** con `lastmod` reales desde `git log` para las 14 URLs.
+
+**Pendiente:** Solicitar indexación manual desde Search Console para las 14 URLs después del próximo deploy.
