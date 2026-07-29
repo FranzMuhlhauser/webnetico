@@ -1,6 +1,15 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/diseno-web-vina.html", "destination": "/diseno-web-vina", "permanent": true },
+    { "source": "/blog/cuanto-cuesta-una-pagina-web-en-chile.html", "destination": "/blog/cuanto-cuesta-una-pagina-web-en-chile", "permanent": true },
+    { "source": "/contact.html", "destination": "/contact", "permanent": true },
+    { "source": "/portfolio.html", "destination": "/portfolio", "permanent": true },
+    { "source": "/sobre-nosotros", "destination": "/about", "permanent": true },
+    { "source": "/servicios", "destination": "/services", "permanent": true },
+    { "source": "/portafolio", "destination": "/portfolio", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",
