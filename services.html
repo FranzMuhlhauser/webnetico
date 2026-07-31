@@ -115,6 +115,22 @@
                                 }
                             }
                         ]
+                            },
+                            {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Product",
+                                    "name": "Plan Tienda Online",
+                                    "description": "Tienda online con carrito a medida, pasarela de pago chilena y panel de administración de stock.",
+                                    "image": "https://www.webnetico.cl/images/logofinal.webp",
+                                    "offers": {
+                                        "@type": "Offer",
+                                        "price": "690000",
+                                        "priceCurrency": "CLP",
+                                        "availability": "https://schema.org/InStock"
+                                    }
+                                }
+                            }
                     }
                 },
                 {
@@ -419,7 +435,7 @@
                 <a
                     href="contact.html"
                     class="btn btn-secondary header-cta btn-header-cta"
-                    >Diagnóstico Gratuito</a
+                    >Cotizar Gratis</a
                 >
                 <button
                     class="mobile-menu-btn"
@@ -495,7 +511,7 @@
             <section class="section theme-grey" id="why-us">
                 <div class="container" reveal-on-scroll>
                     <div class="services-grid">
-                        <div class="service-card theme-light">
+                        <div class="service-card theme-light is-active">
                             <div class="service-pillar-icon">
                                 <svg
                                     width="42"
@@ -518,6 +534,7 @@
                                 vulnerabilidades conocidas.
                             </p>
                         </div>
+
                         <div class="service-card theme-light">
                             <div class="service-pillar-icon">
                                 <svg
@@ -670,6 +687,47 @@
                 </div>
             </section>
 
+            <!-- ===== ESPECIALIDADES ===== -->
+            <section class="section theme-light" id="especialidades">
+                <div class="container" reveal-on-scroll>
+                    <div class="text-center mb-xl">
+                        <p class="hero-category-tag">Especialidades</p>
+                        <h2 class="h2">
+                            Tu web, tu SEO, tu mantenimiento. Todo en un solo lugar.
+                        </h2>
+                        <p class="max-w-700">
+                            Áreas donde trabajamos a diario para mejorar la presencia digital, la conversión y la estabilidad de cada proyecto.
+                        </p>
+                    </div>
+
+                    <div class="services-grid">
+                        <article class="service-card theme-light" style="padding: 1.2rem">
+                            <img src="images/diseñoweb.webp" alt="Interfaz de usuario de diseño web minimalista con enfoque en conversión" loading="lazy" decoding="async" width="640" height="360" style="width: 100%; border-radius: 14px; margin-bottom: 1rem;" />
+                            <h3 class="h3" style="margin-bottom: 0.5rem">Diseño web minimalista</h3>
+                            <p style="margin-bottom: 0">Jerarquía visual clara, tipografía premium y experiencia enfocada en conversión.</p>
+                        </article>
+
+                        <article class="service-card theme-light" style="padding: 1.2rem">
+                            <img src="images/herodiseño.webp" alt="Ejemplo de micro interacciones y experiencia de usuario fluida para móviles" loading="lazy" decoding="async" width="640" height="360" style="width: 100%; border-radius: 14px; margin-bottom: 1rem;" />
+                            <h3 class="h3" style="margin-bottom: 0.5rem">Micro-interacciones UX</h3>
+                            <p style="margin-bottom: 0">Animaciones sutiles y transiciones suaves para una navegación elegante y moderna.</p>
+                        </article>
+
+                        <article class="service-card theme-light" style="padding: 1.2rem">
+                            <img src="images/seo.webp" alt="Auditoría de SEO técnico y arquitectura de datos para motores de búsqueda e IA" loading="lazy" decoding="async" width="640" height="360" style="width: 100%; border-radius: 14px; margin-bottom: 1rem;" />
+                            <h3 class="h3" style="margin-bottom: 0.5rem">SEO técnico</h3>
+                            <p style="margin-bottom: 0">Arquitectura semántica, rendimiento y optimización para buscadores e IA.</p>
+                        </article>
+
+                        <article class="service-card theme-light" style="padding: 1.2rem">
+                            <img src="images/mantenimiento.webp" alt="Servicio de mantenimiento web y monitoreo de seguridad 24/7" loading="lazy" decoding="async" width="640" height="360" style="width: 100%; border-radius: 14px; margin-bottom: 1rem;" />
+                            <h3 class="h3" style="margin-bottom: 0.5rem">Soporte y mantenimiento</h3>
+                            <p style="margin-bottom: 0">Monitoreo, respaldo y mejoras continuas para asegurar estabilidad 24/7.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
             <!-- ===== DISEÑO WEB PLANES ===== -->
             <section
                 id="planes"
@@ -691,6 +749,7 @@
                         <div class="pricing-card" reveal-on-scroll>
                             <span class="plan-name">Web Express</span>
                             <div class="price">$250.000</div>
+                            <p class="price-micro">Ideal para partir con presencia profesional.</p>
                             <ul class="plan-features">
                                 <li>Entrega en 2-3 días</li>
                                 <li>3 Secciones Iniciales</li>
@@ -719,6 +778,7 @@
                             >
                             <span class="plan-name">Landing Page</span>
                             <div class="price">$350.000</div>
+                            <p class="price-micro">El más elegido para captar clientes por una oferta puntual.</p>
                             <ul class="plan-features">
                                 <li>Entrega en 3-5 días</li>
                                 <li>Hasta 5 secciones</li>
@@ -742,6 +802,7 @@
                         <div class="pricing-card" reveal-on-scroll>
                             <span class="plan-name">Multi-página</span>
                             <div class="price">$550.000</div>
+                            <p class="price-micro">Para negocios con varios servicios que necesitan estructura completa.</p>
                             <ul class="plan-features">
                                 <li>Entrega en 5-7 días</li>
                                 <li>Desde 5 páginas indep.</li>
@@ -759,6 +820,26 @@
                                 style="width: 100%"
                                 >Cotizar Sitio Multi-página</a
                             >
+                        </div>
+                        <!-- Tienda Online (Nuevo) -->
+                        <div class="pricing-card" reveal-on-scroll
+                             style="border: 2px solid var(--accent-color); position: relative;">
+                            <span class="card-label" style="color: var(--accent-color); text-transform: uppercase;">Nuevo</span>
+                            <span class="plan-name">Tienda Online</span>
+                            <div class="price">desde $690.000</div>
+                            <p class="price-micro">Vende en línea sin depender de plataformas de terceros.</p>
+                            <ul class="plan-features">
+                                <li>Todo lo de Multi-página</li>
+                                <li>Carrito a medida (no WooCommerce)</li>
+                                <li>Webpay Plus, Mercado Pago o Flow</li>
+                                <li>Catálogo hasta 50 productos</li>
+                                <li>Panel de stock y pedidos</li>
+                                <li>Notificaciones de ventas (email/WA)</li>
+                                <li>Schema de producto para SEO</li>
+                            </ul>
+                            <a href="https://wa.me/56994838304?text=Hola%2C%20he%20visitado%20su%20p%C3%A1gina%20web%20y%20deseo%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20Plan%20Tienda%20Online."
+                               target="_blank" rel="noopener" class="btn-blue" style="width: 100%"
+                               >Cotizar Tienda Online</a>
                         </div>
                     </div>
 
@@ -782,7 +863,7 @@
                                 width: 100%;
                                 border-collapse: collapse;
                                 text-align: left;
-                                min-width: 750px;
+                                min-width: 900px;
                             "
                         >
                             <thead>
@@ -794,7 +875,7 @@
                                             font-size: 0.95rem;
                                             color: #86868b;
                                             font-weight: 600;
-                                            width: 25%;
+                                            width: 20%;
                                         "
                                     >
                                         Característica
@@ -806,7 +887,7 @@
                                             font-size: 1.1rem;
                                             font-weight: 700;
                                             color: #1d1d1f;
-                                            width: 25%;
+                                            width: 20%;
                                         "
                                     >
                                         Web Express
@@ -819,7 +900,7 @@
                                             font-size: 1.1rem;
                                             font-weight: 700;
                                             color: var(--accent-color);
-                                            width: 25%;
+                                            width: 20%;
                                         "
                                     >
                                         Landing Page
@@ -831,10 +912,23 @@
                                             font-size: 1.1rem;
                                             font-weight: 700;
                                             color: #1d1d1f;
-                                            width: 25%;
+                                            width: 20%;
                                         "
                                     >
                                         Multi-página
+                                    </th>
+                                    <th
+                                        style="
+                                            padding: 1.5rem 1rem;
+                                            border-bottom: 2px solid
+                                                var(--accent-color);
+                                            font-size: 1.1rem;
+                                            font-weight: 700;
+                                            color: var(--accent-color);
+                                            width: 20%;
+                                        "
+                                    >
+                                        Tienda Online
                                     </th>
                                 </tr>
                             </thead>
@@ -879,6 +973,7 @@
                                     >
                                         $550.000 CLP
                                     </td>
+                            <td style="padding: 1.2rem 1rem; border-bottom: 1px solid #e5e5ea; font-size: 1.1rem; font-weight: 600; color: var(--accent-color);">desde $690.000 CLP</td>
                                 </tr>
                                 <tr>
                                     <td
@@ -914,6 +1009,7 @@
                                     >
                                         5–7 días
                                     </td>
+                            <td style="padding: 1.2rem 1rem; border-bottom: 1px solid #e5e5ea;">4-6 semanas</td>
                                 </tr>
                                 <tr>
                                     <td
@@ -950,6 +1046,7 @@
                                     >
                                         Desde 5 páginas independientes
                                     </td>
+                            <td style="padding: 1.2rem 1rem; border-bottom: 1px solid #e5e5ea;">Hasta 20 páginas (catálogo + carrito)</td>
                                 </tr>
                                 <tr>
                                     <td
@@ -985,6 +1082,7 @@
                                     >
                                         1 año gratis
                                     </td>
+                            <td style="padding: 1.2rem 1rem; border-bottom: 1px solid #e5e5ea;">1 año gratis</td>
                                 </tr>
                                 <tr>
                                     <td
@@ -1020,6 +1118,7 @@
                                     >
                                         1 año Dominio .cl gratis
                                     </td>
+                            <td style="padding: 1.2rem 1rem; border-bottom: 1px solid #e5e5ea;">1 año Dominio .cl gratis</td>
                                 </tr>
                                 <tr>
                                     <td
@@ -1055,6 +1154,7 @@
                                     >
                                         Incluido
                                     </td>
+                            <td style="padding: 1.2rem 1rem; border-bottom: 1px solid #e5e5ea;">Incluido</td>
                                 </tr>
                                 <tr>
                                     <td
@@ -1091,6 +1191,7 @@
                                     >
                                         Premium personalizado
                                     </td>
+                            <td style="padding: 1.2rem 1rem; border-bottom: 1px solid #e5e5ea; font-weight: 600;">Premium personalizado</td>
                                 </tr>
                                 <tr>
                                     <td
@@ -1135,6 +1236,7 @@
                                         >
                                         Sí
                                     </td>
+                            <td style="padding: 1.2rem 1rem; border-bottom: 1px solid #e5e5ea;"><span style="color: var(--accent-color)">&#10003;</span> Sí</td>
                                 </tr>
                                 <tr>
                                     <td
@@ -1170,6 +1272,7 @@
                                     >
                                         4 enlaces
                                     </td>
+                            <td style="padding: 1.2rem 1rem; border-bottom: 1px solid #e5e5ea;">4 enlaces</td>
                                 </tr>
                                 <tr>
                                     <td
@@ -1214,6 +1317,7 @@
                                         >
                                         Sí
                                     </td>
+                            <td style="padding: 1.2rem 1rem; border-bottom: 1px solid #e5e5ea;"><span style="color: var(--accent-color)">&#10003;</span> Sí</td>
                                 </tr>
                                 <tr>
                                     <td
@@ -1250,6 +1354,7 @@
                                     >
                                         Ubicación integrada
                                     </td>
+                            <td style="padding: 1.2rem 1rem; border-bottom: 1px solid #e5e5ea;">Integración</td>
                                 </tr>
                                 <tr>
                                     <td
@@ -1285,6 +1390,7 @@
                                     >
                                         SEO + GEO + AEO (voz)
                                     </td>
+                            <td style="padding: 1.2rem 1rem; border-bottom: 1px solid #e5e5ea;">SEO + GEO + AEO + Schema producto</td>
                                 </tr>
                                 <tr>
                                     <td
@@ -1321,6 +1427,7 @@
                                     >
                                         Integración
                                     </td>
+                            <td style="padding: 1.2rem 1rem; border-bottom: 1px solid #e5e5ea;">Integración</td>
                                 </tr>
                                 <tr>
                                     <td
@@ -1351,6 +1458,7 @@
                                         No, pero se asesora al cliente para su
                                         creación
                                     </td>
+                            <td style="padding: 1.2rem 1rem;">No, pero se asesora al cliente</td>
                                 </tr>
                             </tbody>
                         </table>

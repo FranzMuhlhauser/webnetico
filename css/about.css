@@ -147,9 +147,10 @@
 }
 
 .about-value-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(0, 0, 0, 0.15);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+    background: var(--card-hover-bg);
+    transform: translateY(-8px);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.16);
 }
 
 .about-value-icon {

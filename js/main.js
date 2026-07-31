@@ -338,7 +338,7 @@ function initWhatsAppDrawer() {
 
     const plans =
       state.category === "Web"
-        ? ["Web Express", "Landing Page", "Multipágina"]
+        ? ["Web Express", "Landing Page", "Multipágina", "Tienda Online"]
         : ["Soporte Vital", "Crecimiento Pro", "Alianza Elite"];
 
     plans.forEach((plan) => {

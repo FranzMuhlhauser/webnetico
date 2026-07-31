@@ -792,29 +792,68 @@ body {
     margin-top: 4rem;
 }
 
-.pricing-card {
-    background: #fff;
-    padding: 3rem 2rem;
-    border-radius: 24px;
-    border: 1px solid #f2f2f2;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s;
-}
+    .pricing-card,
+    .service-card,
+    .project-card,
+    .testimonial-card,
+    .mini-portfolio-card,
+    .about-value-card,
+    .about-cta-card,
+    .blog-cta-card,
+    .methodology-card,
+    .portfolio-stat-card,
+    .portfolio-cta-card,
+    .pricing-note-card,
+    .pillar-card,
+    .stat-card,
+    .advantage-card,
+    .technical-promise-card,
+    .contact-info-item.mini-card,
+    .contact-form-card,
+    .services-nota-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius-lg);
+        transition: var(--transition-smooth);
+        position: relative;
+        overflow: hidden;
+    }
 
-.pricing-card.featured {
-    border: 2px solid #5E5CE6;
-    position: relative;
-    transform: scale(1.03);
-}
+    .pricing-card {
+        background: #fff;
+        padding: 3rem 2rem;
+        display: flex;
+        flex-direction: column;
+    }
 
-.pricing-card .card-label {
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: #5E5CE6;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-}
+    .pricing-card:hover,
+    .service-card:hover,
+    .project-card:hover,
+    .testimonial-card:hover,
+    .mini-portfolio-card:hover,
+    .about-value-card:hover,
+    .about-cta-card:hover,
+    .blog-cta-card:hover,
+    .methodology-card:hover,
+    .portfolio-stat-card:hover,
+    .portfolio-cta-card:hover,
+    .pricing-note-card:hover,
+    .pillar-card:hover,
+    .stat-card:hover,
+    .advantage-card:hover,
+    .technical-promise-card:hover,
+    .contact-info-item.mini-card:hover,
+    .contact-form-card:hover,
+    .services-nota-card:hover {
+        background: var(--card-hover-bg);
+        border-color: rgba(255, 255, 255, 0.2);
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .pricing-card.featured:hover {
+        transform: translateY(-8px) scale(1.03);
+    }
 
 .pricing-card .plan-name {
     font-size: 1.2rem;
@@ -874,12 +913,39 @@ body {
     font-weight: 500;
 }
 
+@media (max-width: 1200px) {
+    .pricing-summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .pricing-card {
+        padding: 2.5rem 1.5rem;
+    }
+}
+
 @media (max-width: 992px) {
     .feature-bar, .pricing-summary-grid {
         grid-template-columns: 1fr;
     }
     .pricing-card.featured {
         transform: scale(1);
+    }
+}
+
+@media (max-width: 768px) {
+    .pricing-card {
+        padding: 2rem 1.25rem;
+    }
+    .pricing-card .plan-name {
+        font-size: 1.1rem;
+    }
+    .pricing-card .price {
+        font-size: 2rem;
+    }
+    .pricing-card .price-micro {
+        margin-bottom: 1.5rem;
+    }
+    .pricing-card .btn-blue {
+        width: 100%;
     }
 }
 
