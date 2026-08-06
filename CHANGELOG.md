@@ -1,5 +1,34 @@
 # Changelog
 
+## [1.5.1] - 2026-08-06
+
+### Changed
+
+- **services.html**: Eliminados 195 de 197 atributos `style="..."` inline. Reemplazados por 22 clases CSS nuevas con selectores descendientes. Reducción de 2579 a 1709 líneas (−34%).
+- **css/services.css**: +152 líneas con 22 clases nuevas organizadas en 4 bloques: Comparison Tables, Service Cards, Pricing & Utility, FAQ Estático.
+
+### Inline styles — detalle
+
+| Sección | Antes | Después | Método |
+|---|---|---|---|
+| Tabla Diseño Web (~14 filas × 5 cols) | ~70 | 0 | Selectores descendientes `.comparison-table` |
+| Tabla Mantenimiento (~8 filas × 4 cols) | ~70 | 0 | Selectores descendientes `.comparison-table--maint` |
+| FAQ (9 items) | ~31 | 0 | Clases `.services-faq-*` |
+| Service cards (4 cards) | 16 | 0 | Clases `.services-card-*` |
+| Pricing cards (CTAs, labels, precios) | 10 | 0 | Clases `.w-full`, `.uppercase`, `.maintenance-price-*` |
+| WhatsApp button | 1 | 1 | Preservado — componente compartido 29 páginas |
+| GTM noscript | 1 | 1 | Preservado — estándar Google |
+
+### Clases nuevas
+
+`compare-wrapper`, `comparison-table`, `.comparison-table th/th:first-child/td/td:first-child`, `.col-accent`, `.cell-label`, `.cell-price`, `.cell-muted`, `.comparison-table--design`, `.comparison-table--maint`, `--maint td`, `--maint th:first-child`, `.services-card-compact`, `.services-card-img`, `.services-card-heading`, `.services-card-text`, `.uppercase`, `.pricing-card-accent`, `.maintenance-price`, `.maintenance-price-unit`, `.services-faq-section`, `.services-faq-container`, `.services-faq-item`, `.services-faq-question`, `.services-faq-answer`
+
+### Stats
+
+- **-870 líneas HTML**, **+152 líneas CSS**
+- **195 inline styles eliminados**, **2 preservados por dependencia**
+- **0 cambios de diseño, 0 impacto en JS, 0 regresión**
+
 ## [1.5.0] - 2026-08-06
 
 ### Added

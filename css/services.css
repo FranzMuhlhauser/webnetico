@@ -164,3 +164,155 @@
 .hero-category-tag.subtle-grey {
     color: #595959;
 }
+
+/* ===== Comparison Tables ===== */
+
+.compare-wrapper {
+    max-width: 1000px;
+    margin: 6rem auto 0;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.comparison-table th {
+    padding: 1.5rem 1rem;
+    border-bottom: 2px solid #d2d2d7;
+}
+
+.comparison-table th:first-child {
+    font-size: 0.95rem;
+    color: #86868b;
+    font-weight: 600;
+}
+
+.comparison-table .col-accent {
+    color: var(--accent-color);
+    border-bottom-color: var(--accent-color);
+}
+
+.comparison-table td {
+    padding: 1.2rem 1rem;
+    border-bottom: 1px solid #e5e5ea;
+    color: #424245;
+    font-size: 0.95rem;
+}
+
+.comparison-table td:first-child {
+    font-weight: 500;
+}
+
+.comparison-table .cell-label {
+    font-weight: 600;
+    color: #1d1d1f;
+}
+
+.comparison-table .cell-price {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.comparison-table .cell-muted {
+    color: #86868b;
+}
+
+.comparison-table--maint td {
+    border-bottom-color: #d2d2d7;
+}
+
+.comparison-table--maint th:first-child {
+    width: 25%;
+}
+
+.comparison-table--design {
+    min-width: 900px;
+}
+
+.comparison-table--maint {
+    min-width: 750px;
+}
+
+/* ===== Service Cards ===== */
+
+.services-card-compact {
+    padding: 1.2rem;
+}
+
+.services-card-img {
+    width: 100%;
+    border-radius: 14px;
+    margin-bottom: 1rem;
+}
+
+.services-card-heading {
+    margin-bottom: 0.5rem;
+}
+
+.services-card-text {
+    margin-bottom: 0;
+}
+
+/* ===== Pricing & Utility ===== */
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.pricing-card-accent {
+    border: 2px solid var(--accent-color);
+    position: relative;
+}
+
+.maintenance-price {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+}
+
+.maintenance-price-unit {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #8e8e93;
+}
+
+/* ===== FAQ Estatico ===== */
+
+.services-faq-section {
+    padding: 6rem 0;
+}
+
+.services-faq-container {
+    margin-top: 4rem;
+    text-align: left;
+}
+
+.services-faq-item {
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid #e5e5ea;
+    padding-bottom: 2.5rem;
+}
+
+.services-faq-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.services-faq-question {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1d1d1f;
+}
+
+.services-faq-answer {
+    color: #6e6e73;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
