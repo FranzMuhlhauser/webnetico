@@ -1,5 +1,46 @@
 # Changelog
 
+## [1.5.0] - 2026-08-06
+
+### Added
+
+#### Blog — 4 artículos nuevos
+- **blog/wordpress-vs-codigo-puro.html**: ¿WordPress o código puro? La verdad sobre seguridad y velocidad. Comparativa técnica, costos ocultos de plugins, tabla comparativa y 5 problemas ocultos de WordPress. Article + BreadcrumbList + FAQPage + WebPage schema.
+- **blog/que-es-geo.html**: ¿Qué es GEO y por qué tu negocio necesita aparecer en la IA en 2026? Generative Engine Optimization, SEO vs GEO, estrategias prácticas, llms.txt. Article + BreadcrumbList + FAQPage + WebPage schema.
+- **blog/checklist-seo-pymes.html**: Checklist SEO para Pymes: 10 cosas que tu web debe tener. Guía práctica con tabla de verificación, errores frecuentes y plan de implementación. Article + BreadcrumbList + FAQPage + WebPage schema.
+- **blog/mejor-hosting-web-chile.html**: Cómo elegir hosting para tu página web en Chile. Tipos de hosting, comparativa de proveedores, precios en CLP, hosting estático gratuito. Article + BreadcrumbList + FAQPage + WebPage schema.
+
+#### City Landings — 4 páginas nuevas (SEO local)
+- **diseno-web-concon.html**: Diseño web en Concón. Gastronomía costera, turismo, deportes y comercio local. BreadcrumbList + WebPage + FAQPage schema.
+- **diseno-web-quilpue.html**: Diseño web en Quilpué. Salud, comercio local, servicios profesionales y talleres. BreadcrumbList + WebPage + FAQPage schema.
+- **diseno-web-rancagua.html**: Diseño web en Rancagua. Agroindustria, minería, comercio y profesionales. BreadcrumbList + WebPage + FAQPage schema.
+- **diseno-web-antofagasta.html**: Diseño web en Antofagasta. Minería, hotelería, comercio y servicios profesionales. BreadcrumbList + WebPage + FAQPage schema.
+
+#### Industry Landings — 5 páginas nuevas (prospección por sector)
+- **diseno-web-restaurantes.html**: Diseño web para restaurantes. Estructura Hero → Problema → Solución → Precio → CTA. Menú digital, Google Maps, reservas. Schema incluye FoodEstablishment.
+- **diseno-web-peluquerias.html**: Diseño web para peluquerías y estética. Catálogo de servicios, galería de trabajos, agendamiento, SEO local.
+- **diseno-web-talleres-mecanicos.html**: Diseño web para talleres mecánicos. Caso de éxito AutoShock. Urgencias, servicios técnicos, Google Maps.
+- **diseno-web-veterinarias.html**: Diseño web para veterinarias. Urgencias 24/7, horarios, equipo médico, servicios y especialidades.
+- **diseno-web-ferreterias.html**: Diseño web para ferreterías y comercio. Catálogo rápido, productos por categoría, ubicación, WhatsApp.
+
+#### Social Media Automation
+- **scripts/social-cron.mjs**: Script Node.js que genera posts de LinkedIn, Instagram y X para los 5 artículos del blog. Output a `scripts/social-posts-{fecha}.txt`. Ejecutar con `pnpm social-cron`.
+- **package.json**: Nuevo script `"social-cron": "node scripts/social-cron.mjs"`.
+
+### Changed
+
+- **blog.html**: Listing actualizado de 1 a 5 artículos con sus respectivas `article.blog-card` (tags, excerpt, meta, link). Schema `CollectionPage.mainEntity` expandido con los 5 artículos.
+- **portfolio.html**: Schema enrichment — cada `CreativeWork` ahora incluye `provider` (ProfessionalService → Webnetico).
+- **sitemap.xml**: Expandido de 14 a 27 URLs. 4 nuevos artículos de blog, 4 city landings, 5 industry landings. Todas con `hreflang="es-CL"`, `priority` 0.8-0.9, `changefreq: monthly`.
+- **vercel.json**: 13 nuevos redirects 301 (`.html → clean URL`) para todas las páginas nuevas (4 blog + 4 city + 5 industry).
+
+### Stats
+
+- **+19 archivos modificados** (14 nuevos HTML + 1 script + 4 existentes actualizados)
+- **+7,463 líneas de código**
+- **27 URLs totales en sitemap**
+- **5 artículos de blog × 3 plataformas = 15 posts sociales**
+
 ## [1.4.1] - 2026-07-29
 
 ### Fixed
