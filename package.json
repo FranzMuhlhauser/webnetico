@@ -5,7 +5,8 @@
   "description": "Webnetico es una agencia especializada en el desarrollo de sitios web de alto rendimiento, optimización SEO avanzada (incluyendo GEO y AEO) y mantenimiento de seguridad web en Chile.",
   "main": "index.js",
   "scripts": {
-    "test": "node --test tests/*.test.js"
+    "test": "node --test tests/*.test.js",
+    "social-cron": "node scripts/social-cron.mjs"
   },
   "repository": {
     "type": "git",

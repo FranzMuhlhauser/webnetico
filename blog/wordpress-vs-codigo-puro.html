@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="es-CL">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#FFFFFF" />
+
+    <title>¿WordPress o código puro? La verdad sobre seguridad y velocidad | Webnetico</title>
+    <meta
+      name="description"
+      content="Descubre las diferencias reales entre WordPress y código puro (HTML, CSS, JS) para tu sitio web. Seguridad, velocidad, costos reales y qué opción conviene más para tu negocio en Chile."
+    />
+    <link rel="canonical" href="https://www.webnetico.cl/blog/wordpress-vs-codigo-puro" />
+    <meta name="robots" content="index, follow" />
+    <link rel="alternate" hreflang="es-CL" href="https://www.webnetico.cl/blog/wordpress-vs-codigo-puro" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Webnetico" />
+    <meta property="og:locale" content="es_CL" />
+    <meta property="og:title" content="¿WordPress o código puro? La verdad sobre seguridad y velocidad" />
+    <meta
+      property="og:description"
+      content="Descubre las diferencias reales entre WordPress y código puro (HTML, CSS, JS) para tu sitio web. Seguridad, velocidad, costos reales y qué opción conviene más para tu negocio en Chile."
+    />
+    <meta property="og:url" content="https://www.webnetico.cl/blog/wordpress-vs-codigo-puro" />
+    <meta property="og:image" content="https://www.webnetico.cl/images/logofinal.webp" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@webnetico" />
+    <meta name="twitter:title" content="¿WordPress o código puro? La verdad sobre seguridad y velocidad" />
+    <meta name="twitter:description" content="Diferencias reales entre WordPress y código puro: seguridad, velocidad y costos para tu negocio en Chile." />
+    <meta name="twitter:image" content="https://www.webnetico.cl/images/logofinal.webp" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    [
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "¿WordPress o código puro? La verdad sobre seguridad y velocidad",
+            "description": "Descubre las diferencias reales entre WordPress y código puro (HTML, CSS, JS) para tu sitio web. Seguridad, velocidad, costos reales y qué opción conviene más para tu negocio en Chile.",
+            "author": {
+                "@type": "Person",
+                "name": "Franz Mühlhauser",
+                "url": "https://www.webnetico.cl/about"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "Webnetico",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.webnetico.cl/images/logofinal.webp"
+                }
+            },
+            "datePublished": "2026-08-06",
+            "dateModified": "2026-08-06",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://www.webnetico.cl/blog/wordpress-vs-codigo-puro"
+            },
+            "image": "https://www.webnetico.cl/images/logofinal.webp",
+            "inLanguage": "es-CL",
+            "keywords": ["WordPress vs código puro", "seguridad WordPress", "velocidad código puro", "diseño web Chile", "mejor opción web negocio"]
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Inicio",
+                    "item": "https://www.webnetico.cl/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Blog",
+                    "item": "https://www.webnetico.cl/blog"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "¿WordPress o código puro?",
+                    "item": "https://www.webnetico.cl/blog/wordpress-vs-codigo-puro"
+                }
+            ]
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "¿Es verdad que WordPress es gratis?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "El software base es gratuito, pero un sitio profesional requiere hosting premium, tema pago, plugins premium, seguridad y mantenimiento. El costo real anual puede superar los $500.000 CLP."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Puedo editar yo mismo una web hecha con código puro?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Depende de cómo se construya. En Webnetico ofrecemos planes de mantenimiento donde hacemos los cambios por ti. Si prefieres autonomía, podemos integrar un CMS headless para secciones específicas sin sacrificar velocidad."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿WordPress es malo para el SEO?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No necesariamente. Con plugins como Yoast o RankMath, WordPress puede tener buen SEO. Pero el código puro permite un SEO más fino: HTML semántico perfecto, velocidad superior (factor de ranking), y sin código innecesario que diluye la relevancia."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Por qué casi todas las agencias usan WordPress?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Porque es más rápido de entregar (plantillas prefabricadas, plugins para todo), lo que significa más proyectos por mes. El código puro toma más tiempo inicial pero produce un resultado superior. La mayoría de las agencias priorizan volumen sobre calidad."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Puedo migrar mi sitio WordPress a código puro?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Sí. Webnetico ofrece migración completa de WordPress a código puro. Mantenemos o mejoramos tu diseño actual, conservamos tu contenido y SEO, y eliminas todas las dependencias y vulnerabilidades."
+                    }
+                }
+            ]
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "¿WordPress o código puro? La verdad sobre seguridad y velocidad",
+            "description": "Comparativa real entre WordPress y código puro para tu sitio web: seguridad, velocidad, costos y qué opción conviene más para tu negocio en Chile.",
+            "speakable": {
+                "@type": "SpeakableSpecification",
+                "cssSelector": ["h1", ".blog-answer-block"]
+            },
+            "url": "https://www.webnetico.cl/blog/wordpress-vs-codigo-puro",
+            "inLanguage": "es-CL"
+        }
+    ]
+    </script>
+
+    <link rel="icon" href="../favicon.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="../favicon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preload" as="style" href="../css/base.css" />
+    <link rel="preload" as="style" href="../css/blog.css" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/blog.css" />
+    <script src="../js/main.js" defer></script>
+
+    <script defer src="../js/insights-optin.js"></script>
+
+    <style>
+      body.blog-page {
+        --bg-color: #ffffff;
+        --text-primary: #1d1d1f;
+        --text-secondary: #86868b;
+        --text-muted: #6e6e73;
+        --border-color: rgba(0, 0, 0, 0.12);
+        --card-bg: #ffffff;
+        --card-hover-bg: rgba(0, 0, 0, 0.03);
+      }
+      body.blog-page .hero-category-tag { color: #6e6e73; }
+    </style>
+  </head>
+
+  <body class="blog-page">
+    <a class="skip-link" href="#main-content">Saltar al contenido</a>
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header theme-light" id="site-header">
+      <a href="../index.html" class="logo">
+        <img src="../images/logofinalheader.webp" alt="Webnetico Logo" width="160" height="46" />
+      </a>
+      <nav class="nav-links" id="nav-links" aria-label="Menú principal">
+        <a href="../index.html">Inicio</a>
+        <a href="../services.html">Servicios</a>
+        <a href="../portfolio.html">Portafolio</a>
+        <a href="../about.html">Sobre mí</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../insights.html">Insights</a>
+        <a href="../contact.html">Contacto</a>
+        <a href="https://calendly.com/contacto-webnetico/30min" target="_blank" rel="noopener noreferrer">Agendar cita</a>
+      </nav>
+      <div class="header-actions-wrapper">
+        <a href="../contact.html" class="btn btn-secondary header-cta btn-header-cta">Cotizar Gratis</a>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false">
+          <svg class="icon-svg icon-menu" viewBox="0 0 24 24" aria-hidden="true">
+            <line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+          <svg class="icon-svg icon-close wa-hidden" viewBox="0 0 24 24" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="main-content" class="pt-header">
+      <!-- ===== HERO ===== -->
+      <section class="hero-section theme-light section">
+        <div class="container">
+          <div class="blog-hero" reveal-on-scroll>
+            <span class="hero-category-tag">Tecnología Web</span>
+            <h1>¿WordPress o código puro? La verdad sobre seguridad y velocidad</h1>
+            <div class="blog-meta">
+              <span>Por Franz Mühlhauser</span>
+              <span class="dot"></span>
+              <span>6 agosto 2026</span>
+              <span class="dot"></span>
+              <span>7 min de lectura</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== ARTÍCULO ===== -->
+      <section class="section theme-light" style="padding-top: 0;">
+        <div class="container">
+          <article class="blog-article">
+
+            <!-- Respuesta directa (Featured Snippet) -->
+            <div class="blog-answer-block">
+              <p>
+                WordPress puede ser una buena opción para blogs o sitios con contenido dinámico, pero tiene vulnerabilidades de seguridad, depende de plugins de terceros y puede ser entre 2 y 5 veces más lento que un sitio desarrollado con código puro. Para negocios que valoran la velocidad, seguridad y control total, el código puro (HTML, CSS, JavaScript) es la mejor inversión a largo plazo.
+              </p>
+            </div>
+
+            <!-- ¿Qué es WordPress y por qué es tan popular? -->
+            <h2>¿Qué es WordPress y por qué es tan popular?</h2>
+
+            <p>
+              WordPress es un sistema de gestión de contenido (CMS) de código abierto que impulsa el 43% de todos los sitios web del mundo. Su popularidad se debe principalmente a su facilidad de uso: con una instalación de 5 minutos, miles de temas gratuitos y más de 60.000 plugins disponibles, cualquier persona puede crear un sitio web funcional sin saber programar.
+            </p>
+            <p>
+              Sin embargo, esta popularidad tiene un costo que muchas veces se descubre demasiado tarde. Los plugins premium, los temas que requieren licencias anuales, las actualizaciones constantes de seguridad y el hosting especializado necesario para un rendimiento aceptable transforman lo que parecía "gratis y fácil" en un gasto recurrente que puede superar los $500.000 CLP al año. Además, cada plugin que instalas es una puerta potencial para hackers: en 2024, el 97% de las vulnerabilidades de seguridad en WordPress provinieron de plugins y temas de terceros.
+            </p>
+
+            <!-- ¿Qué significa desarrollar con "código puro"? -->
+            <h2>¿Qué significa desarrollar con "código puro"?</h2>
+
+            <p>
+              Desarrollar con código puro significa construir un sitio web directamente con HTML, CSS y JavaScript, sin depender de ningún CMS, constructor visual o framework preempaquetado. No hay WordPress, ni plugins, ni base de datos externa a menos que sea estrictamente necesaria. Cada línea de código se escribe específicamente para tu proyecto y solo para tu proyecto.
+            </p>
+            <p>
+              Esto se traduce en control total: el diseño es exactamente como lo necesitas, el rendimiento está optimizado al máximo porque no hay código basura de plugins que no usas, y la superficie de ataque es mínima porque no hay componentes de terceros que puedan ser explotados. Para el cliente, la experiencia es igual de simple que con WordPress — o más — porque Webnetico se encarga de todo el aspecto técnico, dejándote solo la parte que te importa: tu negocio.
+            </p>
+
+            <!-- Comparativa real: WordPress vs Código Puro -->
+            <h2>Comparativa real: WordPress vs Código Puro</h2>
+
+            <div class="blog-table-wrapper">
+              <table class="blog-table">
+                <thead>
+                  <tr>
+                    <th>Criterio</th>
+                    <th>WordPress</th>
+                    <th>Código Puro (Webnetico)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Velocidad de carga</strong></td>
+                    <td>2-6 segundos (depende de plugins)</td>
+                    <td>&lt; 1 segundo (sin dependencias)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Seguridad</strong></td>
+                    <td>Vulnerable (plugins, actualizaciones)</td>
+                    <td>Máxima (sin plugins, sin base de datos externa)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Costo inicial</strong></td>
+                    <td class="price-highlight">$200.000 - $500.000 CLP + IVA</td>
+                    <td class="price-highlight">$250.000 - $550.000 CLP + IVA</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Costo mantenimiento anual</strong></td>
+                    <td>$300.000 - $800.000 CLP (hosting premium, plugins, actualizaciones)</td>
+                    <td>$0 - $120.000 CLP (solo hosting)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Dependencia de plugins</strong></td>
+                    <td>Alta (seguridad, SEO, caché, formularios)</td>
+                    <td>Ninguna</td>
+                  </tr>
+                  <tr>
+                    <td><strong>SEO</strong></td>
+                    <td>Bueno (con plugins como Yoast)</td>
+                    <td>Óptimo (control total del HTML semántico)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Riesgo de hackeo</strong></td>
+                    <td>Alto (plugins obsoletos, temas vulnerables)</td>
+                    <td>Casi nulo (superficie de ataque mínima)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Velocidad en móvil</strong></td>
+                    <td>Variable</td>
+                    <td>Consistentemente rápido</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Propiedad del código</strong></td>
+                    <td>100% tuyo</td>
+                    <td>100% tuyo</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Curva de aprendizaje</strong></td>
+                    <td>Baja (interfaz visual)</td>
+                    <td>Nula para el cliente (Webnetico lo gestiona)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="blog-callout">
+              <p>
+                <strong>Dato clave:</strong> Aunque el costo inicial del código puro puede ser similar o ligeramente superior, el ahorro se acumula rápidamente. En 2 años, un sitio WordPress puede costar entre $800.000 y $2.100.000 CLP más que su equivalente en código puro, considerando hosting premium, licencias de plugins y mantenimiento.
+              </p>
+            </div>
+
+            <!-- 5 problemas ocultos de WordPress -->
+            <h2>5 problemas ocultos de WordPress que nadie te cuenta</h2>
+
+            <h3>1. La trampa de los plugins</h3>
+            <p>
+              Un sitio WordPress típico necesita entre 15 y 30 plugins para funcionar correctamente: uno para SEO, otro para caché, otro para formularios, otro para seguridad, otro para backup... y la lista sigue. Cada plugin es código de terceros que se ejecuta en tu sitio, y cada uno representa un riesgo potencial de seguridad. Peor aún: los plugins pueden entrar en conflicto entre sí, causando errores difíciles de diagnosticar o incluso tirando abajo tu sitio después de una actualización.
+            </p>
+
+            <h3>2. Actualizaciones interminables</h3>
+            <p>
+              WordPress actualiza su núcleo, los temas se actualizan, y cada plugin se actualiza por separado. Si no aplicas las actualizaciones, tu sitio queda vulnerable a ataques conocidos. Si las aplicas, corres el riesgo de que algo se rompa — un plugin incompatible con la nueva versión, un tema que dejó de recibir soporte, o una personalización que deja de funcionar. Es un ciclo constante que requiere atención técnica permanente.
+            </p>
+
+            <h3>3. Rendimiento impredecible</h3>
+            <p>
+              Un WordPress recién instalado puede ser rápido, pero el rendimiento se degrada con cada plugin, cada tema y cada actualización de contenido. Cada plugin agrega sus propios archivos CSS y JavaScript, multiplica las consultas a la base de datos y aumenta la carga del servidor. Sin una optimización experta y constante, es común que un sitio WordPress que cargaba en 2 segundos pase a cargar en 5 o 6 segundos al cabo de un año.
+            </p>
+
+            <h3>4. Dependencia de un desarrollador WordPress</h3>
+            <p>
+              Contratar a alguien para mantener o modificar un sitio WordPress no es trivial: necesitas una persona que conozca el tema específico que usaste, la combinación exacta de plugins instalados y las personalizaciones que se hicieron. Cambiar de desarrollador puede significar semanas de curva de aprendizaje. Con código puro, cualquier desarrollador web competente puede trabajar sobre el código inmediatamente porque no hay capas de abstracción ni dependencias ocultas.
+            </p>
+
+            <h3>5. Costos ocultos que se acumulan</h3>
+            <p>
+              El software WordPress es gratuito, pero un sitio profesional no lo es. Los temas premium cuestan entre $40 y $100 USD al año. Plugins como Yoast Premium, WP Rocket, Elementor Pro o Wordfence suman entre $100 y $400 USD anuales. El hosting compartido barato no soporta bien WordPress, así que necesitas hosting premium ($20-50 USD/mes). Suma servicios de seguridad, CDN y backups, y el costo real oscila entre $500 y $1.500 USD al año — sin contar el tiempo que inviertes (o pagas) en mantenimiento.
+            </p>
+
+            <!-- Ventajas reales del código puro -->
+            <h2>Ventajas reales del código puro para tu negocio</h2>
+
+            <p>
+              Cuando eliges código puro, estás invirtiendo en un activo digital que trabaja para tu negocio sin los problemas crónicos de los CMS tradicionales. Estas son las cuatro ventajas que más impactan en el resultado final:
+            </p>
+
+            <h3>1. Velocidad extrema</h3>
+            <p>
+              Un sitio en código puro carga en menos de 1 segundo porque no tiene que consultar una base de datos, ni cargar scripts de plugins, ni procesar PHP en el servidor. Google premia la velocidad con mejor ranking, y tus visitantes premian la velocidad con más conversiones: cada segundo adicional de carga reduce las conversiones en un 7%.
+            </p>
+
+            <h3>2. Seguridad real</h3>
+            <p>
+              Sin base de datos expuesta, sin plugins de terceros con vulnerabilidades conocidas y sin panel de administración que los bots intentan hackear constantemente, un sitio en código puro reduce la superficie de ataque en más del 99%. No necesitas firewall, ni plugins de seguridad, ni monitoreo constante — la arquitectura misma es la defensa.
+            </p>
+
+            <h3>3. Control absoluto</h3>
+            <p>
+              Cada línea de código está optimizada para tu negocio. No hay "código basura" de plugins que no usas, no hay estilos CSS que se cargan innecesariamente, y no hay funciones de base de datos que ralentizan todo. El resultado es un sitio más limpio, más rápido y más fácil de mantener en el tiempo.
+            </p>
+
+            <h3>4. Ahorro a largo plazo</h3>
+            <p>
+              En un horizonte de 2 a 3 años, el código puro es significativamente más económico que WordPress. Sin licencias de plugins que renovar, sin hosting premium forzoso y sin horas de mantenimiento para resolver conflictos de actualizaciones, el costo total de propiedad es mucho menor. Pagas una vez por el desarrollo y solo cubres el hosting — que es mínimo porque el sitio es liviano.
+            </p>
+
+            <!-- ¿Cuándo conviene cada opción? -->
+            <h2>¿Cuándo conviene WordPress y cuándo conviene código puro?</h2>
+
+            <p>
+              Sería deshonesto decir que una opción es siempre mejor que la otra. Cada tecnología tiene su lugar, y la decisión correcta depende del caso de uso. Aquí va un desglose honesto:
+            </p>
+
+            <p>
+              <strong>WordPress conviene si:</strong> tienes un blog personal donde publicas contenido diariamente, necesitas gestionar publicaciones sin ayuda técnica, manejas un sitio de noticias con múltiples autores, o tu prioridad es tener un panel de administración visual para hacer cambios frecuentes por tu cuenta.
+            </p>
+
+            <p>
+              <strong>El código puro conviene si:</strong> tienes un negocio o emprendimiento, valoras la velocidad y la seguridad por encima de la conveniencia de un panel visual, quieres que tu sitio web sea un activo que se valoriza en lugar de un gasto mensual que se acumula, o necesitas una presencia web que transmita profesionalismo y diferenciación real frente a tu competencia.
+            </p>
+
+            <p>
+              Para la mayoría de las PYMEs chilenas, profesionales independientes y empresas de servicios, el código puro representa la mejor relación costo-beneficio en un horizonte de 2 años o más. La web de tu negocio no debería ser un experimento con plugins ni un gasto recurrente impredecible — debería ser una herramienta confiable que genera resultados.
+            </p>
+
+            <!-- Conclusión -->
+            <h2>Conclusión: la decisión correcta para tu negocio</h2>
+
+            <p>
+              WordPress no es inherentemente malo — es una herramienta poderosa que resolvió un problema real: democratizar la publicación web. El problema es que el ecosistema que creció alrededor de WordPress (plugins, temas, actualizaciones constantes, vulnerabilidades) lo ha convertido en una solución que requiere tanta o más atención técnica que el desarrollo a medida, pero con menos control sobre el resultado final.
+            </p>
+            <p>
+              Para negocios chilenos que necesitan una presencia web profesional, rápida, segura y sin dolores de cabeza técnicos, el código puro es la decisión más inteligente. En Webnetico combinamos el desarrollo con código puro y un servicio gestionado: tú te enfocas en tu negocio, nosotros nos encargamos de que tu web funcione impecable, cargue en menos de un segundo y esté siempre protegida. Sin WordPress, sin plugins, sin dramas.
+            </p>
+
+            <!-- CTA -->
+            <div class="blog-cta-card" style="margin-top: 3rem;">
+              <p class="hero-category-tag uppercase" style="margin-bottom: 0.75rem;">¿Listo para dar el salto?</p>
+              <div class="cta-title">Tu web sin WordPress, sin plugins, sin dramas</div>
+              <p class="cta-sub">
+                Cuéntame tu proyecto y te explico exactamente cómo migrar o crear tu web con código puro.
+              </p>
+              <a href="../contact.html" class="btn">Cotizar Gratis</a>
+            </div>
+
+            <!-- FAQ -->
+            <div class="blog-faq">
+              <h2>Preguntas frecuentes sobre WordPress y código puro</h2>
+
+              <div class="blog-faq-item">
+                <button class="blog-faq-question" aria-expanded="false">
+                  ¿Es verdad que WordPress es gratis?
+                  <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                </button>
+                <div class="blog-faq-answer">
+                  <div class="blog-faq-answer-inner">
+                    El software base es gratuito, pero un sitio profesional requiere hosting premium, tema pago, plugins premium, seguridad y mantenimiento. El costo real anual puede superar los $500.000 CLP.
+                  </div>
+                </div>
+              </div>
+
+              <div class="blog-faq-item">
+                <button class="blog-faq-question" aria-expanded="false">
+                  ¿Puedo editar yo mismo una web hecha con código puro?
+                  <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                </button>
+                <div class="blog-faq-answer">
+                  <div class="blog-faq-answer-inner">
+                    Depende de cómo se construya. En Webnetico ofrecemos planes de mantenimiento donde hacemos los cambios por ti. Si prefieres autonomía, podemos integrar un CMS headless para secciones específicas sin sacrificar velocidad.
+                  </div>
+                </div>
+              </div>
+
+              <div class="blog-faq-item">
+                <button class="blog-faq-question" aria-expanded="false">
+                  ¿WordPress es malo para el SEO?
+                  <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                </button>
+                <div class="blog-faq-answer">
+                  <div class="blog-faq-answer-inner">
+                    No necesariamente. Con plugins como Yoast o RankMath, WordPress puede tener buen SEO. Pero el código puro permite un SEO más fino: HTML semántico perfecto, velocidad superior (factor de ranking), y sin código innecesario que diluye la relevancia.
+                  </div>
+                </div>
+              </div>
+
+              <div class="blog-faq-item">
+                <button class="blog-faq-question" aria-expanded="false">
+                  ¿Por qué casi todas las agencias usan WordPress?
+                  <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                </button>
+                <div class="blog-faq-answer">
+                  <div class="blog-faq-answer-inner">
+                    Porque es más rápido de entregar (plantillas prefabricadas, plugins para todo), lo que significa más proyectos por mes. El código puro toma más tiempo inicial pero produce un resultado superior. La mayoría de las agencias priorizan volumen sobre calidad.
+                  </div>
+                </div>
+              </div>
+
+              <div class="blog-faq-item">
+                <button class="blog-faq-question" aria-expanded="false">
+                  ¿Puedo migrar mi sitio WordPress a código puro?
+                  <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                </button>
+                <div class="blog-faq-answer">
+                  <div class="blog-faq-answer-inner">
+                    Sí. Webnetico ofrece migración completa de WordPress a código puro. Mantenemos o mejoramos tu diseño actual, conservamos tu contenido y SEO, y eliminas todas las dependencias y vulnerabilidades.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Artículos relacionados -->
+            <div class="blog-related">
+              <h3>Artículos relacionados</h3>
+              <div class="blog-related-links">
+                <a href="cuanto-cuesta-una-pagina-web-en-chile.html" class="blog-related-pill">Guía de precios diseño web Chile</a>
+                <a href="../services.html" class="blog-related-pill">Ver planes de diseño web</a>
+              </div>
+            </div>
+
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer" id="site-footer">
+<div class="site-footer-inner">
+  <div class="container">
+    <div class="footer-layout">
+      <div class="footer-block-logo">
+        <a href="../index.html"><img src="../images/logofinal.webp" alt="Webnetico" width="180" height="52" loading="lazy"></a>
+      </div>
+      <div class="footer-block-links">
+        <h4 class="footer-heading">Empresa</h4>
+        <ul>
+          <li><a href="../services.html"><span>Servicios</span></a></li>
+          <li><a href="../portfolio.html"><span>Portafolio</span></a></li>
+          <li><a href="../about.html"><span>Sobre mí</span></a></li>
+          <li><a href="../blog.html"><span>Blog</span></a></li>
+          <li><a href="../insights.html"><span>Insights</span></a></li>
+          <li><a href="../contact.html"><span>Contacto</span></a></li>
+          <li><a href="https://calendly.com/contacto-webnetico/30min" target="_blank" rel="noopener noreferrer"><span>Agenda tu cita</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-block-contact">
+        <h4 class="footer-heading">Ubicación y contacto</h4>
+        <ul>
+          <li><a href="mailto:contacto@webnetico.cl"><span class="icon-wrapper"><img src="../images/icons/email.svg" class="contact-icon" alt="Email"></span><span>contacto@webnetico.cl</span></a></li>
+          <li><a href="tel:+56994838304"><span class="icon-wrapper"><img src="../images/icons/phone.svg" class="contact-icon" alt="Phone"></span><span>+56 9 9483 8304</span></a></li>
+          <li><a href="https://www.google.com/maps/place/Valpara%C3%ADso,+Chile" target="_blank" rel="noopener noreferrer"><span class="icon-wrapper"><img src="../images/icons/location.svg" class="contact-icon" alt="Location"></span><span>Valparaiso, Chile</span></a></li>
+          <li><a href="https://g.page/r/CVz0DePd0VcDEAE/review" target="_blank" rel="noopener noreferrer"><span class="icon-wrapper"><img src="../images/icons/star.svg" class="contact-icon" alt="Estrellas"></span><span>★ Reseñas en Google</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-block-social">
+        <h4 class="footer-heading">Redes sociales</h4>
+        <div class="social-icons-wrapper">
+          <a href="https://www.facebook.com/profile.php?id=61580749975908" class="social-btn fb" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><img src="../images/icons/fb.svg" alt="Facebook"></a>
+          <a href="https://www.instagram.com/webnetico/" class="social-btn ig" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><img src="../images/icons/ig.svg" alt="Instagram"></a>
+          <a href="https://tiktok.com/@webnetico" class="social-btn tk" aria-label="TikTok" target="_blank" rel="noopener noreferrer"><img src="../images/icons/tk.svg" alt="TikTok"></a>
+          <a href="https://linkedin.com/company/webnetico" class="social-btn li" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><img src="../images/icons/li.svg" alt="LinkedIn"></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-info">
+      <p>&copy; 2026 Webnetico Engineering. Agencia de ingeniería web y soluciones digitales de alto rendimiento. Valparaíso, Chile.</p>
+    </div>
+  </div>
+</div>
+</footer>
+
+    <!-- WhatsApp -->
+    <div id="whatsapp-container">
+<button class="whatsapp-btn" id="whatsapp-btn" aria-label="Abrir chat WhatsApp">
+  <img src="../images/iconwebwhatasap.webp" alt="WhatsApp" style="width: 100%; height: 100%; object-fit: contain; padding: 5px" />
+</button>
+<div class="wa-overlay wa-hidden" id="wa-overlay"></div>
+<div class="wa-drawer wa-hidden" id="wa-drawer">
+  <div class="wa-drawer-header">
+    <div><h4>Webnetico Chat</h4><span class="wa-online">En línea ahora</span></div>
+    <button class="wa-drawer-close" id="wa-drawer-close">×</button>
+  </div>
+  <div class="wa-drawer-content">
+    <div id="wa-step-1">
+      <p>¡Hola! 👋 ¿Cuál es tu nombre para poder saludarte?</p>
+      <input type="text" id="wa-name" placeholder="Escribe tu nombre..." />
+      <button class="wa-continue-btn" id="wa-continue-1" disabled>Continuar</button>
+    </div>
+    <div id="wa-step-2" class="wa-hidden">
+      <button class="wa-back-btn" id="wa-back-2">← Volver</button>
+      <p id="wa-greeting-2">¿En qué podemos ayudarte hoy?</p>
+      <div class="wa-options-list">
+        <button class="wa-option-btn" data-category="Web">🚀 Plan de Página Web</button>
+        <button class="wa-option-btn" data-category="Mantenimiento">🛡 Mantenimiento Web</button>
+        <button class="wa-option-btn" data-category="Otro">💡 Otros Servicios</button>
+      </div>
+    </div>
+    <div id="wa-step-3" class="wa-hidden">
+      <button class="wa-back-btn" id="wa-back-3">← Volver</button>
+      <p>Excelente elección. ¿Tienes algún plan en mente?</p>
+      <div class="wa-options-list" id="wa-plans-list"></div>
+    </div>
+    <div id="wa-step-4" class="wa-hidden">
+      <button class="wa-back-btn" id="wa-back-4">← Volver</button>
+      <p>¡Perfecto! Todo listo para conversar.</p>
+      <a class="wa-send-link" id="wa-send-link" href="#" target="_blank" rel="noopener">Enviar a WhatsApp</a>
+    </div>
+  </div>
+</div>
+    </div>
+    <script src="../js/cookie-banner.js" defer></script>
+
+    <script>
+      // FAQ accordion
+      document.querySelectorAll('.blog-faq-question').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const item = btn.closest('.blog-faq-item');
+          const isOpen = item.classList.contains('open');
+          // Close all
+          document.querySelectorAll('.blog-faq-item').forEach(i => i.classList.remove('open'));
+          document.querySelectorAll('.blog-faq-question').forEach(b => b.setAttribute('aria-expanded', 'false'));
+          // Toggle current
+          if (!isOpen) {
+            item.classList.add('open');
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+    </script>
+
+    <script>
+      let scriptsLoaded = false;
+      const loadAnalyticsAndGTM = () => {
+        if (scriptsLoaded) return;
+        scriptsLoaded = true;
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || [];
+          w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+          var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != "dataLayer" ? "&l=" + l : "";
+          j.async = true;
+          j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+          f.parentNode.insertBefore(j, f);
+        })(window, document, "script", "dataLayer", "GTM-KWPHS7LF");
+      };
+      ["scroll", "mousemove", "touchstart", "click"].forEach((event) => {
+        window.addEventListener(event, loadAnalyticsAndGTM, { once: true, passive: true });
+      });
+      setTimeout(loadAnalyticsAndGTM, 4000);
+    </script>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWPHS7LF" height="0" width="0" style="display: none; visibility: hidden"></iframe>
+    </noscript>
+  </body>
+</html>
