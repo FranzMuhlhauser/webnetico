@@ -1083,6 +1083,7 @@ body {
     z-index: 9999;
     transition:
         transform 0.3s ease,
+        bottom 0.3s ease,
         box-shadow 0.3s ease;
     text-decoration: none;
     border: none;
@@ -2053,4 +2054,18 @@ img {
     .cookie-banner-actions {
         flex-direction: column;
     }
+}
+
+/* =====================================================================
+   WhatsApp por encima del aviso de cookies
+   ---------------------------------------------------------------------
+   El aviso de cookies ocupa la franja inferior y TAPABA el botón de
+   WhatsApp: los dos tienen z-index 9999 y, como el aviso se inyecta al
+   final del <body>, quedaba encima. En móvil el aviso mide ~325 px y el
+   botón quedaba completamente debajo, así que el toque caía en «Aceptar».
+   Mientras el aviso está visible, el botón sube justo por encima.
+   La clase y la altura (--cookie-alto) las pone js/cookie-banner.js.
+   ===================================================================== */
+body.cookie-abierto .whatsapp-btn {
+    bottom: min(calc(2rem + var(--cookie-alto, 0px) + 0.75rem), 70vh);
 }
