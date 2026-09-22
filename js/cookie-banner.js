@@ -24,9 +24,9 @@
           '<strong>Usamos cookies</strong>' +
           '<p>Utilizamos cookies propias y de terceros para <strong>mejorar su experiencia</strong>, analizar tráfico y personalizar contenido.</p>' +
           '<div class="cookie-banner-links">' +
-            '<a href="privacy.html#cookies">Política de Cookies</a>' +
+            '<a href="/privacy#cookies">Política de Cookies</a>' +
             '<span class="cookie-divider">•</span>' +
-            '<a href="privacy.html">Política de Privacidad</a>' +
+            '<a href="/privacy">Política de Privacidad</a>' +
           '</div>' +
         '</div>' +
         '<div class="cookie-banner-actions">' +
@@ -50,6 +50,22 @@
       name + '=' + value + ';expires=' + expires.toUTCString() + ';path=/;SameSite=Lax';
   }
 
+  // El aviso de cookies ocupa la franja inferior de la pantalla y TAPABA el
+  // botón de WhatsApp: en móvil el aviso mide ~325 px y el botón quedaba
+  // debajo, así que el toque caía en «Aceptar». Mientras el aviso está visible
+  // se marca el <body> y se publica su altura, para que el botón suba por
+  // encima. (El estilo está en css/base.css, regla body.cookie-abierto.)
+  function ajustaBotonWhatsapp(visible) {
+    if (!document.body) return;
+    var banner = document.getElementById('cookie-banner');
+    if (visible && banner) {
+      document.body.style.setProperty('--cookie-alto', banner.offsetHeight + 'px');
+      document.body.classList.add('cookie-abierto');
+    } else {
+      document.body.classList.remove('cookie-abierto');
+    }
+  }
+
   function showBanner() {
     var banner = document.getElementById('cookie-banner');
     var overlay = document.getElementById('cookie-overlay');
@@ -58,6 +74,7 @@
       overlay.classList.add('cookie-overlay-visible');
       overlay.setAttribute('aria-hidden', 'false');
     }
+    ajustaBotonWhatsapp(true);
   }
 
   function hideBanner() {
@@ -68,6 +85,7 @@
       overlay.classList.remove('cookie-overlay-visible');
       overlay.setAttribute('aria-hidden', 'true');
     }
+    ajustaBotonWhatsapp(false);
   }
 
   function handleAccept() {

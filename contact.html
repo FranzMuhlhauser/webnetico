@@ -211,13 +211,129 @@
         }
       }
     </style>
-  </head>
+  
+  <!-- Datos estructurados de la página de contacto -->
+  <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "@id": "https://www.webnetico.cl/contact#page",
+    "url": "https://www.webnetico.cl/contact",
+    "name": "Contacto | Cotice su Proyecto Web | Webnetico",
+    "description": "Contacte a Webnetico para cotizar su página web: diseño web propio, SEO, GEO y AEO para pymes y empresas en Chile.",
+    "inLanguage": "es-CL",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Webnetico",
+      "url": "https://www.webnetico.cl/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://www.webnetico.cl/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Contacto",
+        "item": "https://www.webnetico.cl/contact"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Webnetico",
+    "image": "https://www.webnetico.cl/images/logofinal.webp",
+    "@id": "https://www.webnetico.cl/#organization",
+    "url": "https://www.webnetico.cl",
+    "telephone": "+56994838304",
+    "priceRange": "$$",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "12",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Libertador Bernardo O'Higgins",
+      "addressLocality": "Valparaíso",
+      "addressRegion": "V Región",
+      "addressCountry": "CL"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -33.0472,
+      "longitude": -71.6127
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "18:00"
+    },
+    "sameAs": [
+      "https://www.facebook.com/profile.php?id=61580749975908",
+      "https://www.instagram.com/webnetico/",
+      "https://linkedin.com/company/webnetico",
+      "https://twitter.com/webnetico"
+    ],
+    "knowsAbout": [
+      "Diseño Web Profesional Chile",
+      "Desarrollo con Código Puro (HTML5, CSS3, JavaScript)",
+      "SEO Chile - Posicionamiento en Google",
+      "Optimización de Velocidad de Carga",
+      "Seguridad Web HTTPS",
+      "Generative Engine Optimization (GEO)",
+      "Answer Engine Optimization (AEO)",
+      "Landing Page Conversión",
+      "Diseño Web Responsive",
+      "Mantenimiento Web Chile"
+    ],
+    "logo": "https://www.webnetico.cl/images/logofinal.webp",
+    "foundingDate": "2020",
+    "founder": {
+      "@type": "Person",
+      "name": "Franz Mühlhauser"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Chile"
+    },
+    "serviceType": [
+      "Web Design",
+      "SEO Services",
+      "Digital Marketing",
+      "Web Development",
+      "E-commerce Solutions"
+    ]
+  }
+  </script>
+</head>
 
   <body class="contact-page">
     <a class="skip-link" href="#main-content">Saltar al contenido</a>
     <!-- ===== HEADER (Static for FCP) ===== -->
     <header class="site-header theme-light" id="site-header">
-      <a href="index.html" class="logo">
+      <a href="/" class="logo">
         <img
           src="images/logofinalheader.webp"
           alt="Webnetico Logo"
@@ -227,18 +343,18 @@
       </a>
 
       <nav class="nav-links" id="nav-links" aria-label="Menú principal">
-        <a href="index.html">Inicio</a>
-        <a href="services.html">Servicios</a>
-        <a href="portfolio.html">Portafolio</a>
-        <a href="about.html">Sobre mí</a>
-        <a href="blog.html">Blog</a>
-        <a href="insights.html">Insights</a>
-        <a href="contact.html">Contacto</a>
+        <a href="/">Inicio</a>
+        <a href="/services">Servicios</a>
+        <a href="/portfolio">Portafolio</a>
+        <a href="/about">Sobre mí</a>
+        <a href="/blog">Blog</a>
+        <a href="/insights">Insights</a>
+        <a href="/contact">Contacto</a>
                 <a href="https://calendly.com/contacto-webnetico/30min" target="_blank" rel="noopener noreferrer">Agendar cita</a>
       </nav>
 
       <div class="header-actions-wrapper">
-        <a href="contact.html" class="btn btn-secondary header-cta btn-header-cta">Cotizar Gratis</a>
+        <a href="/contact" class="btn btn-secondary header-cta btn-header-cta">Cotizar Gratis</a>
         <button
           class="mobile-menu-btn"
           id="mobile-menu-btn"
@@ -283,11 +399,11 @@
               </p>
 
               <div class="hero-actions" style="margin-top: 2.25rem">
-                <a href="portfolio.html" class="btn" aria-label="Ver portafolio">
+                <a href="/portfolio" class="btn" aria-label="Ver portafolio">
                   Ver Portafolio
                 </a>
                 <a
-                  href="services.html"
+                  href="/services"
                   class="btn btn-secondary"
                   aria-label="Ver nuestros servicios"
                 >
@@ -500,7 +616,7 @@
     <div class="footer-layout">
       <!-- Col 1: Logo -->
       <div class="footer-block-logo">
-        <a href="index.html">
+        <a href="/">
           <img src="images/logofinal.webp" alt="Webnetico" width="180" height="52" loading="lazy">
         </a>
       </div>
@@ -509,12 +625,12 @@
       <div class="footer-block-links">
         <h4 class="footer-heading">Empresa</h4>
         <ul>
-          <li><a href="services.html"><span>Servicios</span></a></li>
-          <li><a href="portfolio.html"><span>Portafolio</span></a></li>
-          <li><a href="about.html"><span>Sobre mí</span></a></li>
-          <li><a href="blog.html"><span>Blog</span></a></li>
-          <li><a href="insights.html"><span>Insights</span></a></li>
-          <li><a href="contact.html"><span>Contacto</span></a></li>
+          <li><a href="/services"><span>Servicios</span></a></li>
+          <li><a href="/portfolio"><span>Portafolio</span></a></li>
+          <li><a href="/about"><span>Sobre mí</span></a></li>
+          <li><a href="/blog"><span>Blog</span></a></li>
+          <li><a href="/insights"><span>Insights</span></a></li>
+          <li><a href="/contact"><span>Contacto</span></a></li>
           <li><a href="https://calendly.com/contacto-webnetico/30min" target="_blank" rel="noopener noreferrer"><span>Agenda tu cita</span></a></li>
         </ul>
       </div>
