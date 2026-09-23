@@ -24,7 +24,7 @@ pnpm is required (`packageManager` in `package.json`). Enable via `corepack enab
 - **CSS** — `css/styles.css` is the source; `styles.min.css` is a hand-minified copy. Keep both in sync.
 - **Contact API** — Vercel Serverless Function at `api/contact.js`. Sends email via **Resend** (`api.resend.com/emails`).
 - **Vercel env vars required**: `RESEND_API_KEY`, `FROM_EMAIL`, `TO_EMAIL` (configured in Vercel dashboard, never in the repo).
-- **Analytics** — GTM (`GTM-KWPHS7LF`) loaded on interaction; Vercel Insights/Speed Insights opt-in via `localStorage` (`js/insights-optin.js`). Cookie consent banner (`js/cookie-banner.js`) sets `webnetico_cookie_consent`.
+- **Analytics** — Vercel Analytics y Speed Insights, cargados al primer scroll, movimiento del ratón o toque (o a los 4 s). GTM se retiró: el contenedor estaba vacío.
 - **VS Code Live Server** port: `5503` (see `.vscode/settings.json`).
 
 ## SEO/AEO orientation

@@ -2,26 +2,106 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/diseno-web-vina.html", "destination": "/diseno-web-vina", "permanent": true },
-    { "source": "/diseno-web-concon.html", "destination": "/diseno-web-concon", "permanent": true },
-    { "source": "/diseno-web-quilpue.html", "destination": "/diseno-web-quilpue", "permanent": true },
-    { "source": "/diseno-web-rancagua.html", "destination": "/diseno-web-rancagua", "permanent": true },
-    { "source": "/diseno-web-antofagasta.html", "destination": "/diseno-web-antofagasta", "permanent": true },
-    { "source": "/diseno-web-restaurantes.html", "destination": "/diseno-web-restaurantes", "permanent": true },
-    { "source": "/diseno-web-peluquerias.html", "destination": "/diseno-web-peluquerias", "permanent": true },
-    { "source": "/diseno-web-talleres-mecanicos.html", "destination": "/diseno-web-talleres-mecanicos", "permanent": true },
-    { "source": "/diseno-web-veterinarias.html", "destination": "/diseno-web-veterinarias", "permanent": true },
-    { "source": "/diseno-web-ferreterias.html", "destination": "/diseno-web-ferreterias", "permanent": true },
-    { "source": "/blog/wordpress-vs-codigo-puro.html", "destination": "/blog/wordpress-vs-codigo-puro", "permanent": true },
-    { "source": "/blog/que-es-geo.html", "destination": "/blog/que-es-geo", "permanent": true },
-    { "source": "/blog/checklist-seo-pymes.html", "destination": "/blog/checklist-seo-pymes", "permanent": true },
-    { "source": "/blog/mejor-hosting-web-chile.html", "destination": "/blog/mejor-hosting-web-chile", "permanent": true },
-    { "source": "/blog/cuanto-cuesta-una-pagina-web-en-chile.html", "destination": "/blog/cuanto-cuesta-una-pagina-web-en-chile", "permanent": true },
-    { "source": "/contact.html", "destination": "/contact", "permanent": true },
-    { "source": "/portfolio.html", "destination": "/portfolio", "permanent": true },
-    { "source": "/sobre-nosotros", "destination": "/about", "permanent": true },
-    { "source": "/servicios", "destination": "/services", "permanent": true },
-    { "source": "/portafolio", "destination": "/portfolio", "permanent": true }
+    {
+      "source": "/diseno-web-vina.html",
+      "destination": "/diseno-web-vina",
+      "permanent": true
+    },
+    {
+      "source": "/diseno-web-concon.html",
+      "destination": "/diseno-web-concon",
+      "permanent": true
+    },
+    {
+      "source": "/diseno-web-quilpue.html",
+      "destination": "/diseno-web-quilpue",
+      "permanent": true
+    },
+    {
+      "source": "/diseno-web-rancagua.html",
+      "destination": "/diseno-web-rancagua",
+      "permanent": true
+    },
+    {
+      "source": "/diseno-web-antofagasta.html",
+      "destination": "/diseno-web-antofagasta",
+      "permanent": true
+    },
+    {
+      "source": "/diseno-web-restaurantes.html",
+      "destination": "/diseno-web-restaurantes",
+      "permanent": true
+    },
+    {
+      "source": "/diseno-web-peluquerias.html",
+      "destination": "/diseno-web-peluquerias",
+      "permanent": true
+    },
+    {
+      "source": "/diseno-web-talleres-mecanicos.html",
+      "destination": "/diseno-web-talleres-mecanicos",
+      "permanent": true
+    },
+    {
+      "source": "/diseno-web-veterinarias.html",
+      "destination": "/diseno-web-veterinarias",
+      "permanent": true
+    },
+    {
+      "source": "/diseno-web-ferreterias.html",
+      "destination": "/diseno-web-ferreterias",
+      "permanent": true
+    },
+    {
+      "source": "/blog/wordpress-vs-codigo-puro.html",
+      "destination": "/blog/wordpress-vs-codigo-puro",
+      "permanent": true
+    },
+    {
+      "source": "/blog/que-es-geo.html",
+      "destination": "/blog/que-es-geo",
+      "permanent": true
+    },
+    {
+      "source": "/blog/checklist-seo-pymes.html",
+      "destination": "/blog/checklist-seo-pymes",
+      "permanent": true
+    },
+    {
+      "source": "/blog/mejor-hosting-web-chile.html",
+      "destination": "/blog/mejor-hosting-web-chile",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cuanto-cuesta-una-pagina-web-en-chile.html",
+      "destination": "/blog/cuanto-cuesta-una-pagina-web-en-chile",
+      "permanent": true
+    },
+    {
+      "source": "/contact.html",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio.html",
+      "destination": "/portfolio",
+      "permanent": true
+    },
+    {
+      "source": "/sobre-nosotros",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/servicios",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/portafolio",
+      "destination": "/portfolio",
+      "permanent": true
+    }
   ],
   "headers": [
     {
@@ -53,7 +133,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://*.vercel-insights.com https://*.vercel-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://*.vercel-insights.com https://*.vercel-analytics.com; frame-src 'none'; object-src 'none'; base-uri 'self'"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://*.vercel-insights.com https://*.vercel-analytics.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self' https://*.vercel-insights.com https://*.vercel-analytics.com; frame-src 'none'; object-src 'none'; base-uri 'self'"
         }
       ]
     },
