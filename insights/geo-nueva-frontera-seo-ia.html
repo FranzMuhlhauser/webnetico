@@ -295,7 +295,7 @@
               reveal-on-scroll
               role="listitem"
             >
-              <span class="academic-tag">GEO &amp; Search Intelligence</span>
+                            <span class="academic-tag">GEO &amp; Search Intelligence</span>
               <h1>
                 GEO: cómo aparecer en las respuestas de la IA
               </h1>
@@ -303,26 +303,138 @@
               <div class="xml-block">
                 <h3>Hipótesis</h3>
                 <p>
-                  El SEO tradicional (keywords) está cediendo ante el Generative Engine
-                  Optimization (GEO). Los motores de respuesta priorizan fuentes con alta
-                  densidad de entidades y marcado semántico riguroso. Quien no adapte su
-                  código para ser leído por una IA, quedará invisible en 2026.
+                  Los asistentes de IA no ven tu web como la ves tú. Descargan el HTML
+                  que sirve el servidor y no ejecutan JavaScript. Si tus servicios, tus
+                  datos de empresa o tus contenidos solo existen <em>después</em> de que
+                  el navegador ejecute un script, para ellos tu web está vacía.
+                </p>
+                <p>
+                  Y lo que no ven, no lo citan. Esta es la hipótesis, cómo se comprueba
+                  y lo que encontramos al medirla en sitios reales.
                 </p>
               </div>
 
-              <h3>Desarrollo Técnico</h3>
+              <h3>El método: no hay que adivinar</h3>
               <p>
-                Optimizar para GEO requiere una infraestructura de "Datos Conectados".
-                Esto implica el uso masivo de Schema.org (JSON-LD) para definir no solo lo
-                que la empresa vende, sino lo que la empresa "SABE" (knowsAbout). La IA no
-                busca coincidencias de palabras; busca relaciones entre conceptos. Un sitio
-                web moderno debe ser un grafo de conocimiento en sí mismo.
+                Para saber qué ve un rastreador no hace falta especular. Se pide la
+                página sin navegador y se compara con lo que ve un visitante. Diez
+                segundos:
+              </p>
+              <pre><code>curl -s https://tusitio.cl/ | grep -c "@type"</code></pre>
+              <p>
+                Si eso devuelve <strong>0</strong> y al inspeccionar la misma página con
+                el navegador ves datos estructurados, acabas de encontrar el problema:
+                existen, pero solo para quien ejecuta JavaScript.
+              </p>
+              <p>
+                Los rastreadores de los asistentes —GPTBot, ClaudeBot, PerplexityBot—
+                descargan el HTML. La renderización con JavaScript es territorio de los
+                buscadores. De ahí sale la trampa: <strong>el mismo sitio puede estar
+                perfecto en Google y ser invisible para una IA</strong>.
+              </p>
+
+              <h3>Lo que encontramos al medirlo</h3>
+              <p>
+                Tres casos reales, medidos en septiembre de 2026 con este mismo método.
+              </p>
+              <p>
+                <strong>Caso 1: la ficha que solo existía con JavaScript.</strong> Una
+                consultora de servicios profesionales, 13 páginas. En el HTML servido:
+                <strong>cero</strong> bloques de datos estructurados. Con el navegador:
+                trece, correctos y completos. Google los veía; los asistentes de IA,
+                ninguno. La empresa tenía su ficha de negocio, sus servicios y sus
+                preguntas frecuentes descritos con precisión… en un sitio al que las
+                IA no llegan.
+              </p>
+              <p>
+                <strong>Caso 2: el JSON roto que nadie veía.</strong> En nuestra propia
+                web, dos páginas tenían el bloque de datos estructurados con el JSON mal
+                formado —una coma fuera de sitio, un corchete cerrado una línea antes—.
+                Cuando el JSON de un bloque es inválido, <strong>el buscador descarta el
+                bloque entero</strong>: el texto sigue en el HTML, pero la ficha de
+                empresa desaparece. Esto no se ve mirando la web. Solo se ve parseando
+                el código, y llevaba meses así.
+              </p>
+              <p>
+                <strong>Caso 3: el contenido que no se puede citar.</strong> Cuatro
+                artículos publicados como anclas dentro de una sola página
+                (<code>#article-1</code> a <code>#article-4</code>). Sin URL propia. Una
+                IA no puede recomendar una dirección que no existe: como mucho, puede
+                enlazar la página que los contiene y hablar del conjunto. Cuatro piezas
+                de criterio técnico reducidas a una.
+              </p>
+
+              <h3>Qué significa</h3>
+              <p>
+                Los tres casos son el mismo problema visto desde tres ángulos: <strong>lo
+                que no está en el HTML servido no existe para una IA, y lo que no tiene
+                URL propia no se puede citar.</strong>
+              </p>
+              <p>
+                Esto no es una técnica nueva de posicionamiento: es una condición previa.
+                De poco sirve escribir el mejor artículo de tu sector si el rastreador
+                recibe una página vacía, o si tu ficha de empresa depende de que alguien
+                ejecute un script de terceros.
+              </p>
+
+              <h3>Cómo se hace bien</h3>
+              <ul>
+                <li>
+                  <strong>Los datos estructurados, en el HTML que sirve el servidor.</strong>
+                  No inyectados con JavaScript. Si tu sitio usa un framework, esto se
+                  resuelve generándolos en el servidor.
+                </li>
+                <li>
+                  <strong>El contenido, en el HTML.</strong> El texto que quieres que
+                  citen tiene que estar en la respuesta del servidor, no cargarse después.
+                </li>
+                <li>
+                  <strong>Cada pieza con URL propia.</strong> Un artículo, una dirección.
+                  Las anclas no se citan.
+                </li>
+                <li>
+                  <strong>El JSON, validado.</strong> No basta con que el bloque exista:
+                  hay que comprobar que se puede leer. Un bloque roto es peor que ninguno,
+                  porque da la falsa sensación de estar hecho.
+                </li>
+                <li>
+                  <strong>Autor, fecha y fuentes visibles.</strong> Los motores de
+                  respuesta priorizan contenido atribuible. Un texto sin autor ni fecha
+                  es un texto que nadie puede evaluar.
+                </li>
+              </ul>
+
+              <h3>Cómo se verifica</h3>
+              <p>
+                Cinco comprobaciones, todas contra la web publicada y ninguna a ojo:
+              </p>
+              <ul>
+                <li>El HTML servido contiene los datos estructurados que esperas.</li>
+                <li>Todos los bloques JSON se parsean sin error.</li>
+                <li>Cada artículo tiene su propio <code>canonical</code>.</li>
+                <li>Los títulos no se pasan de 60 caracteres.</li>
+                <li>No hay contenido que dependa de JavaScript para existir.</li>
+              </ul>
+
+              <h3>Y una cosa que no hay que hacer</h3>
+              <p>
+                Marcar con datos estructurados cosas que no están en la página. Si el
+                marcado describe servicios, precios o valoraciones que el visitante no
+                puede ver, el buscador lo trata como engaño. La regla es simple: <strong>lo
+                que marcas, tiene que estar</strong>.
               </p>
 
               <h3>Citas y Referencias</h3>
               <ul class="references-list">
-                <li>ResearchGate: Semantic Search vs. Generative Answer Engines.</li>
-                <li>Schema.org: Official standards for professional service entities.</li>
+                <li>Schema.org — vocabulario de datos estructurados. <em>schema.org</em></li>
+                <li>Google Search Central — JavaScript SEO basics. <em>developers.google.com/search</em></li>
+                <li>Google Search Central — Introducción a los datos estructurados. <em>developers.google.com/search</em></li>
+                <li>OpenAI — GPTBot, el rastreador de ChatGPT. <em>platform.openai.com/docs/gptbot</em></li>
+                <li>Anthropic — rastreadores web y cómo bloquearlos. <em>support.anthropic.com</em></li>
+                <li>
+                  Método y mediciones: auditorías propias sobre sitios en producción,
+                  septiembre de 2026. Los tres casos están anonimizados.
+                </li>
               </ul>
             </article></article></section>
       <div style="max-width:900px;margin:2.5rem auto 0;padding:0 1.5rem">
