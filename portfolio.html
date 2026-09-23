@@ -1099,47 +1099,35 @@
         <script src="js/cookie-banner.js" defer></script>
 
         <!-- Lazy Load Third-party Scripts -->
-        <script>
-            let scriptsLoaded = false;
-            const loadAnalyticsAndGTM = () => {
-                if (scriptsLoaded) return;
-                scriptsLoaded = true;
+    <!-- Lazy Load Third-party Scripts -->
+    <script>
+      let scriptsLoaded = false;
+      const loadAnalytics = () => {
+        if (scriptsLoaded) return;
+        scriptsLoaded = true;
 
-                // Google Tag Manager
-                (function (w, d, s, l, i) {
-                    w[l] = w[l] || [];
-                    w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-                    var f = d.getElementsByTagName(s)[0],
-                        j = d.createElement(s),
-                        dl = l != "dataLayer" ? "&l=" + l : "";
-                    j.async = true;
-                    j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-                    f.parentNode.insertBefore(j, f);
-                })(window, document, "script", "dataLayer", "GTM-KWPHS7LF");
-            };
+        // Vercel Insights & Speed Insights
+        // Sin cookies y sin terceros: no requiere consentimiento.
+        const vercelInsights = document.createElement("script");
+        vercelInsights.src = "/_vercel/insights/script.js";
+        vercelInsights.defer = true;
+        document.body.appendChild(vercelInsights);
 
-            ["scroll", "mousemove", "touchstart", "click"].forEach((event) => {
-                window.addEventListener(event, loadAnalyticsAndGTM, {
-                    once: true,
-                    passive: true,
-                });
-            });
+        const vercelSpeed = document.createElement("script");
+        vercelSpeed.src = "/_vercel/speed-insights/script.js";
+        vercelSpeed.defer = true;
+        document.body.appendChild(vercelSpeed);
+      };
 
-            setTimeout(loadAnalyticsAndGTM, 4000);
-        </script>
+      // Se cargan al primer gesto del usuario, para no penalizar la carga.
+      ["scroll", "mousemove", "touchstart", "click"].forEach((event) => {
+        window.addEventListener(event, loadAnalytics, { once: true, passive: true });
+      });
 
-        <!-- Google Tag Manager (noscript) -->
-        <noscript>
-            <iframe
-                src="https://www.googletagmanager.com/ns.html?id=GTM-KWPHS7LF"
-                height="0"
-                width="0"
-                style="display: none; visibility: hidden"
-            ></iframe>
-        </noscript>
-        <!-- End Google Tag Manager (noscript) -->
-
-        <!-- ===== Portfolio interactions: internal nav + subtle parallax ===== -->
+      // Y si no hay ningun gesto, a los 4 segundos.
+      setTimeout(loadAnalytics, 4000);
+    </script>
+<!-- ===== Portfolio interactions: internal nav + subtle parallax ===== -->
         <script>
             document.addEventListener("DOMContentLoaded", () => {
                 const reduceMotion = window.matchMedia(
