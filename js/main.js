@@ -321,38 +321,10 @@ function initWhatsAppDrawer() {
 
   function buildWaURL() {
     let msg = `Hola, mi nombre es ${state.name}.`;
-    if (state.category === "Web") {
-      msg += ` Me gustaría información sobre el Plan Web: ${state.plan}`;
-    } else if (state.category === "Mantenimiento") {
-      msg += ` Me gustaría información sobre el Plan de Mantenimiento: ${state.plan}`;
-    } else if (state.category === "Otro") {
-      msg += ` Me gustaría consultar por otros servicios.`;
+    if (state.category) {
+      msg += ` Me gustaría información sobre: ${state.category}.`;
     }
     return `https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`;
-  }
-
-  function renderPlans() {
-    const list = document.getElementById("wa-plans-list");
-    if (!list) return;
-    list.innerHTML = "";
-
-    const plans =
-      state.category === "Web"
-        ? ["Web Express", "Landing Page", "Multipágina", "Tienda Online"]
-        : ["Soporte Vital", "Crecimiento Pro", "Alianza Elite"];
-
-    plans.forEach((plan) => {
-      const btn = document.createElement("button");
-      btn.className = "wa-option-btn";
-      btn.textContent = plan;
-      btn.addEventListener("click", () => {
-        state.plan = plan;
-        showStep(4);
-        const sendLink = document.getElementById("wa-send-link");
-        if (sendLink) sendLink.href = buildWaURL();
-      });
-      list.appendChild(btn);
-    });
   }
 
   // Event: Toggle drawer button
@@ -396,15 +368,9 @@ function initWhatsAppDrawer() {
     step2.querySelectorAll("[data-category]").forEach((btn) => {
       btn.addEventListener("click", () => {
         state.category = btn.dataset.category;
-        if (state.category === "Otro") {
-          state.plan = "Otro servicio";
-          showStep(4);
-          const sendLink = document.getElementById("wa-send-link");
-          if (sendLink) sendLink.href = buildWaURL();
-        } else {
-          renderPlans();
-          showStep(3);
-        }
+        showStep(4);
+        const sendLink = document.getElementById("wa-send-link");
+        if (sendLink) sendLink.href = buildWaURL();
       });
     });
   }
@@ -419,11 +385,7 @@ function initWhatsAppDrawer() {
   const back4 = document.getElementById("wa-back-4");
   if (back4) {
     back4.addEventListener("click", () => {
-      if (state.category === "Otro") {
-        showStep(2);
-      } else {
-        showStep(3);
-      }
+      showStep(2);
     });
   }
 
