@@ -6,6 +6,12 @@
 
   <!-- Página Principal -->
   <url>
+    <loc>https://www.webnetico.cl/insights/caso-amortiguadores-autoshock-vina-del-mar</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.webnetico.cl/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>weekly</changefreq>
